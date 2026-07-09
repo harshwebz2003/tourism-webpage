@@ -8,1070 +8,60 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    /* ─────────────────────────────────────────
-       RESET & BASE
-    ───────────────────────────────────────── */
-    *, *::before, *::after {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-      border: none; outline: none;
-    }
-
-    :root {
-      --gold:   #C9A84C;
-      --teal:   #0D6E6E;
-      --deep:   #06282B;
-      --cream:  #FFF8EE;
-      --orange: #E8A14A;
-      --text-light: rgba(255,255,255,0.88);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--deep);
-      overflow-x: hidden;
-      cursor: none;
-    }
-
-    /* ─────────────────────────────────────────
-       CUSTOM CURSOR
-    ───────────────────────────────────────── */
-    #cursor {
-      width: 14px; height: 14px;
-      background: var(--gold);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.08s ease, width 0.3s, height 0.3s, background 0.3s;
-      mix-blend-mode: difference;
-    }
-    #cursor-ring {
-      width: 38px; height: 38px;
-      border: 2px solid rgba(201,168,76,0.7);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: all 0.18s cubic-bezier(.17,.67,.83,.67);
-    }
-    body:hover #cursor { opacity: 1; }
-
-    /* ─────────────────────────────────────────
-       LOADER
-    ───────────────────────────────────────── */
-    #loader {
-      position: fixed; inset: 0;
-      background: var(--deep);
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 24px;
-      transition: opacity 0.8s ease, visibility 0.8s;
-    }
-    #loader.hide { opacity: 0; visibility: hidden; }
-
-    .loader-text {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2.8rem;
-      color: var(--gold);
-      letter-spacing: 6px;
-      animation: pulse-text 1.4s ease-in-out infinite;
-    }
-    .loader-bar {
-      width: 200px; height: 3px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .loader-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold), var(--orange));
-      border-radius: 99px;
-      animation: load-fill 2s ease forwards;
-    }
-    @keyframes load-fill { from { width: 0 } to { width: 100% } }
-    @keyframes pulse-text {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.5; }
-    }
-
-    /* ─────────────────────────────────────────
-       PARTICLES CANVAS
-    ───────────────────────────────────────── */
-    #particles-canvas {
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ─────────────────────────────────────────
-       NAVBAR
-    ───────────────────────────────────────── */
-    header {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex; justify-content: center;
-      padding-top: 0;
-      animation: topIn 1.4s ease-out 2.2s both;
-    }
-
-    nav {
-      display: flex; align-items: center; gap: 4px;
-      padding: 0 6px;
-      background: rgba(6,40,43,0.55);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(201,168,76,0.18);
-      border-top: none;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    }
-
-    .nav-logo {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.5rem;
-      color: var(--gold);
-      padding: 12px 20px 12px 14px;
-      letter-spacing: 2px;
-      border-right: 1px solid rgba(255,255,255,0.1);
-      margin-right: 6px;
-    }
-
-    nav a {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      padding: 14px 18px;
-      border-radius: 0 0 20px 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 10px; left: 50%;
-      transform: translateX(-50%);
-      width: 0; height: 2px;
-      background: var(--gold);
-      border-radius: 99px;
-      transition: width 0.3s ease;
-    }
-    nav a:hover::after, nav a.active::after { width: 60%; }
-    nav a:hover, nav a.active { color: #fff; }
-    nav a.active { background: rgba(201,168,76,0.15); }
-
-    .nav-cta {
-      margin-left: 8px;
-      background: linear-gradient(135deg, var(--gold), var(--orange)) !important;
-      color: var(--deep) !important;
-      font-weight: 600 !important;
-      border-radius: 0 0 20px 20px !important;
-      padding: 14px 20px !important;
-    }
-    .nav-cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
-    .nav-cta::after { display: none; }
-
-    /* ─────────────────────────────────────────
-       HERO SECTION
-    ───────────────────────────────────────── */
-    #hero {
-      position: relative;
-      width: 100vw; height: 100vh;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    /* Background layer */
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        url('img/sl_bg.png') center/cover no-repeat,
-        linear-gradient(160deg, #071f22 0%, #0a3038 35%, #0d4040 60%, #07191c 100%);
-      transform: scale(1.05);
-      animation: heroZoomIn 2.5s ease-out 2s both;
-      z-index: 1;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(6,28,32,0.25) 0%,
-        rgba(6,28,32,0.05) 35%,
-        rgba(6,28,32,0.55) 70%,
-        rgba(4,15,17,1) 100%
-      );
-    }
-    /* Radial glow behind title */
-    .hero-glow {
-      position: absolute;
-      top: 30%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(201,168,76,0.13) 0%, transparent 70%);
-      z-index: 5;
-      pointer-events: none;
-      animation: glowPulse 4s ease-in-out infinite;
-    }
-    @keyframes glowPulse {
-      0%,100% { opacity: 0.7; transform: translate(-50%,-50%) scale(1); }
-      50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.08); }
-    }
-
-    @keyframes heroZoomIn {
-      from { transform: scale(1.2); }
-      to   { transform: scale(1.05); }
-    }
-
-    /* Title block */
-    .hero-title {
-      position: absolute;
-      top: 38%; left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 10;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.6rem;
-      color: var(--gold);
-      letter-spacing: 6px;
-      animation: fadeSlideUp 1s ease-out 2.4s both;
-    }
-
-    .hero-country {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(5rem, 14vw, 13rem);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: linear-gradient(180deg, #ffffff 30%, rgba(255,255,255,0.5) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 0.9;
-      animation: countryReveal 1.4s cubic-bezier(0.16,1,0.3,1) 2.6s both;
-      position: relative;
-    }
-
-    .hero-tagline {
-      font-size: 1.05rem;
-      font-weight: 300;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      margin-top: 10px;
-      animation: fadeSlideUp 1s ease-out 3.1s both;
-    }
-
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes countryReveal {
-      from { opacity: 0; transform: translateY(60px) scaleY(0.8); }
-      to   { opacity: 1; transform: translateY(0) scaleY(1); }
-    }
-
-    /* Scroll indicator */
-    .scroll-indicator {
-      position: absolute; bottom: 32px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 8px;
-      animation: fadeSlideUp 1s ease-out 3.4s both;
-    }
-    .scroll-indicator span {
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-    }
-    .scroll-line {
-      width: 1px; height: 50px;
-      background: linear-gradient(to bottom, rgba(201,168,76,0.8), transparent);
-      animation: scrollPulse 1.8s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%   { transform: scaleY(0); transform-origin: top; }
-      50%  { transform: scaleY(1); transform-origin: top; }
-      100% { transform: scaleY(0); transform-origin: bottom; }
-    }
-
-    /* Parallax foreground */
-    .hero-mid {
-      position: absolute;
-      bottom: -4%;
-      left: 0; right: 0;
-      z-index: 6;
-      animation: bottomIn 1.5s ease-out 2.2s both;
-      mix-blend-mode: multiply;
-    }
-    .hero-mid img {
-      width: 100%; height: auto;
-      display: block;
-      filter: contrast(1.3) brightness(1.05);
-      opacity: 0.9;
-    }
-
-    .hero-fore {
-      position: absolute;
-      bottom: -6%;
-      left: 0; right: 0;
-      z-index: 7;
-      animation: bottomIn 1.1s ease-out 2s both;
-      mix-blend-mode: multiply;
-    }
-    .hero-fore img {
-      width: 100%; height: auto;
-      display: block;
-      filter: contrast(1.3) brightness(1.05);
-    }
-
-    /* Ground strip under foreground */
-    .hero-ground {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 18%;
-      background: linear-gradient(to top, #040f10 30%, transparent);
-      z-index: 8;
-    }
-
-    /* Info overlay */
-    .hero-info {
-      position: absolute;
-      bottom: 16%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      z-index: 10;
-      animation: fadeSlideUp 1s ease-out 3.2s both;
-    }
-    .hero-info p {
-      max-width: 620px;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.9;
-      letter-spacing: 0.5px;
-      color: rgba(255,255,255,0.7);
-      padding: 0 24px;
-    }
-
-    /* Hero CTA */
-    .hero-cta {
-      position: absolute;
-      bottom: 6%;
-      left: 50%; transform: translateX(-50%);
-      z-index: 10;
-      display: flex; gap: 16px;
-      animation: fadeSlideUp 1s ease-out 3.4s both;
-    }
-
-    .btn-primary {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--deep);
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      border-radius: 50px;
-      height: 50px; padding: 0 36px;
-      display: flex; align-items: center; gap: 10px;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
-      box-shadow: 0 8px 28px rgba(201,168,76,0.4);
-      text-decoration: none;
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px) scale(1.04);
-      box-shadow: 0 14px 40px rgba(201,168,76,0.5);
-    }
-    .btn-secondary {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.25);
-      backdrop-filter: blur(10px);
-      border-radius: 50px;
-      height: 50px; padding: 0 36px;
-      display: flex; align-items: center; gap: 10px;
-      cursor: pointer;
-      transition: all 0.35s ease;
-      text-decoration: none;
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,255,255,0.4);
-      transform: translateY(-3px);
-    }
-
-    /* Slider arrows */
-    .hero-arrows {
-      position: absolute; top: 50%;
-      width: 100%; display: flex;
-      justify-content: space-between;
-      padding: 0 32px;
-      z-index: 10;
-      animation: fadeIn 1s ease-out 3s both;
-    }
-    .hero-arrows i {
-      font-size: 28px;
-      color: rgba(255,255,255,0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(8px);
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .hero-arrows i:hover {
-      color: var(--gold);
-      border-color: rgba(201,168,76,0.4);
-      background: rgba(201,168,76,0.1);
-      transform: scale(1.1);
-    }
-
-    /* Stats strip */
-    .hero-stats {
-      position: absolute; bottom: 0; right: 0;
-      z-index: 10;
-      display: flex; gap: 0;
-      animation: fadeSlideUp 1s ease-out 3.3s both;
-    }
-    .stat-item {
-      padding: 18px 28px;
-      background: rgba(6,40,43,0.6);
-      backdrop-filter: blur(14px);
-      border-top: 1px solid rgba(201,168,76,0.2);
-      border-left: 1px solid rgba(201,168,76,0.1);
-      text-align: center;
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: var(--gold);
-      display: block;
-    }
-    .stat-lbl {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-    }
-
-    /* ─────────────────────────────────────────
-       FEATURES TICKER
-    ───────────────────────────────────────── */
-    .ticker-wrap {
-      background: linear-gradient(90deg, var(--gold), var(--orange), var(--gold));
-      padding: 14px 0;
-      overflow: hidden;
-      position: relative;
-      z-index: 20;
-    }
-    .ticker {
-      display: flex; gap: 60px;
-      animation: ticker 25s linear infinite;
-      white-space: nowrap;
-      width: max-content;
-    }
-    .ticker-item {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--deep);
-      display: flex; align-items: center; gap: 12px;
-    }
-    .ticker-item i { font-size: 14px; }
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ─────────────────────────────────────────
-       SECTIONS COMMON
-    ───────────────────────────────────────── */
-    section {
-      padding: 120px 6%;
-      position: relative;
-    }
-    .section-tag {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.2rem;
-      color: var(--gold);
-      letter-spacing: 3px;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .section-title em { font-style: italic; color: var(--gold); }
-    .section-sub {
-      font-size: 15px; line-height: 1.85;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
-
-    /* ─────────────────────────────────────────
-       ABOUT SECTION
-    ───────────────────────────────────────── */
-    #about {
-      background: linear-gradient(180deg, var(--deep) 0%, #0a3035 100%);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-media {
-      position: relative;
-    }
-    .about-img-main {
-      width: 100%; border-radius: 24px;
-      aspect-ratio: 4/5; object-fit: cover;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-      border: 1px solid rgba(201,168,76,0.2);
-    }
-    .about-img-accent {
-      position: absolute;
-      bottom: -30px; right: -30px;
-      width: 55%; border-radius: 20px;
-      aspect-ratio: 1/1; object-fit: cover;
-      border: 4px solid var(--deep);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    }
-    .about-badge {
-      position: absolute;
-      top: 24px; left: -20px;
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      color: var(--deep);
-      padding: 18px 22px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(201,168,76,0.4);
-    }
-    .about-badge strong { font-size: 2rem; font-family: 'Playfair Display', serif; display: block; }
-    .about-badge span   { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-
-    .about-content { position: relative; }
-    .about-features {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 16px; margin-top: 36px;
-    }
-    .feature-pill {
-      display: flex; align-items: center; gap: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 14px 18px;
-      border-radius: 16px;
-      transition: all 0.35s ease;
-    }
-    .feature-pill:hover {
-      background: rgba(201,168,76,0.1);
-      border-color: rgba(201,168,76,0.3);
-      transform: translateY(-3px);
-    }
-    .feature-pill i {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; color: var(--deep);
-      flex-shrink: 0;
-    }
-    .feature-pill span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; }
-
-    /* ─────────────────────────────────────────
-       DESTINATIONS SECTION
-    ───────────────────────────────────────── */
-    #destinations {
-      background: #061e21;
-    }
-    .dest-header {
-      display: flex; justify-content: space-between;
-      align-items: flex-end; margin-bottom: 60px;
-    }
-    .dest-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      gap: 20px;
-    }
-    .dest-card {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      cursor: pointer;
-      group: true;
-      background: #0a2e32;
-    }
-    .dest-card:first-child {
-      grid-row: span 2;
-    }
-    .dest-thumb {
-      width: 100%; height: 100%;
-      min-height: 240px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    .dest-card:first-child .dest-thumb { min-height: 500px; }
-    .dest-card:hover .dest-thumb { transform: scale(1.08); }
-
-    .dest-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(6,28,32,0.95) 0%, transparent 60%);
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 28px;
-      transition: all 0.4s ease;
-    }
-    .dest-cat {
-      font-size: 10px; letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-    .dest-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; font-weight: 700;
-      color: #fff; margin-bottom: 6px;
-    }
-    .dest-card:first-child .dest-name { font-size: 2rem; }
-    .dest-desc {
-      font-size: 13px; color: rgba(255,255,255,0.6);
-      line-height: 1.6; max-height: 0;
-      overflow: hidden; opacity: 0;
-      transition: all 0.4s ease;
-    }
-    .dest-card:hover .dest-desc { max-height: 60px; opacity: 1; }
-    .dest-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(201,168,76,0.2);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold); font-size: 11px;
-      padding: 5px 12px; border-radius: 99px;
-      margin-top: 12px;
-    }
-
-    /* svg placeholder for destinations */
-    .dest-placeholder {
-      width: 100%; min-height: 240px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem;
-      background: linear-gradient(135deg, #0a3035 0%, #0d4a52 100%);
-    }
-    .dest-card:first-child .dest-placeholder { min-height: 500px; font-size: 5rem; }
-
-    /* ─────────────────────────────────────────
-       EXPERIENCES SECTION
-    ───────────────────────────────────────── */
-    #experiences {
-      background: var(--deep);
-      text-align: center;
-    }
-    #experiences .section-title { margin: 0 auto 16px; }
-    #experiences .section-sub { margin: 0 auto 70px; }
-
-    .exp-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .exp-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 24px;
-      padding: 40px 28px;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-      position: relative;
-      overflow: hidden;
-    }
-    .exp-card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(201,168,76,0.07), transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    .exp-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(201,168,76,0.3);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    }
-    .exp-card:hover::before { opacity: 1; }
-
-    .exp-icon {
-      width: 70px; height: 70px;
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.8rem;
-      margin: 0 auto 24px;
-      transition: transform 0.4s ease;
-    }
-    .exp-card:hover .exp-icon { transform: rotate(-10deg) scale(1.1); }
-    .exp-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; font-weight: 700;
-      color: #fff; margin-bottom: 12px;
-    }
-    .exp-card p {
-      font-size: 13px; line-height: 1.75;
-      color: rgba(255,255,255,0.5);
-    }
-    .exp-card p { animation: none; opacity: 1; }
-
-    /* ─────────────────────────────────────────
-       GALLERY STRIP
-    ───────────────────────────────────────── */
-    #gallery {
-      background: #061e21;
-      padding: 80px 0;
-      overflow: hidden;
-    }
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 50px;
-      padding: 0 6%;
-    }
-    .gallery-strip {
-      display: flex; gap: 16px;
-      animation: galleryScroll 30s linear infinite;
-      width: max-content;
-    }
-    .gallery-strip:hover { animation-play-state: paused; }
-    .gallery-strip-wrap {
-      overflow: hidden;
-      position: relative;
-      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    }
-    .gallery-item {
-      width: 300px; height: 220px;
-      border-radius: 20px;
-      overflow: hidden; flex-shrink: 0;
-      position: relative;
-      cursor: pointer;
-      background: #0a3035;
-      display: flex; align-items: center; justify-content: center;
-    .gallery-item-emoji { font-size: 4rem; }
-    .gallery-img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .gallery-item:hover .gallery-img {
-      transform: scale(1.08);
-    }
-    .gallery-item-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 16px;
-      background: linear-gradient(to top, rgba(6,28,32,0.9), transparent);
-      font-size: 13px; color: rgba(255,255,255,0.8);
-      font-weight: 500;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover .gallery-item-label { opacity: 1; }
-    @keyframes galleryScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ─────────────────────────────────────────
-       TESTIMONIALS
-    ───────────────────────────────────────── */
-    #reviews {
-      background: var(--deep);
-      text-align: center;
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px; margin-top: 60px;
-    }
-    .review-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 24px; padding: 36px;
-      text-align: left;
-      transition: all 0.4s ease;
-      position: relative;
-    }
-    .review-card:hover {
-      border-color: rgba(201,168,76,0.25);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    }
-    .review-stars { color: var(--gold); font-size: 14px; margin-bottom: 18px; letter-spacing: 3px; }
-    .review-text {
-      font-size: 14px; line-height: 1.85;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 24px; font-style: italic;
-    }
-    .reviewer {
-      display: flex; align-items: center; gap: 14px;
-    }
-    .reviewer-avatar {
-      width: 46px; height: 46px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--gold));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
-    }
-    .reviewer-name { font-size: 14px; font-weight: 600; color: #fff; }
-    .reviewer-loc  { font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
-    .review-quote {
-      position: absolute; top: 24px; right: 28px;
-      font-size: 4rem;
-      color: rgba(201,168,76,0.1);
-      font-family: serif;
-      line-height: 1;
-    }
-
-    /* ─────────────────────────────────────────
-       NEWSLETTER / CTA BANNER
-    ───────────────────────────────────────── */
-    #contact {
-      background: linear-gradient(135deg, #0a2e32 0%, #061e21 50%, #091c1e 100%);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #contact::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
-    }
-    .cta-banner-icon {
-      font-size: 3rem; margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-12px); }
-    }
-    .cta-banner-form {
-      display: flex; gap: 0;
-      max-width: 500px; margin: 40px auto 0;
-      border-radius: 50px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    }
-    .cta-banner-form input {
-      flex: 1;
-      padding: 16px 26px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-right: none;
-      border-radius: 50px 0 0 50px;
-      color: #fff;
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      backdrop-filter: blur(10px);
-    }
-    .cta-banner-form input::placeholder { color: rgba(255,255,255,0.35); }
-    .cta-banner-form button {
-      padding: 16px 32px;
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      color: var(--deep);
-      font-weight: 700; font-size: 13px;
-      letter-spacing: 2px; text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 0 50px 50px 0;
-      font-family: 'Inter', sans-serif;
-      transition: filter 0.3s;
-      animation: none; opacity: 1;
-    }
-    .cta-banner-form button:hover { filter: brightness(1.12); }
-
-    .social-links {
-      display: flex; justify-content: center; gap: 14px;
-      margin-top: 36px;
-    }
-    .social-link {
-      width: 46px; height: 46px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.55);
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    .social-link:hover {
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      color: var(--deep);
-      border-color: transparent;
-      transform: translateY(-3px);
-    }
-
-    /* ─────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────── */
-    footer {
-      background: #040f10;
-      padding: 30px 6%;
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-    .footer-brand {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.8rem;
-      color: var(--gold);
-      letter-spacing: 2px;
-    }
-    .footer-text {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 1px;
-    }
-    .footer-flag { font-size: 1.6rem; }
-
-    /* ─────────────────────────────────────────
-       UTILITY ANIMATIONS
-    ───────────────────────────────────────── */
-    @keyframes bottomIn {
-      from { transform: translateY(180px); opacity: 0; }
-      to   { transform: translateY(0);     opacity: 1; }
-    }
-    @keyframes topIn {
-      from { transform: translateY(-80px); opacity: 0; }
-      to   { transform: translateY(0);     opacity: 1; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* delay utilities */
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-    .delay-4 { transition-delay: 0.4s; }
-    .delay-5 { transition-delay: 0.5s; }
-    .delay-6 { transition-delay: 0.6s; }
-    .delay-7 { transition-delay: 0.7s; }
-
-    /* ─────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      #about { grid-template-columns: 1fr; }
-      .about-img-accent { right: 0; bottom: -20px; }
-      .exp-grid { grid-template-columns: repeat(2,1fr); }
-      .dest-grid { grid-template-columns: 1fr 1fr; }
-      .dest-card:first-child { grid-column: span 2; grid-row: auto; }
-      .reviews-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 700px) {
-      nav a span { display: none; }
-      .hero-stats { display: none; }
-      .dest-grid { grid-template-columns: 1fr; }
-      .dest-card:first-child { grid-column: auto; }
-      .exp-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .dest-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      footer { flex-direction: column; gap: 12px; text-align: center; }
-      #cursor, #cursor-ring { display: none; }
-      body { cursor: auto; }
-    }
-  </style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <!-- CURSOR -->
+  <!-- CUSTOM LIQUID CURSOR -->
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
-  <!-- LOADER -->
+  <!-- LOADER PRELOADER -->
   <div id="loader">
-    <div class="loader-text">Serendib</div>
-    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-logo">Serendib</div>
+    <div class="loader-progress-bar">
+      <div class="loader-progress-fill"></div>
+    </div>
   </div>
 
-  <!-- PARTICLES -->
+  <!-- FLOATING EMBERS CANVAS -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <!-- ═══════════════ HEADER NAV ═══════════════ -->
   <header>
     <nav>
-      <div class="nav-logo">Serendib</div>
-      <a class="nav-items active" href="#hero">Home</a>
-      <a class="nav-items" href="#about">About</a>
-      <a class="nav-items" href="#destinations">Places</a>
-      <a class="nav-items" href="#experiences">Experiences</a>
-      <a class="nav-items" href="#reviews">Reviews</a>
-      <a class="nav-items nav-cta" href="#contact">Plan Trip</a>
+      <a href="#hero" class="nav-brand">Serendib</a>
+      
+      <div class="nav-menu" id="nav-menu">
+        <a class="nav-link active" href="#hero">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#destinations">Places</a>
+        <a class="nav-link" href="#experiences">Experiences</a>
+        <a class="nav-link" href="#reviews">Reviews</a>
+        <a class="nav-link nav-cta" href="#contact">Plan Trip</a>
+      </div>
+
+      <button class="burger-btn" id="burger-btn" aria-label="Toggle menu">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
     </nav>
   </header>
 
-  <!-- ═══════════════ HERO ═══════════════ -->
+  <!-- ═══════════════ HERO SECTION ═══════════════ -->
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-glow"></div>
+    <div class="hero-clouds"></div>
 
-    <!-- Parallax layers -->
+    <!-- Parallax Silhouettes -->
     <div class="hero-mid">
       <img src="img/sl_mid.png" alt="Sri Lanka midground" id="mid-layer">
     </div>
@@ -1080,14 +70,14 @@
     </div>
     <div class="hero-ground"></div>
 
-    <!-- Title -->
-    <div class="hero-title">
+    <!-- Title Block -->
+    <div class="hero-title" id="hero-title-group">
       <div class="hero-eyebrow">The Pearl of the Indian Ocean</div>
       <h1 class="hero-country">Sri Lanka</h1>
       <div class="hero-tagline">Wonder of Asia &nbsp;·&nbsp; 65,610 km² &nbsp;·&nbsp; 21+ Million Smiles</div>
     </div>
 
-    <!-- Info -->
+    <!-- Intro Info text -->
     <div class="hero-info">
       <p>
         Where ancient temples meet turquoise seas, mist-cloaked highlands roll into golden coasts,
@@ -1095,23 +85,23 @@
       </p>
     </div>
 
-    <!-- CTAs -->
+    <!-- Actions -->
     <div class="hero-cta">
-      <a class="btn-primary" href="#destinations">
+      <a class="btn btn-primary" href="#destinations">
         Explore Now <i class="fa-solid fa-arrow-right"></i>
       </a>
-      <a class="btn-secondary" href="#about">
+      <a class="btn btn-secondary" href="#about">
         Our Story <i class="fa-solid fa-play" style="font-size:10px"></i>
       </a>
     </div>
 
-    <!-- Arrows -->
+    <!-- Navigation arrows -->
     <div class="hero-arrows">
-      <i class="fa-solid fa-chevron-left" id="arrow-prev"></i>
-      <i class="fa-solid fa-chevron-right" id="arrow-next"></i>
+      <i class="fa-solid fa-chevron-left" id="arrow-prev" aria-label="Previous"></i>
+      <i class="fa-solid fa-chevron-right" id="arrow-next" aria-label="Next"></i>
     </div>
 
-    <!-- Stats -->
+    <!-- Live Counters -->
     <div class="hero-stats">
       <div class="stat-item">
         <span class="stat-num" data-count="8">0</span>
@@ -1127,17 +117,15 @@
       </div>
     </div>
 
-    <!-- Scroll indicator -->
+    <!-- Scroll hint -->
     <div class="scroll-indicator">
       <div class="scroll-line"></div>
-      <span>Scroll to explore</span>
     </div>
   </section>
 
-  <!-- ═══════════════ TICKER ═══════════════ -->
+  <!-- ═══════════════ RUNNING TICKER ═══════════════ -->
   <div class="ticker-wrap">
     <div class="ticker">
-      <!-- repeat twice for seamless loop -->
       <div class="ticker-item"><i class="fa-solid fa-mountain"></i> Sigiriya Rock Fortress</div>
       <div class="ticker-item"><i class="fa-solid fa-umbrella-beach"></i> Mirissa Beach</div>
       <div class="ticker-item"><i class="fa-solid fa-mug-saucer"></i> Ceylon Tea Gardens</div>
@@ -1157,11 +145,11 @@
     </div>
   </div>
 
-  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <!-- ═══════════════ ABOUT US BENTO ═══════════════ -->
   <section id="about">
     <div class="about-media reveal-left">
-      <img src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&w=600&h=750&q=80" alt="Ceylon Tea Gardens" class="about-img-main">
-      <img src="https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=400&h=400&q=80" alt="Nine Arches Ella" class="about-img-accent">
+      <img src="img/tea_plantation.png" alt="Ceylon Tea Gardens" class="about-img-main">
+      <img src="img/nine_arches.png" alt="Nine Arches Ella" class="about-img-accent">
       <div class="about-badge">
         <strong>#1</strong>
         <span>Lonely Planet<br>Destination</span>
@@ -1176,100 +164,101 @@
         astonishing diversity into a single island — ancient civilisations, misty highlands,
         colonial forts, and beaches that stretch into infinity.
       </p>
+      
       <div class="about-features">
-        <div class="feature-pill delay-1 reveal">
-          <i><span>🌴</span></i>
+        <div class="feature-pill reveal delay-1">
+          <i class="fa-solid fa-palm-tree"></i>
           <span>Tropical Beaches</span>
         </div>
-        <div class="feature-pill delay-2 reveal">
-          <i><span>🏛️</span></i>
+        <div class="feature-pill reveal delay-2">
+          <i class="fa-solid fa-gopuram"></i>
           <span>Ancient Ruins</span>
         </div>
-        <div class="feature-pill delay-3 reveal">
-          <i><span>🍵</span></i>
+        <div class="feature-pill reveal delay-3">
+          <i class="fa-solid fa-leaf"></i>
           <span>Ceylon Tea</span>
         </div>
-        <div class="feature-pill delay-4 reveal">
-          <i><span>🐋</span></i>
+        <div class="feature-pill reveal delay-4">
+          <i class="fa-solid fa-fish-fins"></i>
           <span>Whale Watching</span>
         </div>
-        <div class="feature-pill delay-5 reveal">
-          <i><span>🎭</span></i>
+        <div class="feature-pill reveal delay-5">
+          <i class="fa-solid fa-mask"></i>
           <span>Kandyan Dance</span>
         </div>
-        <div class="feature-pill delay-6 reveal">
-          <i><span>🍛</span></i>
+        <div class="feature-pill reveal delay-6">
+          <i class="fa-solid fa-bowl-food"></i>
           <span>Spice Cuisine</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ DESTINATIONS ═══════════════ -->
+  <!-- ═══════════════ DESTINATIONS BENTO ═══════════════ -->
   <section id="destinations">
     <div class="dest-header">
       <div>
         <span class="section-tag reveal">Top Destinations</span>
         <h2 class="section-title reveal">Places That <em>Steal</em><br>Your Heart</h2>
       </div>
-      <a class="btn-secondary reveal" href="#" style="font-size:12px;height:44px;padding:0 24px;">
-        View All <i class="fa-solid fa-arrow-right"></i>
+      <a class="btn btn-secondary reveal" href="#contact" style="font-size:11px;padding:12px 28px;">
+        Book Now <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
 
     <div class="dest-grid">
-      <!-- Card 1 – featured -->
+      <!-- Card 1 – Featured Bento Card -->
       <div class="dest-card reveal delay-1">
-        <img src="https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=800&q=80" alt="Sigiriya Rock Fortress" class="dest-thumb">
+        <img src="img/sigiriya.png" alt="Sigiriya Rock Fortress" class="dest-thumb">
         <div class="dest-overlay">
           <div class="dest-cat">Cultural Triangle</div>
           <div class="dest-name">Sigiriya</div>
-          <div class="dest-desc">Climb the Lion Rock to a 5th-century palace fortress atop a volcanic plug rising 200 m above the jungle.</div>
+          <p class="dest-desc">Climb the Lion Rock to a 5th-century palace fortress atop a volcanic plug rising 200m above the jungle canopy.</p>
           <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.9 · UNESCO World Heritage</div>
         </div>
       </div>
 
       <!-- Card 2 -->
       <div class="dest-card reveal delay-2">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Mirissa Beach" class="dest-thumb">
+        <img src="img/mirissa.png" alt="Mirissa Beach" class="dest-thumb">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Mirissa</div>
-          <div class="dest-desc">Crescent-shaped beach famed for blue whale sightings and vibrant sunsets.</div>
+          <p class="dest-desc">Crescent-shaped tropical beach famed for blue whale safaris, surfing, and beachside fire shows.</p>
           <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Beach Paradise</div>
         </div>
       </div>
 
       <!-- Card 3 -->
       <div class="dest-card reveal delay-3">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Galle Fort Lighthouse" class="dest-thumb">
+        <img src="img/galle.png" alt="Galle Fort Lighthouse" class="dest-thumb">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Galle Fort</div>
-          <div class="dest-desc">Dutch colonial walled city with cobblestone streets, boutique hotels and ocean views.</div>
+          <p class="dest-desc">A Dutch-colonial fortified city containing cobblestone pathways, boutique shops, and a white lighthouse.</p>
           <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.7 · Colonial Heritage</div>
         </div>
       </div>
 
       <!-- Card 4 -->
       <div class="dest-card reveal delay-4">
-        <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80" alt="Ella Train Route" class="dest-thumb">
+        <img src="img/nine_arches.png" alt="Ella Train Route" class="dest-thumb">
         <div class="dest-overlay">
           <div class="dest-cat">Hill Country</div>
           <div class="dest-name">Ella</div>
-          <div class="dest-desc">Misty ridges, the Nine Arches Bridge, and legendary train journeys through lush tea estates.</div>
+          <p class="dest-desc">Misty highlands, scenic viewpoints, Nine Arches stone bridge, and infinite green tea fields.</p>
           <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Mountain Retreat</div>
         </div>
       </div>
 
       <!-- Card 5 -->
       <div class="dest-card reveal delay-5">
-        <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80" alt="Kandy Temple" class="dest-thumb">
+        <img src="img/kandy.png" alt="Kandy Temple" class="dest-thumb">
         <div class="dest-overlay">
           <div class="dest-cat">Hill Capital</div>
           <div class="dest-name">Kandy</div>
-          <div class="dest-desc">Sacred city centred on the Temple of the Tooth Relic – the spiritual heart of Sri Lanka.</div>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · UNESCO Sacred City</div>
+          <p class="dest-desc">Lakeside capital containing the Sacred Temple of the Tooth Relic, the spiritual soul of Sri Lanka.</p>
+          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Sacred Heritage</div>
         </div>
       </div>
     </div>
@@ -1283,141 +272,201 @@
 
     <div class="exp-grid">
       <div class="exp-card reveal delay-1">
-        <div class="exp-icon">🐘</div>
+        <div class="exp-icon-wrap">🐘</div>
         <h3>Wildlife Safari</h3>
-        <p>Encounter leopards, elephants, and blue whales in their natural habitat across world-class national parks.</p>
+        <p>Encounter wild leopards, elephant herds, and blue whales in their natural habitats across national reserves.</p>
       </div>
       <div class="exp-card reveal delay-2">
-        <div class="exp-icon">🏄</div>
+        <div class="exp-icon-wrap">🏄</div>
         <h3>Water Sports</h3>
         <p>Surf world-class breaks at Arugam Bay, dive coral gardens in Trincomalee, or kite-surf in Kalpitiya.</p>
       </div>
       <div class="exp-card reveal delay-3">
-        <div class="exp-icon">🍵</div>
-        <h3>Tea Plantation Tour</h3>
-        <p>Walk emerald hillside estates, meet tea pickers, and sip freshly brewed Ceylon tea as clouds drift past.</p>
+        <div class="exp-icon-wrap">🍵</div>
+        <h3>Tea Estate Tours</h3>
+        <p>Walk emerald hillside plantations, meet tea pickers, and sip freshly brewed Ceylon tea as clouds drift past.</p>
       </div>
       <div class="exp-card reveal delay-4">
-        <div class="exp-icon">🛕</div>
+        <div class="exp-icon-wrap">🛕</div>
         <h3>Temple Trails</h3>
-        <p>Explore 2,500-year-old dagobas, cave temples ablaze with frescoes, and ancient capitals of forgotten kingdoms.</p>
+        <p>Explore 2,500-year-old dagobas, cave temples ablaze with frescoes, and ancient forest monasteries.</p>
       </div>
-      <div class="exp-card reveal delay-1">
-        <div class="exp-icon">🍛</div>
-        <h3>Culinary Journey</h3>
-        <p>Devour kottu roti, hoppers, and fiery curries bursting with Sri Lankan spices and coastal seafood.</p>
+      <div class="exp-card reveal delay-5">
+        <div class="exp-icon-wrap">🍛</div>
+        <h3>Culinary Journeys</h3>
+        <p>Devour kottu roti, hoppers, and coconut sambols bursting with aromatic local spices and coastal seafood.</p>
       </div>
-      <div class="exp-card reveal delay-2">
-        <div class="exp-icon">🧘</div>
-        <h3>Ayurveda Wellness</h3>
-        <p>Restore balance with authentic Ayurvedic treatments and yoga retreats in serene jungle sanctuaries.</p>
+      <div class="exp-card reveal delay-6">
+        <div class="exp-icon-wrap">🧘</div>
+        <h3>Ayurveda & Yoga</h3>
+        <p>Restore natural balance with authentic Ayurvedic treatments and yoga retreats in serene jungle spas.</p>
       </div>
-      <div class="exp-card reveal delay-3">
-        <div class="exp-icon">🚂</div>
-        <h3>Scenic Train Rides</h3>
-        <p>Board the world-famous Kandy–Ella train winding through cloud forests and emerald valleys.</p>
+      <div class="exp-card reveal delay-7">
+        <div class="exp-icon-wrap">🚂</div>
+        <h3>Scenic Train Journeys</h3>
+        <p>Board the famous blue train winding through cloud forests and emerald valleys of the hill country.</p>
       </div>
-      <div class="exp-card reveal delay-4">
-        <div class="exp-icon">🪸</div>
+      <div class="exp-card reveal delay-8">
+        <div class="exp-icon-wrap">🪸</div>
         <h3>Coral Diving</h3>
-        <p>Discover pristine coral reefs, shipwrecks, and kaleidoscopic marine life in crystal-clear waters.</p>
+        <p>Discover pristine coral reefs, ancient marine shipwrecks, and kaleidoscopic schools of fish.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ GALLERY ═══════════════ -->
+  <!-- ═══════════════ DOUBLE ROW GALLERY MARQUEE ═══════════════ -->
   <section id="gallery">
     <div class="gallery-header">
       <span class="section-tag reveal">Gallery</span>
       <h2 class="section-title reveal">Sri Lanka Through <em>Every</em> Lens</h2>
     </div>
-    <div class="gallery-strip-wrap">
-      <div class="gallery-strip">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Nine Arches Bridge Ella"><div class="gallery-item-label">Nine Arches Bridge</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
-        <!-- Duplicated for loop -->
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Nine Arches Bridge Ella"><div class="gallery-item-label">Nine Arches Bridge</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=400&h=300&q=80" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
+    
+    <div class="gallery-row-wrap">
+      <!-- Row 1: Sliding Left -->
+      <div class="gallery-strip slide-left">
+        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
+        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
+        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
+        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
+        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
+        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge Ella"><div class="gallery-item-label">Nine Arches Bridge</div></div>
+        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
+        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
+        <!-- Duplicated for Loop -->
+        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
+        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
+        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
+        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
+        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
+        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge Ella"><div class="gallery-item-label">Nine Arches Bridge</div></div>
+        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
+        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
+      </div>
+
+      <!-- Row 2: Sliding Right -->
+      <div class="gallery-strip slide-right">
+        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
+        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
+        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge Ella"><div class="gallery-item-label">Nine Arches Bridge</div></div>
+        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
+        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
+        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
+        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
+        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
+        <!-- Duplicated for Loop -->
+        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
+        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
+        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge Ella"><div class="gallery-item-label">Nine Arches Bridge</div></div>
+        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
+        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
+        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
+        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
+        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ REVIEWS ═══════════════ -->
+  <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
   <section id="reviews">
     <span class="section-tag reveal">Testimonials</span>
     <h2 class="section-title reveal">Voices of <em>Wanderers</em></h2>
 
     <div class="reviews-grid">
+      <!-- Review 1 -->
       <div class="review-card reveal delay-1">
-        <div class="review-quote">&ldquo;</div>
+        <div class="review-quote-mark">&ldquo;</div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Sri Lanka completely exceeded our expectations. From the misty highlands of Ella to the golden beaches of Mirissa — every single day was a masterpiece."</p>
-        <div class="reviewer">
+        <div class="reviewer-profile">
           <div class="reviewer-avatar">🇦🇺</div>
           <div>
             <div class="reviewer-name">Sarah Mitchell</div>
-            <div class="reviewer-loc">Sydney, Australia</div>
+            <div class="reviewer-location">Sydney, Australia</div>
           </div>
         </div>
       </div>
+
+      <!-- Review 2 -->
       <div class="review-card reveal delay-2">
-        <div class="review-quote">&ldquo;</div>
+        <div class="review-quote-mark">&ldquo;</div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"The wildlife, the cuisine, the warmth of the people — Sri Lanka is unlike any destination I've visited. Sigiriya at sunrise left me speechless."</p>
-        <div class="reviewer">
+        <div class="reviewer-profile">
           <div class="reviewer-avatar">🇩🇪</div>
           <div>
             <div class="reviewer-name">Hans Richter</div>
-            <div class="reviewer-loc">Munich, Germany</div>
+            <div class="reviewer-location">Munich, Germany</div>
           </div>
         </div>
       </div>
+
+      <!-- Review 3 -->
       <div class="review-card reveal delay-3">
-        <div class="review-quote">&ldquo;</div>
+        <div class="review-quote-mark">&ldquo;</div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"The train from Kandy to Ella was the most beautiful journey I've ever taken. Sri Lanka's landscapes are simply extraordinary. Will absolutely return."</p>
-        <div class="reviewer">
+        <div class="reviewer-profile">
           <div class="reviewer-avatar">🇺🇸</div>
           <div>
             <div class="reviewer-name">Priya Patel</div>
-            <div class="reviewer-loc">New York, USA</div>
+            <div class="reviewer-location">New York, USA</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ CONTACT / CTA ═══════════════ -->
+  <!-- ═══════════════ CONTACT GLASS FORM ═══════════════ -->
   <section id="contact">
-    <div class="cta-banner-icon">✈️</div>
-    <span class="section-tag reveal">Start Your Journey</span>
-    <h2 class="section-title reveal">Ready to Discover<br><em>Sri Lanka?</em></h2>
-    <p class="section-sub reveal" style="margin:0 auto;">
-      Join thousands of travellers who've discovered the magic of Serendib.
-      Subscribe for curated itineraries, hidden gems, and exclusive deals.
-    </p>
-    <form class="cta-banner-form reveal" onsubmit="handleSubscribe(event)">
-      <input type="email" placeholder="Your email address" required id="email-input">
-      <button type="submit">Subscribe</button>
-    </form>
-    <div class="social-links reveal">
-      <a class="social-link" href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a class="social-link" href="#"><i class="fa-brands fa-facebook"></i></a>
-      <a class="social-link" href="#"><i class="fa-brands fa-x-twitter"></i></a>
-      <a class="social-link" href="#"><i class="fa-brands fa-youtube"></i></a>
-      <a class="social-link" href="#"><i class="fa-brands fa-pinterest"></i></a>
+    <span class="section-tag reveal">Plan Your Escape</span>
+    <h2 class="section-title reveal">Start Your <em>Serendib</em><br>Journey Today</h2>
+    <p class="section-sub reveal" style="margin: 12px auto 0;">Plan a customized itinerary with our travel specialists or subscribe for exclusive guides.</p>
+
+    <div class="contact-card reveal">
+      <form class="contact-form" onsubmit="handlePlanTrip(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="full-name">Full Name</label>
+            <input type="text" id="full-name" class="form-input" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="destination">Preferred Destination</label>
+            <select id="destination" class="form-select">
+              <option value="all">Unsure / Whole Island</option>
+              <option value="sigiriya">Sigiriya & Cultural Triangle</option>
+              <option value="mirissa">Mirissa Beach & South Coast</option>
+              <option value="ella">Ella & Hill Country Retreation</option>
+              <option value="galle">Galle Fort & Colonial Towns</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="travel-date">Tentative Travel Date</label>
+            <input type="date" id="travel-date" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="notes">Special Requirements / Notes</label>
+          <textarea id="notes" class="form-textarea" placeholder="E.g., Safari tours, Ayurveda wellness packages, surf training..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit-btn">Send Enquiry</button>
+      </form>
+
+      <div class="social-links">
+        <a class="social-link" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="social-link" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="social-link" href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="social-link" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="social-link" href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+      </div>
     </div>
   </section>
 
@@ -1428,131 +477,166 @@
     <div class="footer-flag">🇱🇰</div>
   </footer>
 
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/94771234567" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <!-- ═══════════════ SCRIPTS ═══════════════ -->
   <script>
-    /* ── Loader ── */
+    /* ── Preloader loader ── */
     window.addEventListener('load', () => {
       setTimeout(() => {
-        document.getElementById('loader').classList.add('hide');
-      }, 2200);
+        const loader = document.getElementById('loader');
+        if (loader) loader.classList.add('hide');
+      }, 1500);
     });
 
-    /* ── Custom Cursor ── */
-    const cursor     = document.getElementById('cursor');
+    /* ── Navigation Menu Burger Toggle ── */
+    const burgerBtn = document.getElementById('burger-btn');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (burgerBtn && navMenu) {
+      burgerBtn.addEventListener('click', () => {
+        burgerBtn.classList.toggle('open');
+        navMenu.classList.toggle('open');
+      });
+
+      // Close menu when link is clicked
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          burgerBtn.classList.remove('open');
+          navMenu.classList.remove('open');
+        });
+      });
+    }
+
+    /* ── Custom Liquid cursor physics ── */
+    const cursor = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursor-ring');
     let cx = 0, cy = 0, rx = 0, ry = 0;
 
     document.addEventListener('mousemove', e => {
-      cx = e.clientX; cy = e.clientY;
-      cursor.style.left = cx + 'px';
-      cursor.style.top  = cy + 'px';
+      cx = e.clientX;
+      cy = e.clientY;
+      if (cursor) {
+        cursor.style.left = cx + 'px';
+        cursor.style.top = cy + 'px';
+      }
     });
 
-    function animateRing() {
+    function animateCursorRing() {
+      // Spring delay physics
       rx += (cx - rx) * 0.12;
       ry += (cy - ry) * 0.12;
-      cursorRing.style.left = rx + 'px';
-      cursorRing.style.top  = ry + 'px';
-      requestAnimationFrame(animateRing);
+      if (cursorRing) {
+        cursorRing.style.left = rx + 'px';
+        cursorRing.style.top = ry + 'px';
+      }
+      requestAnimationFrame(animateCursorRing);
     }
-    animateRing();
+    animateCursorRing();
 
-    document.querySelectorAll('a,button,.dest-card,.exp-card,.review-card,.social-link').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width  = '24px';
-        cursor.style.height = '24px';
-        cursorRing.style.width  = '60px';
-        cursorRing.style.height = '60px';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width  = '14px';
-        cursor.style.height = '14px';
-        cursorRing.style.width  = '38px';
-        cursorRing.style.height = '38px';
-      });
+    // Hover state links
+    document.querySelectorAll('a, button, select, input, textarea, .dest-card, .exp-card, .review-card').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
 
-    /* ── Particles ── */
+    /* ── Embring canvas particles ── */
     const canvas = document.getElementById('particles-canvas');
-    const ctx    = canvas.getContext('2d');
-    let particles = [];
-    let W = canvas.width  = window.innerWidth;
-    let H = canvas.height = window.innerHeight;
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let W = canvas.width = window.innerWidth;
+      let H = canvas.height = window.innerHeight;
 
-    window.addEventListener('resize', () => {
-      W = canvas.width  = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    });
-
-    function Particle() {
-      this.x = Math.random() * W;
-      this.y = Math.random() * H;
-      this.r = Math.random() * 1.5 + 0.4;
-      this.vx = (Math.random() - 0.5) * 0.3;
-      this.vy = (Math.random() - 0.5) * 0.3;
-      this.alpha = Math.random() * 0.4 + 0.1;
-    }
-
-    for (let i = 0; i < 100; i++) particles.push(new Particle());
-
-    function drawParticles() {
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201,168,76,${p.alpha})`;
-        ctx.fill();
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > W) p.vx *= -1;
-        if (p.y < 0 || p.y > H) p.vy *= -1;
+      window.addEventListener('resize', () => {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
       });
-      requestAnimationFrame(drawParticles);
-    }
-    drawParticles();
 
-    /* ── Parallax on mouse move ── */
-    const heroBg  = document.querySelector('.hero-bg');
+      class Ember {
+        constructor() {
+          this.x = Math.random() * W;
+          this.y = Math.random() * H;
+          this.r = Math.random() * 1.5 + 0.4;
+          this.vx = (Math.random() - 0.5) * 0.25;
+          this.vy = (Math.random() - 0.5) * 0.25;
+          this.alpha = Math.random() * 0.35 + 0.1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > W) this.vx *= -1;
+          if (this.y < 0 || this.y > H) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 90; i++) particles.push(new Ember());
+
+      function loopParticles() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(loopParticles);
+      }
+      loopParticles();
+    }
+
+    /* ── Dynamic Mouse-tracking Parallax for Hero ── */
+    const heroBg = document.querySelector('.hero-bg');
     const midLayer = document.getElementById('mid-layer');
     const foreLayer = document.getElementById('fore-layer');
+    const titleGroup = document.getElementById('hero-title-group');
 
     document.addEventListener('mousemove', e => {
-      const x = (e.clientX / window.innerWidth  - 0.5);
+      const x = (e.clientX / window.innerWidth - 0.5);
       const y = (e.clientY / window.innerHeight - 0.5);
-      if (heroBg)   heroBg.style.transform   = `scale(1.05) translate(${x*12}px, ${y*6}px)`;
-      if (midLayer) midLayer.parentElement.style.transform = `translateY(${y*20}px) translateX(${x*8}px)`;
+      
+      if (heroBg) heroBg.style.transform = `scale(1.05) translate(${x * 15}px, ${y * 8}px)`;
+      if (midLayer) midLayer.parentElement.style.transform = `translate(${x * 10}px, ${y * 22}px)`;
+      if (foreLayer) foreLayer.parentElement.style.transform = `translate(${x * 5}px, ${y * 12}px)`;
+      
+      // 3D Tilt for Hero title
+      if (titleGroup) {
+        titleGroup.style.transform = `translate(-50%, -50%) rotateY(${x * 20}deg) rotateX(${-y * 15}deg)`;
+      }
     });
 
-    /* ── Navbar active state & scroll shrink ── */
-    const navItems = document.querySelectorAll('.nav-items');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navItems.forEach(n => n.classList.remove('active'));
-        item.classList.add('active');
-      });
-    });
-
-    /* ── Scroll reveal ── */
+    /* ── Intersection observer for scroll reveals ── */
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const io = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => io.observe(el));
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
 
-    /* ── Count-up animation ── */
-    const counters = document.querySelectorAll('[data-count]');
+    /* ── Statistics count-up animations ── */
+    const counters = document.querySelectorAll('.stat-num');
     const counterObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const target = +entry.target.getAttribute('data-count');
           let current = 0;
-          const step = target / 60;
+          const increment = target / 60;
           const timer = setInterval(() => {
-            current += step;
-            if (current >= target) { current = target; clearInterval(timer); }
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
             entry.target.textContent = Math.floor(current) + (target >= 1000 ? '+' : '');
           }, 16);
           counterObserver.unobserve(entry.target);
@@ -1561,44 +645,56 @@
     }, { threshold: 0.5 });
     counters.forEach(c => counterObserver.observe(c));
 
-    /* ── Smooth scrolling for nav links ── */
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    /* ── Hero Arrows Cycle ── */
+    const slides = [
+      "🌊 Mirissa Beach & South Coast",
+      "🪨 Sigiriya Rock Fortress & Ruins",
+      "🌿 Ella Highlands & Tea Gardens",
+      "🏯 Galle Fort & Walled City",
+      "🕌 Kandy Sacred Temple of Tooth"
+    ];
+    let slideIdx = 0;
+    const prevBtn = document.getElementById('arrow-prev');
+    const nextBtn = document.getElementById('arrow-next');
+    const taglineEl = document.querySelector('.hero-tagline');
+
+    if (prevBtn && nextBtn && taglineEl) {
+      taglineEl.style.transition = 'opacity 0.3s';
+      
+      nextBtn.addEventListener('click', () => {
+        slideIdx = (slideIdx + 1) % slides.length;
+        taglineEl.style.opacity = '0';
+        setTimeout(() => {
+          taglineEl.textContent = slides[slideIdx];
+          taglineEl.style.opacity = '1';
+        }, 300);
       });
-    });
 
-    /* ── Hero slider arrows (cosmetic cycle) ── */
-    const slides = ['🌊 Mirissa Beach', '🪨 Sigiriya', '🌿 Ella Highlands', '🏯 Galle Fort', '🕌 Kandy'];
-    let slideIndex = 0;
-    document.getElementById('arrow-next').addEventListener('click', () => {
-      slideIndex = (slideIndex + 1) % slides.length;
-      const el = document.querySelector('.hero-tagline');
-      el.style.opacity = '0';
-      setTimeout(() => { el.textContent = slides[slideIndex]; el.style.opacity = '1'; }, 300);
-    });
-    document.getElementById('arrow-prev').addEventListener('click', () => {
-      slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-      const el = document.querySelector('.hero-tagline');
-      el.style.opacity = '0';
-      setTimeout(() => { el.textContent = slides[slideIndex]; el.style.opacity = '1'; }, 300);
-    });
-    document.querySelector('.hero-tagline').style.transition = 'opacity 0.3s ease';
+      prevBtn.addEventListener('click', () => {
+        slideIdx = (slideIdx - 1 + slides.length) % slides.length;
+        taglineEl.style.opacity = '0';
+        setTimeout(() => {
+          taglineEl.textContent = slides[slideIdx];
+          taglineEl.style.opacity = '1';
+        }, 300);
+      });
+    }
 
-    /* ── Subscribe handler ── */
-    function handleSubscribe(e) {
+    /* ── Contact form submit handler ── */
+    function handlePlanTrip(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.textContent = '✓ Subscribed!';
-      btn.style.background = 'linear-gradient(135deg, #0D6E6E, #0a9a9a)';
-      btn.style.color = '#fff';
-      setTimeout(() => {
-        btn.textContent = 'Subscribe';
-        btn.style.background = '';
-        btn.style.color = '';
-        document.getElementById('email-input').value = '';
-      }, 3000);
+      const btn = e.target.querySelector('.form-submit-btn');
+      if (btn) {
+        btn.textContent = 'Enquiry Sent ✓';
+        btn.style.background = 'linear-gradient(135deg, #0C3C3F, #082E30)';
+        btn.style.color = '#FFF';
+        setTimeout(() => {
+          btn.textContent = 'Send Enquiry';
+          btn.style.background = '';
+          btn.style.color = '';
+          e.target.reset();
+        }, 3000);
+      }
     }
   </script>
 
