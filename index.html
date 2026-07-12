@@ -709,35 +709,41 @@
     <div class="reels-header">
       <span class="section-tag reveal">Cinematic Reels</span>
       <h2 class="section-title reveal" id="reels-title">High-Definition <em>Travel Films</em></h2>
-      <p class="section-sub reveal">Performance-safe video cards using optimized local posters and external free-stock source links instead of heavy autoplay embeds.</p>
+      <p class="section-sub reveal">Muted autoplay travel films with optimized local posters, lazy playback, and source links for each clip.</p>
     </div>
 
     <div class="reels-grid">
-      <a class="reel-card reveal delay-1" href="https://pixabay.com/videos/forest-fortress-sigiriya-sri-lanka-191283/" target="_blank" rel="noopener">
-        <img src="img/pexels-sigiriya-aerial.webp" alt="Watch Sigiriya fortress stock footage" loading="lazy">
-        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+      <a class="reel-card reveal delay-1" href="https://mixkit.co/free-stock-video/a-herd-of-elephants-grazing-in-the-wild-11059/" target="_blank" rel="noopener" aria-label="Open source page for autoplaying Sigiriya wildlife reel">
+        <video class="reel-video" poster="img/pexels-sigiriya-aerial.webp" autoplay muted loop playsinline preload="metadata">
+          <source src="https://assets.mixkit.co/videos/11059/11059-720.mp4" type="video/mp4">
+        </video>
+        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-volume-xmark"></i></span>
         <div class="reel-copy">
-          <span>4K Source Reel</span>
+          <span>Muted Autoplay</span>
           <h3>Sigiriya from Above</h3>
-          <p>Open royalty-free Sigiriya footage on Pixabay.</p>
+          <p>Looping Sri Lanka wildlife motion with a cinematic poster fallback.</p>
         </div>
       </a>
-      <a class="reel-card reveal delay-2" href="https://pixabay.com/videos/beach-evening-sri-lanka-sea-ocean-286459/" target="_blank" rel="noopener">
-        <img src="img/mirissa.webp" alt="Watch Sri Lanka beach evening stock footage" loading="lazy">
-        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+      <a class="reel-card reveal delay-2" href="https://mixkit.co/free-stock-video/beautiful-sunset-on-the-sea-that-waves-11222/" target="_blank" rel="noopener" aria-label="Open source page for autoplaying Sri Lanka beach sunset reel">
+        <video class="reel-video" poster="img/mirissa.webp" autoplay muted loop playsinline preload="metadata">
+          <source src="https://assets.mixkit.co/videos/11222/11222-720.mp4" type="video/mp4">
+        </video>
+        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-volume-xmark"></i></span>
         <div class="reel-copy">
-          <span>Coastal Motion</span>
+          <span>Muted Autoplay</span>
           <h3>Dikwella Sunset</h3>
-          <p>Open royalty-free Sri Lanka beach footage on Pixabay.</p>
+          <p>Warm ocean movement for a premium coastal travel feel.</p>
         </div>
       </a>
-      <a class="reel-card reveal delay-3" href="https://www.pexels.com/video/stunning-aerial-view-of-sri-lankan-waterfall-33790732/" target="_blank" rel="noopener">
-        <img src="img/tea_plantation.webp" alt="Watch Sri Lankan waterfall aerial stock footage" loading="lazy">
-        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+      <a class="reel-card reveal delay-3" href="https://mixkit.co/free-stock-video/clouds-moving-over-a-tea-plantations-11193/" target="_blank" rel="noopener" aria-label="Open source page for autoplaying Sri Lanka tea plantation reel">
+        <video class="reel-video" poster="img/tea_plantation.webp" autoplay muted loop playsinline preload="metadata">
+          <source src="https://assets.mixkit.co/videos/11193/11193-720.mp4" type="video/mp4">
+        </video>
+        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-volume-xmark"></i></span>
         <div class="reel-copy">
-          <span>Rainforest Flight</span>
-          <h3>Waterfall Aerial</h3>
-          <p>Open free-to-use Sri Lanka waterfall footage on Pexels.</p>
+          <span>Muted Autoplay</span>
+          <h3>Clouds Over Tea</h3>
+          <p>Atmospheric highland motion over Sri Lankan plantations.</p>
         </div>
       </a>
     </div>
@@ -1385,6 +1391,32 @@
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
+
+    const reelVideos = document.querySelectorAll('.reel-video');
+    if (reelVideos.length) {
+      reelVideos.forEach(video => {
+        video.muted = true;
+        video.playsInline = true;
+        if (reduceMotion) {
+          video.removeAttribute('autoplay');
+          video.pause();
+        }
+      });
+
+      if (!reduceMotion) {
+        const reelObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.35 });
+        reelVideos.forEach(video => reelObserver.observe(video));
+      }
+    }
 
     /* ”€”€ Counter Statistics Animation ”€”€ */
     const counters = document.querySelectorAll('.stat-num, .why-num strong');
