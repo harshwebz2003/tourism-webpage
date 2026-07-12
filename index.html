@@ -1268,6 +1268,26 @@
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
+
+      if (!reduceMotion) {
+        document.querySelectorAll('.dest-card, .exp-card, .pkg-card, .review-card, .blog-card, .season-card, .gallery-item').forEach(card => {
+          card.addEventListener('mousemove', event => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width;
+            const y = (event.clientY - rect.top) / rect.height;
+            card.style.setProperty('--tilt-y', `${(x - 0.5) * 10}deg`);
+            card.style.setProperty('--tilt-x', `${(0.5 - y) * 8}deg`);
+            card.style.setProperty('--shine-x', `${x * 100}%`);
+            card.style.setProperty('--shine-y', `${y * 100}%`);
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.removeProperty('--tilt-x');
+            card.style.removeProperty('--tilt-y');
+            card.style.removeProperty('--shine-x');
+            card.style.removeProperty('--shine-y');
+          });
+        });
+      }
     }
 
     /* ”€”€ Floating Particles Canvas ”€”€ */
@@ -1322,7 +1342,7 @@
     }
 
     /* ”€”€ Scroll Reveal via GSAP ”€”€ */
-    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .section-title, .panel-title');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
