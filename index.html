@@ -15,19 +15,21 @@
   <meta property="og:url" content="https://harshwebz2003.github.io/tourism-webpage/">
   <meta property="og:title" content="Serendib | Luxury Sri Lanka Travel & Curated Tours">
   <meta property="og:description" content="Discover UNESCO heritage, misty hills, and pristine beaches with Sri Lanka's premier custom travel designer.">
-  <meta property="og:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.png">
+  <meta property="og:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.webp">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://harshwebz2003.github.io/tourism-webpage/">
   <meta property="twitter:title" content="Serendib | Luxury Sri Lanka Travel & Curated Tours">
   <meta property="twitter:description" content="Discover UNESCO heritage, misty hills, and pristine beaches with Sri Lanka's premier custom travel designer.">
-  <meta property="twitter:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.png">
+  <meta property="twitter:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.webp">
 
   <!-- Font loading & CSS assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/sl_mid.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="img/sl_fore.webp" fetchpriority="high">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <!-- Swiper & Lenis CSS CDNs -->
@@ -42,7 +44,7 @@
     "@type": "Organization",
     "name": "Serendib Travel",
     "url": "https://harshwebz2003.github.io/tourism-webpage/",
-    "logo": "https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.png",
+    "logo": "https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.webp",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+94-77-123-4567",
@@ -79,13 +81,13 @@
     <div class="loader-logo">Serendib</div>
     <div class="loader-counter" id="loader-percent">0%</div>
     <div class="loader-progress-bar"><div class="loader-progress-fill"></div></div>
-    <div class="loader-sub">Loading Paradise…</div>
+    <div class="loader-sub">Loading Paradise...</div>
   </div>
 
   <!-- FLOATING PARTICLES CANVAS -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- ═══════════════ HEADER NAV ═══════════════ -->
+  <!-- ••••••••••••••• HEADER NAV ••••••••••••••• -->
   <header id="main-header" role="banner">
     <nav aria-label="Main Navigation">
       <a href="#hero" class="nav-brand" aria-label="Serendib Home">Serendib</a>
@@ -110,24 +112,24 @@
     </nav>
   </header>
 
-  <!-- ═══════════════ 1. HERO SECTION ═══════════════ -->
+  <!-- ••••••••••••••• 1. HERO SECTION ••••••••••••••• -->
   <section id="hero" aria-labelledby="hero-title">
     <div class="hero-bg" style="transform: scale(1.05);"></div>
     <div class="hero-glow"></div>
     <div class="hero-clouds"></div>
 
     <div class="hero-mid">
-      <img src="img/sl_mid.png" alt="Sigiriya mountains silhouette midground" id="mid-layer" loading="eager">
+      <img src="img/sl_mid.webp" alt="Sigiriya mountains silhouette midground" id="mid-layer" loading="eager" decoding="async" fetchpriority="high">
     </div>
     <div class="hero-fore">
-      <img src="img/sl_fore.png" alt="Sri Lankan elephant silhouettes foreground" id="fore-layer" loading="eager">
+      <img src="img/sl_fore.webp" alt="Sri Lankan elephant silhouettes foreground" id="fore-layer" loading="eager" decoding="async" fetchpriority="high">
     </div>
     <div class="hero-ground"></div>
 
     <div class="hero-title" id="hero-title-group">
-      <div class="hero-eyebrow">✦ Discover the Wonders of Ceylon ✦</div>
+      <div class="hero-eyebrow">Discover the Wonders of Ceylon</div>
       <h1 class="hero-country" id="hero-title">Sri Lanka</h1>
-      <div class="hero-tagline" id="hero-tagline">Wonder of Asia &nbsp;·&nbsp; 65,610 km² &nbsp;·&nbsp; 21+ Million Smiles</div>
+      <div class="hero-tagline" id="hero-tagline">Wonder of Asia  |  65,610 km2  |  21+ Million Smiles</div>
     </div>
 
     <div class="hero-info">
@@ -140,8 +142,8 @@
     </div>
 
     <div class="hero-arrows">
-      <i class="fa-solid fa-chevron-left" id="arrow-prev" aria-label="Previous Slide"></i>
-      <i class="fa-solid fa-chevron-right" id="arrow-next" aria-label="Next Slide"></i>
+      <button type="button" class="hero-arrow-btn" id="arrow-prev" aria-label="Previous slide"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+      <button type="button" class="hero-arrow-btn" id="arrow-next" aria-label="Next slide"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
     </div>
 
     <div class="hero-stats">
@@ -187,11 +189,11 @@
     </div>
   </div>
 
-  <!-- ═══════════════ 2. ABOUT SRI LANKA ═══════════════ -->
+  <!-- ••••••••••••••• 2. ABOUT SRI LANKA ••••••••••••••• -->
   <section id="about" class="bg-ivory" aria-labelledby="about-title">
     <div class="about-media reveal-left">
-      <img src="img/tea_plantation.png" alt="Lush green Ceylon tea estate in Nuwara Eliya" class="about-img-main" loading="lazy">
-      <img src="img/nine_arches.png" alt="Famous stone Nine Arches Bridge in Ella" class="about-img-accent" loading="lazy">
+      <img src="img/tea_plantation.webp" alt="Lush green Ceylon tea estate in Nuwara Eliya" class="about-img-main" loading="lazy">
+      <img src="img/nine_arches.webp" alt="Famous stone Nine Arches Bridge in Ella" class="about-img-accent" loading="lazy">
       <div class="about-badge">
         <strong>#1</strong>
         <span>Lonely Planet<br>Must Visit</span>
@@ -202,7 +204,7 @@
       <span class="section-tag">About the Island</span>
       <h2 class="section-title" id="about-title">A Teardrop <em>Paradise</em><br>in the Indian Ocean</h2>
       <p class="section-sub">
-        Cradled in warm tropical waters, Sri Lanka packs the world's most astonishing density into one island. From crumbling ancient palaces and mist-veiled mountain ranges to coastal shores that stretch into the horizon — every day is an open invitation to wonder.
+        Cradled in warm tropical waters, Sri Lanka packs the world's most astonishing density into one island. From crumbling ancient palaces and mist-veiled mountain ranges to coastal shores that stretch into the horizon - every day is an open invitation to wonder.
       </p>
 
       <div class="about-features">
@@ -220,7 +222,7 @@
     </div>
   </section>
 
-  <!-- ═══════════════ 3. FEATURED DESTINATIONS ═══════════════ -->
+  <!-- ••••••••••••••• 3. FEATURED DESTINATIONS ••••••••••••••• -->
   <section id="destinations" class="bg-white" aria-labelledby="dest-title">
     <div class="dest-header">
       <div>
@@ -232,48 +234,48 @@
 
     <div class="dest-grid">
       <div class="dest-card reveal delay-1">
-        <img src="img/sigiriya.png" alt="Sigiriya Lion Rock Fortress aerial view" class="dest-thumb" loading="lazy">
+        <img src="img/sigiriya.webp" alt="Sigiriya Lion Rock Fortress aerial view" class="dest-thumb" loading="lazy">
         <div class="dest-overlay">
           <div class="dest-cat">Cultural Triangle</div>
           <div class="dest-name">Sigiriya</div>
           <p class="dest-desc">Ascend the grand ancient sky citadel built by King Kashyapa in the 5th century, towering 200 meters above dense jungle.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.9 · UNESCO World Heritage</div>
+          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.9 | UNESCO World Heritage</div>
           <a href="#plan" class="dest-btn">Book Travel <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
       <div class="dest-card reveal delay-2">
-        <img src="img/mirissa.png" alt="Sandy palm tree beach at Mirissa" class="dest-thumb" loading="lazy">
+        <img src="img/mirissa.webp" alt="Sandy palm tree beach at Mirissa" class="dest-thumb" loading="lazy">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Mirissa</div>
           <p class="dest-desc">A relaxed beachfront paradise famed for golden sands, sunset bars, and excursions to spot Blue Whales.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Coastal Gem</div>
+          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 | Coastal Gem</div>
           <a href="#plan" class="dest-btn">Book Travel <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
       <div class="dest-card reveal delay-3">
-        <img src="img/galle.png" alt="Dutch Galle Fort Lighthouse" class="dest-thumb" loading="lazy">
+        <img src="img/galle.webp" alt="Dutch Galle Fort Lighthouse" class="dest-thumb" loading="lazy">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Galle Fort</div>
           <p class="dest-desc">Walk the historic Dutch cobblestone ramparts, packed with European cafes, museums, and colonial heritage sites.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.7 · Historical Citadel</div>
+          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.7 | Historical Citadel</div>
           <a href="#plan" class="dest-btn">Book Travel <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 4. HORIZONTAL SHOWCASE (GSAP ScrollTrigger) ═══════════════ -->
+  <!-- ••••••••••••••• 4. HORIZONTAL SHOWCASE (GSAP ScrollTrigger) ••••••••••••••• -->
   <div class="horizontal-container" id="showcase">
     <div class="horizontal-scroll-section">
       <!-- Panel 1 -->
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/sigiriya.png" alt="Sigiriya Citadel" loading="lazy">
+            <img src="img/sigiriya.webp" alt="Sigiriya Citadel" loading="lazy">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Matale District</div>
@@ -288,7 +290,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/nine_arches.png" alt="Ella railway route" loading="lazy">
+            <img src="img/nine_arches.webp" alt="Ella railway route" loading="lazy">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Badulla District</div>
@@ -303,7 +305,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/mirissa.png" alt="Mirissa beach surf" loading="lazy">
+            <img src="img/mirissa.webp" alt="Mirissa beach surf" loading="lazy">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Matara District</div>
@@ -318,7 +320,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/leopard.png" alt="Wild leopard in Yala National Park" loading="lazy">
+            <img src="img/leopard.webp" alt="Wild leopard in Yala National Park" loading="lazy">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Hambantota District</div>
@@ -333,7 +335,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/kandy.png" alt="Kandy Temple relic" loading="lazy">
+            <img src="img/kandy.webp" alt="Kandy Temple relic" loading="lazy">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Central Province</div>
@@ -348,7 +350,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/galle.png" alt="Dutch fort lighthouse" loading="lazy">
+            <img src="img/galle.webp" alt="Dutch fort lighthouse" loading="lazy">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Galle District</div>
@@ -361,7 +363,7 @@
     </div>
   </div>
 
-  <!-- ═══════════════ 5. EXPERIENCES (Asymmetric Figma Layout) ═══════════════ -->
+  <!-- ••••••••••••••• 5. EXPERIENCES (Asymmetric Figma Layout) ••••••••••••••• -->
   <section id="experiences" class="bg-ivory" aria-labelledby="exp-title">
     <span class="section-tag reveal">What to Do</span>
     <h2 class="section-title reveal" id="exp-title">Experiences That <em>Last</em> a Lifetime</h2>
@@ -369,49 +371,49 @@
 
     <div class="exp-grid">
       <div class="exp-card reveal delay-1">
-        <span class="exp-icon-wrap" aria-hidden="true">🐘</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-binoculars"></i></span>
         <h3>Wildlife Safari</h3>
         <p>Observe herds of wild elephants gathering at reservoirs and search for leopards creeping through the dry woodlands.</p>
       </div>
       <div class="exp-card reveal delay-2">
-        <span class="exp-icon-wrap" aria-hidden="true">🏄</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-water"></i></span>
         <h3>Coastal Surfing</h3>
         <p>Catch the famous pipeline breaks at Arugam Bay or cruise calm waves on the southern beach retreats.</p>
       </div>
       <div class="exp-card reveal delay-3">
-        <span class="exp-icon-wrap" aria-hidden="true">🍵</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-mug-saucer"></i></span>
         <h3>Tea Estate Trails</h3>
         <p>Walk the rolling green valleys of Nuwara Eliya, watch local tea leaves plucked by hand, and enjoy fresh Ceylon brews.</p>
       </div>
       <div class="exp-card reveal delay-4">
-        <span class="exp-icon-wrap" aria-hidden="true">🛕</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-landmark"></i></span>
         <h3>Sacred Heritage</h3>
         <p>Walk with quiet respect past ancient brick dagobas and cave temples adorned with Buddhist frescoes.</p>
       </div>
       <div class="exp-card reveal delay-5">
-        <span class="exp-icon-wrap" aria-hidden="true">🍛</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-bowl-food"></i></span>
         <h3>Local Cuisine</h3>
         <p>Savor fresh hot hoppers, coconut pol sambol, and coastal fish curry prepared with hand-ground spices.</p>
       </div>
       <div class="exp-card reveal delay-6">
-        <span class="exp-icon-wrap" aria-hidden="true">🧘</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-spa"></i></span>
         <h3>Ayurvedic Spas</h3>
         <p>Indulge in authentic traditional herbal oil massages and custom wellness treatments in jungle sanctuaries.</p>
       </div>
       <div class="exp-card reveal delay-7">
-        <span class="exp-icon-wrap" aria-hidden="true">🚂</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-train"></i></span>
         <h3>Highland Rail</h3>
         <p>Peer out the windows of the historic colonial train winding through cloud-forested peaks between Kandy and Ella.</p>
       </div>
       <div class="exp-card reveal delay-8">
-        <span class="exp-icon-wrap" aria-hidden="true">🪸</span>
+        <span class="exp-icon-wrap" aria-hidden="true"><i class="fa-solid fa-fish-fins"></i></span>
         <h3>Coral Diving</h3>
         <p>Swim above colorful shallow reefs and historic ocean shipwrecks in the warm tropical seas.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 6. TOUR PACKAGES ═══════════════ -->
+  <!-- ••••••••••••••• 6. TOUR PACKAGES ••••••••••••••• -->
   <section id="packages" class="bg-white" aria-labelledby="pkg-title">
     <span class="section-tag reveal">Tour Packages</span>
     <h2 class="section-title reveal" id="pkg-title">Curated <em>Journeys</em><br>For Every Style</h2>
@@ -422,7 +424,7 @@
       <div class="pkg-card reveal delay-1">
         <div class="pkg-badge">Best Seller</div>
         <div class="pkg-img-wrap">
-          <img src="img/sigiriya.png" alt="Cultural tour package" class="pkg-img" loading="lazy">
+          <img src="img/sigiriya.webp" alt="Cultural tour package" class="pkg-img" loading="lazy">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 10 Days / 9 Nights</div>
@@ -430,12 +432,12 @@
           <p class="pkg-desc">Hit the highlights: Sigiriya, Kandy Temple, scenic train to Ella, Yala safari, and Galle ramparts.</p>
           <div class="pkg-highlights">
             <span><i class="fa-solid fa-check"></i> Private luxury transport</span>
-            <span><i class="fa-solid fa-check"></i> 5★/4★ Hotels &amp; Meals</span>
+            <span><i class="fa-solid fa-check"></i> 5*/4* Hotels &amp; Meals</span>
             <span><i class="fa-solid fa-check"></i> Site entry tickets</span>
           </div>
           <div class="pkg-footer">
             <div class="pkg-price">Starting from <strong>$1,290</strong> <span>/person (Customisable)</span></div>
-            <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
+            <a href="#plan" class="btn btn-primary pkg-cta">Book Now</a>
           </div>
         </div>
       </div>
@@ -444,7 +446,7 @@
       <div class="pkg-card pkg-featured reveal delay-2">
         <div class="pkg-badge pkg-badge-gold">Lux Experience</div>
         <div class="pkg-img-wrap">
-          <img src="img/mirissa.png" alt="Luxury escape tour package" class="pkg-img" loading="lazy">
+          <img src="img/mirissa.webp" alt="Luxury escape tour package" class="pkg-img" loading="lazy">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</div>
@@ -457,7 +459,7 @@
           </div>
           <div class="pkg-footer">
             <div class="pkg-price">Starting from <strong>$1,980</strong> <span>/couple (Customisable)</span></div>
-            <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
+            <a href="#plan" class="btn btn-primary pkg-cta">Book Now</a>
           </div>
         </div>
       </div>
@@ -466,7 +468,7 @@
       <div class="pkg-card reveal delay-3">
         <div class="pkg-badge pkg-badge-green">Wild Wilderness</div>
         <div class="pkg-img-wrap">
-          <img src="img/leopard.png" alt="Wildlife tour package" class="pkg-img" loading="lazy">
+          <img src="img/leopard.webp" alt="Wildlife tour package" class="pkg-img" loading="lazy">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</div>
@@ -479,7 +481,7 @@
           </div>
           <div class="pkg-footer">
             <div class="pkg-price">Starting from <strong>$1,490</strong> <span>/person (Customisable)</span></div>
-            <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
+            <a href="#plan" class="btn btn-primary pkg-cta">Book Now</a>
           </div>
         </div>
       </div>
@@ -488,7 +490,7 @@
       <div class="pkg-card reveal delay-4">
         <div class="pkg-badge pkg-badge-blue">Royal Heritage</div>
         <div class="pkg-img-wrap">
-          <img src="img/kandy.png" alt="Cultural historical package" class="pkg-img" loading="lazy">
+          <img src="img/kandy.webp" alt="Cultural historical package" class="pkg-img" loading="lazy">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 7 Days / 6 Nights</div>
@@ -501,14 +503,14 @@
           </div>
           <div class="pkg-footer">
             <div class="pkg-price">Starting from <strong>$1,120</strong> <span>/person (Customisable)</span></div>
-            <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
+            <a href="#plan" class="btn btn-primary pkg-cta">Book Now</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 7. INTERACTIVE SRI LANKA MAP ═══════════════ -->
+  <!-- ••••••••••••••• 7. INTERACTIVE SRI LANKA MAP ••••••••••••••• -->
   <section id="map" class="bg-ivory" aria-labelledby="map-title">
     <div class="map-content">
       <span class="section-tag reveal">Interactive Map</span>
@@ -525,35 +527,35 @@
 
     <div class="map-visual reveal-right">
       <div class="map-wrapper">
-        <img src="img/map.png" alt="Stylized Sri Lanka map showing locations" class="map-img" loading="lazy">
+        <img src="img/map.webp" alt="Stylized Sri Lanka map showing locations" class="map-img" loading="lazy">
 
         <!-- Clickable Pins -->
-        <button class="map-pin" style="top:22%;left:48%" data-info="Sigiriya Citadel — Scale the famous Lion Rock fortress. Ideal sunrise climb to avoid heat. Unesco site." aria-label="Sigiriya Pin">
+        <button class="map-pin" style="top:22%;left:48%" data-info="Sigiriya Citadel - Scale the famous Lion Rock fortress. Ideal sunrise climb to avoid heat. Unesco site." aria-label="Sigiriya Pin">
           <span class="pin-pulse pin-north-bg"></span>
           <span class="pin-dot pin-north"></span>
           <span class="pin-tooltip">Sigiriya</span>
         </button>
-        <button class="map-pin" style="top:38%;left:44%" data-info="Kandy Temple — Discover the spiritual heart of Kandy, home to the Sacred Tooth Relic." aria-label="Kandy Pin">
+        <button class="map-pin" style="top:38%;left:44%" data-info="Kandy Temple - Discover the spiritual heart of Kandy, home to the Sacred Tooth Relic." aria-label="Kandy Pin">
           <span class="pin-pulse pin-north-bg"></span>
           <span class="pin-dot pin-hill"></span>
           <span class="pin-tooltip">Kandy</span>
         </button>
-        <button class="map-pin" style="top:52%;left:42%" data-info="Ella Highlands — Famous for Nine Arches Bridge, tea factories, hiking, and mist-covered train routes." aria-label="Ella Pin">
+        <button class="map-pin" style="top:52%;left:42%" data-info="Ella Highlands - Famous for Nine Arches Bridge, tea factories, hiking, and mist-covered train routes." aria-label="Ella Pin">
           <span class="pin-pulse pin-hill-bg"></span>
           <span class="pin-dot pin-hill"></span>
           <span class="pin-tooltip">Ella</span>
         </button>
-        <button class="map-pin" style="top:72%;left:35%" data-info="Galle Fort — Walk colonial Dutch streets, boutiques, and watch sunset at the lighthouse walls." aria-label="Galle Pin">
+        <button class="map-pin" style="top:72%;left:35%" data-info="Galle Fort - Walk colonial Dutch streets, boutiques, and watch sunset at the lighthouse walls." aria-label="Galle Pin">
           <span class="pin-pulse pin-coast-bg"></span>
           <span class="pin-dot pin-coast"></span>
           <span class="pin-tooltip">Galle</span>
         </button>
-        <button class="map-pin" style="top:78%;left:48%" data-info="Mirissa Shore — Surf, visit coconut tree hills, and take morning boats to see giant blue whales." aria-label="Mirissa Pin">
+        <button class="map-pin" style="top:78%;left:48%" data-info="Mirissa Shore - Surf, visit coconut tree hills, and take morning boats to see giant blue whales." aria-label="Mirissa Pin">
           <span class="pin-pulse pin-coast-bg"></span>
           <span class="pin-dot pin-coast"></span>
           <span class="pin-tooltip">Mirissa</span>
         </button>
-        <button class="map-pin" style="top:65%;left:68%" data-info="Yala Safari — High leopard density, wild elephants, peacocks, and dry jungle trails." aria-label="Yala Pin">
+        <button class="map-pin" style="top:65%;left:68%" data-info="Yala Safari - High leopard density, wild elephants, peacocks, and dry jungle trails." aria-label="Yala Pin">
           <span class="pin-pulse pin-wildlife-bg"></span>
           <span class="pin-dot pin-wildlife"></span>
           <span class="pin-tooltip">Yala</span>
@@ -561,12 +563,12 @@
       </div>
       <div class="map-info-box" id="map-info-box">
         <i class="fa-solid fa-location-dot"></i>
-        <span id="map-info-text">Select any pin to view travel tips and information…</span>
+        <span id="map-info-text">Select any pin to view travel tips and information...</span>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 8. SEASONAL TRAVEL GUIDE ═══════════════ -->
+  <!-- ••••••••••••••• 8. SEASONAL TRAVEL GUIDE ••••••••••••••• -->
   <section id="seasonal" class="bg-ivory" aria-labelledby="seasonal-title">
     <div class="seasonal-header">
       <span class="section-tag reveal">Best Time to Visit</span>
@@ -576,8 +578,8 @@
 
     <div class="seasons-grid">
       <div class="season-card reveal delay-1 season-best">
-        <span class="season-icon" aria-hidden="true">☀️</span>
-        <div class="season-months">Dec – Apr</div>
+        <span class="season-icon" aria-hidden="true"><i class="fa-solid fa-sun"></i></span>
+        <div class="season-months">Dec - Apr</div>
         <h3>Peak South/West</h3>
         <ul class="season-list">
           <li><i class="fa-solid fa-check"></i> Blue sky on Southern beaches</li>
@@ -589,8 +591,8 @@
       </div>
 
       <div class="season-card reveal delay-2">
-        <span class="season-icon" aria-hidden="true">🌿</span>
-        <div class="season-months">May – Sep</div>
+        <span class="season-icon" aria-hidden="true"><i class="fa-solid fa-leaf"></i></span>
+        <div class="season-months">May - Sep</div>
         <h3>East Coast Season</h3>
         <ul class="season-list">
           <li><i class="fa-solid fa-check"></i> Calm waters in Trincomalee</li>
@@ -602,8 +604,8 @@
       </div>
 
       <div class="season-card reveal delay-3">
-        <span class="season-icon" aria-hidden="true">🌦️</span>
-        <div class="season-months">Oct – Nov</div>
+        <span class="season-icon" aria-hidden="true"><i class="fa-solid fa-cloud-sun-rain"></i></span>
+        <div class="season-months">Oct - Nov</div>
         <h3>Shoulder Months</h3>
         <ul class="season-list">
           <li><i class="fa-solid fa-check"></i> Gentle inter-monsoon periods</li>
@@ -616,15 +618,15 @@
     </div>
 
     <div class="seasonal-img-banner reveal">
-      <img src="img/seasonal.png" alt="Golden coast of Sri Lanka" class="seasonal-img" loading="lazy">
+      <img src="img/seasonal.webp" alt="Golden coast of Sri Lanka" class="seasonal-img" loading="lazy">
       <div class="seasonal-overlay">
-        <p>Year-round holiday paradise — Sri Lanka's dual tropical currents mean there is <strong>always</strong> a sunny beach waiting for you.</p>
+        <p>Year-round holiday paradise - Sri Lanka's dual tropical currents mean there is <strong>always</strong> a sunny beach waiting for you.</p>
         <a href="#plan" class="btn btn-primary">Start Planning <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 9. GALLERY (Masonry & Lightbox) ═══════════════ -->
+  <!-- ••••••••••••••• 9. GALLERY (Masonry & Lightbox) ••••••••••••••• -->
   <section id="gallery" class="bg-dark" aria-labelledby="gallery-title">
     <div class="gallery-header">
       <span class="section-tag section-tag-light reveal">Gallery</span>
@@ -634,35 +636,35 @@
 
     <div class="gallery-grid">
       <div class="gallery-item reveal delay-1">
-        <img src="img/mirissa.png" class="gallery-img" alt="Sun rays hitting palms at Mirissa beach" loading="lazy">
+        <img src="img/mirissa.webp" class="gallery-img" alt="Sun rays hitting palms at Mirissa beach" loading="lazy">
         <div class="gallery-item-label">Sunset Over Mirissa Beach</div>
       </div>
       <div class="gallery-item reveal delay-2">
-        <img src="img/sigiriya.png" class="gallery-img" alt="Sunset over Sigiriya rock citadel" loading="lazy">
+        <img src="img/sigiriya.webp" class="gallery-img" alt="Sunset over Sigiriya rock citadel" loading="lazy">
         <div class="gallery-item-label">Golden Hour at Sigiriya</div>
       </div>
       <div class="gallery-item reveal delay-3">
-        <img src="img/tea_plantation.png" class="gallery-img" alt="Green tea plantation steps Nuwara Eliya" loading="lazy">
+        <img src="img/tea_plantation.webp" class="gallery-img" alt="Green tea plantation steps Nuwara Eliya" loading="lazy">
         <div class="gallery-item-label">Ceylon Highland Tea Estates</div>
       </div>
       <div class="gallery-item reveal delay-4">
-        <img src="img/elephants.png" class="gallery-img" alt="Herd of elephants in national park" loading="lazy">
+        <img src="img/elephants.webp" class="gallery-img" alt="Herd of elephants in national park" loading="lazy">
         <div class="gallery-item-label">Minneriya Elephant Gathering</div>
       </div>
       <div class="gallery-item reveal delay-5">
-        <img src="img/galle.png" class="gallery-img" alt="Historical Galle lighthouse walls" loading="lazy">
+        <img src="img/galle.webp" class="gallery-img" alt="Historical Galle lighthouse walls" loading="lazy">
         <div class="gallery-item-label">Colonial Ramparts, Galle Fort</div>
       </div>
       <div class="gallery-item reveal delay-6">
-        <img src="img/nine_arches.png" class="gallery-img" alt="Colonial stone rail bridge in Ella jungle" loading="lazy">
+        <img src="img/nine_arches.webp" class="gallery-img" alt="Colonial stone rail bridge in Ella jungle" loading="lazy">
         <div class="gallery-item-label">Nine Arches Train Bridge</div>
       </div>
       <div class="gallery-item reveal delay-7">
-        <img src="img/kandy.png" class="gallery-img" alt="Temple complex in Kandy lakeside" loading="lazy">
+        <img src="img/kandy.webp" class="gallery-img" alt="Temple complex in Kandy lakeside" loading="lazy">
         <div class="gallery-item-label">The Temple of the Tooth Relic</div>
       </div>
       <div class="gallery-item reveal delay-8">
-        <img src="img/leopard.png" class="gallery-img" alt="Leopard walking in Yala National Park" loading="lazy">
+        <img src="img/leopard.webp" class="gallery-img" alt="Leopard walking in Yala National Park" loading="lazy">
         <div class="gallery-item-label">Sri Lankan Leopard, Yala Safari</div>
       </div>
     </div>
@@ -671,13 +673,13 @@
   <!-- LIGHTBOX MODAL -->
   <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-label="Image gallery zoom view">
     <div class="lightbox-content">
-      <span class="lightbox-close" aria-label="Close image lightbox">&times;</span>
-      <img src="" alt="" id="lightbox-img">
+      <button type="button" class="lightbox-close" aria-label="Close image lightbox">&times;</button>
+      <img alt="" id="lightbox-img">
       <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
   </div>
 
-  <!-- ═══════════════ 10. TESTIMONIALS (Swiper Slider) ═══════════════ -->
+  <!-- ••••••••••••••• 10. TESTIMONIALS (Swiper Slider) ••••••••••••••• -->
   <section id="reviews" class="bg-white" aria-labelledby="review-title">
     <span class="section-tag reveal">Testimonials</span>
     <h2 class="section-title reveal" id="review-title">Wanderer <em>Stories</em></h2>
@@ -688,11 +690,11 @@
         <!-- Slide 1 -->
         <div class="swiper-slide">
           <div class="review-card">
-            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"Sri Lanka completely blew our minds. The colonial walls of Galle, the mountain train, the tea plantations, and the wildlife in Udawalawe — every detail was organized perfectly."</p>
+            <div class="review-quote-mark" aria-hidden="true">&quot;</div>
+            <div class="review-stars">*****</div>
+            <p class="review-text">"Sri Lanka completely blew our minds. The colonial walls of Galle, the mountain train, the tea plantations, and the wildlife in Udawalawe - every detail was organized perfectly."</p>
             <div class="reviewer-profile">
-              <span class="reviewer-avatar" aria-hidden="true">🇦🇺</span>
+              <span class="reviewer-avatar" aria-hidden="true">AU</span>
               <div>
                 <div class="reviewer-name">Sarah Mitchell</div>
                 <div class="reviewer-location">Sydney, Australia</div>
@@ -704,11 +706,11 @@
         <!-- Slide 2 -->
         <div class="swiper-slide">
           <div class="review-card">
-            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
-            <div class="review-stars">★★★★★</div>
+            <div class="review-quote-mark" aria-hidden="true">&quot;</div>
+            <div class="review-stars">*****</div>
             <p class="review-text">"Climbing Sigiriya during sunrise was one of the highlight moments of my life. Our private driver was friendly, full of local facts, and guided us to best local cafes."</p>
             <div class="reviewer-profile">
-              <span class="reviewer-avatar" aria-hidden="true">🇩🇪</span>
+              <span class="reviewer-avatar" aria-hidden="true">DE</span>
               <div>
                 <div class="reviewer-name">Hans Richter</div>
                 <div class="reviewer-location">Munich, Germany</div>
@@ -720,11 +722,11 @@
         <!-- Slide 3 -->
         <div class="swiper-slide">
           <div class="review-card">
-            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
-            <div class="review-stars">★★★★★</div>
+            <div class="review-quote-mark" aria-hidden="true">&quot;</div>
+            <div class="review-stars">*****</div>
             <p class="review-text">"The Ayurveda retreats, clean beaches, and spiced curries were exactly the escape I needed. Serendib customized our train tickets and transfers seamlessly."</p>
             <div class="reviewer-profile">
-              <span class="reviewer-avatar" aria-hidden="true">🇺🇸</span>
+              <span class="reviewer-avatar" aria-hidden="true">US</span>
               <div>
                 <div class="reviewer-name">Priya Patel</div>
                 <div class="reviewer-location">New York, USA</div>
@@ -736,11 +738,11 @@
         <!-- Slide 4 -->
         <div class="swiper-slide">
           <div class="review-card">
-            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
-            <div class="review-stars">★★★★★</div>
+            <div class="review-quote-mark" aria-hidden="true">&quot;</div>
+            <div class="review-stars">*****</div>
             <p class="review-text">"We spotted two leopards on our Yala safari! An incredible wildlife adventure. The hotels, lodges, and glamping tents chosen for us were top class."</p>
             <div class="reviewer-profile">
-              <span class="reviewer-avatar" aria-hidden="true">🇬🇧</span>
+              <span class="reviewer-avatar" aria-hidden="true">UK</span>
               <div>
                 <div class="reviewer-name">James Thornton</div>
                 <div class="reviewer-location">London, UK</div>
@@ -754,10 +756,10 @@
     </div>
   </section>
 
-  <!-- ═══════════════ 11. WHY CHOOSE US ═══════════════ -->
+  <!-- ••••••••••••••• 11. WHY CHOOSE US ••••••••••••••• -->
   <section id="why-us" class="bg-dark" aria-labelledby="why-title">
     <div class="why-img-side reveal-left">
-      <img src="img/why_travel.png" alt="Traveler overlooking mountains in Sri Lanka" class="why-img" loading="lazy">
+      <img src="img/why_travel.webp" alt="Traveler overlooking mountains in Sri Lanka" class="why-img" loading="lazy">
       <div class="why-trust-badge">
         <i class="fa-solid fa-award"></i>
         <div>
@@ -799,12 +801,12 @@
       <div class="why-numbers">
         <div class="why-num"><strong>18+</strong><span>Years Active</span></div>
         <div class="why-num"><strong>14K+</strong><span>Happy Travellers</span></div>
-        <div class="why-num"><strong>4.9★</strong><span>Feedback Rating</span></div>
+        <div class="why-num"><strong>4.9*</strong><span>Feedback Rating</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 12. TRAVEL BLOG ════──────────────── -->
+  <!-- ••••••••••••••• 12. TRAVEL BLOG ••••”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€ -->
   <section id="blog" class="bg-ivory" aria-labelledby="blog-title">
     <span class="section-tag reveal">Travel Blog</span>
     <h2 class="section-title reveal" id="blog-title">Insights from the <em>Island</em></h2>
@@ -813,11 +815,11 @@
     <div class="blog-grid">
       <div class="blog-card blog-card-featured reveal delay-1">
         <div class="blog-img-wrap">
-          <img src="img/blog1.png" alt="Sigiriya stairs" class="blog-img" loading="lazy">
+          <img src="img/blog1.webp" alt="Sigiriya stairs" class="blog-img" loading="lazy">
           <div class="blog-category">Guides</div>
         </div>
         <div class="blog-body">
-          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> June 2026 &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 8 min read</div>
+          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> June 2026  |  <i class="fa-regular fa-clock"></i> 8 min read</div>
           <h3 class="blog-title">Climbing the Citadel: A Sigiriya Morning Guide</h3>
           <p class="blog-excerpt">Avoid crowds and heat. Discover the history, best photographic points, and historical highlights before climbing Lion Rock.</p>
           <a href="#plan" class="blog-link">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
@@ -826,11 +828,11 @@
 
       <div class="blog-card reveal delay-2">
         <div class="blog-img-wrap">
-          <img src="img/blog2.png" alt="Highland blue train" class="blog-img" loading="lazy">
+          <img src="img/blog2.webp" alt="Highland blue train" class="blog-img" loading="lazy">
           <div class="blog-category">Scenic</div>
         </div>
         <div class="blog-body">
-          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> May 2026 &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 5 min read</div>
+          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> May 2026  |  <i class="fa-regular fa-clock"></i> 5 min read</div>
           <h3 class="blog-title">All Aboard the Legendary Kandy-Ella Train</h3>
           <p class="blog-excerpt">Explore tips on seat reservations, best sides to sit, and schedule adjustments for the famous highland train ride.</p>
           <a href="#plan" class="blog-link">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
@@ -839,11 +841,11 @@
 
       <div class="blog-card reveal delay-3">
         <div class="blog-img-wrap">
-          <img src="img/blog3.png" alt="Surfer at sunset" class="blog-img" loading="lazy">
+          <img src="img/blog3.webp" alt="Surfer at sunset" class="blog-img" loading="lazy">
           <div class="blog-category">Coastal</div>
         </div>
         <div class="blog-body">
-          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> April 2026 &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 6 min read</div>
+          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> April 2026  |  <i class="fa-regular fa-clock"></i> 6 min read</div>
           <h3 class="blog-title">Whale Safaris: Spotting Ocean Giants</h3>
           <p class="blog-excerpt">Find the best seasons to see blue whales, sperm whales, and dolphins off Mirissa shores.</p>
           <a href="#plan" class="blog-link">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
@@ -852,7 +854,7 @@
     </div>
   </section>
 
-  <!-- ═══════════════ 13. FAQ SECTION ═══════════════ -->
+  <!-- ••••••••••••••• 13. FAQ SECTION ••••••••••••••• -->
   <section id="faq" class="bg-white" aria-labelledby="faq-title">
     <span class="section-tag reveal">FAQ</span>
     <h2 class="section-title reveal" id="faq-title">Common <em>Questions</em></h2>
@@ -861,7 +863,7 @@
     <div class="faq-list">
       <div class="faq-item reveal delay-1">
         <button class="faq-q" aria-expanded="false">
-          Do I need a travel visa to visit Sri Lanka?
+          Do I need a travel visa to visit Sri Lanka"
           <i class="fa-solid fa-plus faq-icon"></i>
         </button>
         <div class="faq-a">
@@ -871,7 +873,7 @@
 
       <div class="faq-item reveal delay-2">
         <button class="faq-q" aria-expanded="false">
-          Is Sri Lanka a safe destination for families and solo travelers?
+          Is Sri Lanka a safe destination for families and solo travelers"
           <i class="fa-solid fa-plus faq-icon"></i>
         </button>
         <div class="faq-a">
@@ -881,7 +883,7 @@
 
       <div class="faq-item reveal delay-3">
         <button class="faq-q" aria-expanded="false">
-          Can I customize my hotel selection and day activities?
+          Can I customize my hotel selection and day activities"
           <i class="fa-solid fa-plus faq-icon"></i>
         </button>
         <div class="faq-a">
@@ -891,7 +893,7 @@
     </div>
   </section>
 
-  <!-- ═══════════════ 14. PLAN YOUR TRIP (Booking/Enquiry) ═══════════════ -->
+  <!-- ••••••••••••••• 14. PLAN YOUR TRIP (Booking/Enquiry) ••••••••••••••• -->
   <section id="plan" class="bg-ivory" aria-labelledby="form-title">
     <span class="section-tag reveal">Start Your Journey</span>
     <h2 class="section-title reveal" id="form-title">Plan Your Custom <em>Getaway</em></h2>
@@ -918,10 +920,10 @@
           <div class="form-group">
             <label class="form-label" for="travellers">No. of Travellers</label>
             <select id="travellers" class="form-select">
-              <option>1 – Solo Adventure</option>
-              <option>2 – Couple / Duo</option>
-              <option>3–5 – Small Group</option>
-              <option>6+ – Large Group / Family</option>
+              <option>1 - Solo Adventure</option>
+              <option>2 - Couple / Duo</option>
+              <option>3-5 - Small Group</option>
+              <option>6+ - Large Group / Family</option>
             </select>
           </div>
         </div>
@@ -977,7 +979,7 @@
     </div>
   </section>
 
-  <!-- ═══════════════ 15. FOOTER ═══════════════ -->
+  <!-- ••••••••••••••• 15. FOOTER ••••••••••••••• -->
   <footer id="footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-col footer-col-brand">
@@ -1026,8 +1028,8 @@
     </div>
 
     <div class="footer-bottom">
-      <div class="footer-bottom-left">© 2026 Serendib Travel · Discover Sri Lanka · All Rights Reserved.</div>
-      <div class="footer-flag">🇱🇰</div>
+      <div class="footer-bottom-left">(c) 2026 Serendib Travel | Discover Sri Lanka | All Rights Reserved.</div>
+      <div class="footer-flag">LK</div>
       <div class="footer-bottom-right">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms &amp; Conditions</a>
@@ -1046,7 +1048,7 @@
     <i class="fa-solid fa-chevron-up"></i>
   </button>
 
-  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <!-- ••••••••••••••• SCRIPTS ••••••••••••••• -->
   <!-- Swiper, Lenis, and GSAP ScrollTrigger scripts CDNs -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -1054,9 +1056,9 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
-    /* ── Lenis Smooth Scrolling ── */
+    /* ”€”€ Lenis Smooth Scrolling ”€”€ */
     let lenis;
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.Lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -1070,7 +1072,7 @@
       requestAnimationFrame(raf);
     }
 
-    /* ── Preloader Counter & Reveal ── */
+    /* ”€”€ Preloader Counter & Reveal ”€”€ */
     window.addEventListener('DOMContentLoaded', () => {
       const percentText = document.getElementById('loader-percent');
       const fill = document.querySelector('.loader-progress-fill');
@@ -1086,29 +1088,30 @@
             const loader = document.getElementById('loader');
             if (loader) loader.classList.add('hide');
             
-            // Hero GSAP animations
-            gsap.from(".hero-country", {
-              duration: 1.4,
-              y: 80,
-              opacity: 0,
-              ease: "power4.out"
-            });
-            gsap.from(".hero-eyebrow, .hero-tagline", {
-              duration: 1.2,
-              y: 40,
-              opacity: 0,
-              delay: 0.3,
-              stagger: 0.15,
-              ease: "power3.out"
-            });
-            gsap.from(".hero-info, .hero-cta, .hero-stats", {
-              duration: 1.2,
-              y: 40,
-              opacity: 0,
-              delay: 0.6,
-              stagger: 0.15,
-              ease: "power3.out"
-            });
+            if (window.gsap) {
+              gsap.from(".hero-country", {
+                duration: 1,
+                y: 48,
+                opacity: 0,
+                ease: "power3.out"
+              });
+              gsap.from(".hero-eyebrow, .hero-tagline", {
+                duration: 0.9,
+                y: 24,
+                opacity: 0,
+                delay: 0.18,
+                stagger: 0.1,
+                ease: "power3.out"
+              });
+              gsap.from(".hero-info, .hero-cta, .hero-stats", {
+                duration: 0.9,
+                y: 28,
+                opacity: 0,
+                delay: 0.32,
+                stagger: 0.1,
+                ease: "power3.out"
+              });
+            }
           }, 400);
         }
         if (percentText) percentText.textContent = count + '%';
@@ -1116,32 +1119,43 @@
       }, 30);
     });
 
-    /* ── Burger Menu Drawer ── */
+    /* ”€”€ Burger Menu Drawer ”€”€ */
     const burgerBtn = document.getElementById('burger-btn');
     const navMenu = document.getElementById('nav-menu');
     if (burgerBtn && navMenu) {
       burgerBtn.addEventListener('click', () => {
         const isOpen = burgerBtn.classList.toggle('open');
         navMenu.classList.toggle('open');
-        burgerBtn.setAttribute('aria-expanded', isOpen);
+        document.body.classList.toggle('nav-open', isOpen);
+        burgerBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+          burgerBtn.classList.remove('open');
+          navMenu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          burgerBtn.setAttribute('aria-expanded', 'false');
+          burgerBtn.focus();
+        }
       });
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
           burgerBtn.classList.remove('open');
           navMenu.classList.remove('open');
+          document.body.classList.remove('nav-open');
           burgerBtn.setAttribute('aria-expanded', 'false');
         });
       });
     }
 
-    /* ── Sticky Header ── */
+    /* ”€”€ Sticky Header ”€”€ */
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 80) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
     });
 
-    /* ── Active Nav Link on Scroll ── */
+    /* ”€”€ Active Nav Link on Scroll ”€”€ */
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
@@ -1156,11 +1170,11 @@
       });
     });
 
-    /* ── GSAP Horizontal Scrolling (Desktop only) ── */
-    gsap.registerPlugin(ScrollTrigger);
+    /* ”€”€ GSAP Horizontal Scrolling (Desktop only) ”€”€ */
+    if (window.gsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
     
     // Check if device matches horizontal scrolling breakpoint and motion preference
-    if (window.innerWidth > 1024 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.gsap && window.ScrollTrigger && window.innerWidth > 1024 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const panels = gsap.utils.toArray(".panel");
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
@@ -1177,7 +1191,7 @@
       });
     }
 
-    /* ── Custom Liquid Cursor (Desktop Only) ── */
+    /* ”€”€ Custom Liquid Cursor (Desktop Only) ”€”€ */
     const cursor = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursor-ring');
     let cx = 0, cy = 0, rx = 0, ry = 0;
@@ -1200,7 +1214,7 @@
       });
     }
 
-    /* ── Floating Particles Canvas ── */
+    /* ”€”€ Floating Particles Canvas ”€”€ */
     const canvas = document.getElementById('particles-canvas');
     if (canvas) {
       const ctx = canvas.getContext('2d');
@@ -1235,7 +1249,7 @@
       loopParticles();
     }
 
-    /* ── Mouse Parallax Hero ── */
+    /* ”€”€ Mouse Parallax Hero ”€”€ */
     if (window.innerWidth > 768) {
       const heroBg = document.querySelector('.hero-bg');
       const midLayer = document.getElementById('mid-layer');
@@ -1251,14 +1265,14 @@
       });
     }
 
-    /* ── Scroll Reveal via GSAP ── */
+    /* ”€”€ Scroll Reveal via GSAP ”€”€ */
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    /* ── Counter Statistics Animation ── */
+    /* ”€”€ Counter Statistics Animation ”€”€ */
     const counters = document.querySelectorAll('.stat-num, .why-num strong');
     const counterObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1268,7 +1282,7 @@
           if (isNaN(target)) return;
           let current = 0;
           const increment = target / 60;
-          const suffix = rawCount.includes('+') ? '+' : (rawCount.includes('K') ? 'K+' : (rawCount.includes('★') ? '★' : ''));
+          const suffix = rawCount.includes('+') ? '+' : (rawCount.includes('K') ? 'K+' : (rawCount.includes('*') ? '*' : ''));
           const timer = setInterval(() => {
             current += increment;
             if (current >= target) { current = target; clearInterval(timer); }
@@ -1280,14 +1294,14 @@
     }, { threshold: 0.5 });
     counters.forEach(c => counterObserver.observe(c));
 
-    /* ── Hero Slides Arrow Taglines ── */
+    /* ”€”€ Hero Slides Arrow Taglines ”€”€ */
     const heroSlides = [
-      "🌿 Ella Highlands · Nine Arches & Tea Gardens",
-      "🌊 Mirissa Beach · Blue Whales & Surf",
-      "🪨 Sigiriya Rock Fortress · UNESCO Heritage",
-      "🏯 Galle Fort · Dutch Colonial Walled City",
-      "🕌 Kandy · Sacred Temple of the Tooth",
-      "🐆 Yala National Park · Leopard Safari Trails"
+      "Ella Highlands | Nine Arches & Tea Gardens",
+      "Mirissa Beach | Blue Whales & Surf",
+      "Sigiriya Rock Fortress | UNESCO Heritage",
+      "Galle Fort | Dutch Colonial Walled City",
+      "Kandy | Sacred Temple of the Tooth",
+      "Yala National Park | Leopard Safari Trails"
     ];
     let slideIdx = 0;
     const prevBtn = document.getElementById('arrow-prev');
@@ -1307,7 +1321,7 @@
       });
     }
 
-    /* ── Map Interactive Pins ── */
+    /* ”€”€ Map Interactive Pins ”€”€ */
     document.querySelectorAll('.map-pin').forEach(pin => {
       pin.addEventListener('click', () => {
         const info = pin.getAttribute('data-info');
@@ -1323,7 +1337,7 @@
       });
     });
 
-    /* ── FAQ Accordion ── */
+    /* ”€”€ FAQ Accordion ”€”€ */
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
@@ -1340,7 +1354,7 @@
       });
     });
 
-    /* ── Gallery Lightbox Modal ── */
+    /* ”€”€ Gallery Lightbox Modal ”€”€ */
     const lightbox = document.getElementById('lightbox-modal');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCap = document.getElementById('lightbox-caption');
@@ -1371,26 +1385,28 @@
       });
     }
 
-    /* ── Swiper Testimonials Slider ── */
-    const swiper = new Swiper('.mySwiper', {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        320: { slidesPerView: 1, spaceBetween: 20 },
-        768: { slidesPerView: 2, spaceBetween: 24 },
-        1024: { slidesPerView: 3, spaceBetween: 26 }
-      }
-    });
+    /* ”€”€ Swiper Testimonials Slider ”€”€ */
+    if (window.Swiper) {
+      new Swiper('.mySwiper', {
+        loop: true,
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          320: { slidesPerView: 1, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 24 },
+          1024: { slidesPerView: 3, spaceBetween: 26 }
+        }
+      });
+    }
 
-    /* ── Back to Top ── */
+    /* ”€”€ Back to Top ”€”€ */
     const backToTopBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) backToTopBtn.classList.add('visible');
@@ -1401,7 +1417,7 @@
       else window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    /* ── Contact Form Mailto Fallback ── */
+    /* ”€”€ Contact Form Mailto Fallback ”€”€ */
     function handlePlanTrip(e) {
       e.preventDefault();
       const name = document.getElementById('full-name').value;
@@ -1434,7 +1450,7 @@
           btn.style.background = '';
           btn.style.color = '';
           
-          window.location.href = `mailto:hello@serendib.lk?subject=${subject}&body=${body}`;
+          window.location.href = `mailto:hello@serendib.lk"subject=${subject}&body=${body}`;
           e.target.reset();
         }, 1500);
       }
