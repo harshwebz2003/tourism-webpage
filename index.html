@@ -3,13 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serendib | Discover Sri Lanka – The Pearl of the Indian Ocean</title>
-  <meta name="description" content="Explore Sri Lanka – the Pearl of the Indian Ocean. Discover ancient temples, pristine beaches, lush tea gardens, and vibrant wildlife. Book your dream Sri Lanka tour today.">
-  <meta name="keywords" content="Sri Lanka tourism, Sigiriya, Mirissa beach, Ella, Kandy, Ceylon tea, tour packages, travel guide">
+  
+  <!-- SEO Primary Tags -->
+  <title>Serendib | Luxury Sri Lanka Travel & Curated Tours</title>
+  <meta name="description" content="Embark on a luxury Sri Lankan getaway. Discover ancient UNESCO heritage, emerald tea gardens, wild leopards, and golden coasts with Serendib. Custom itineraries made for you.">
+  <meta name="keywords" content="Sri Lanka tourism, luxury travel Sri Lanka, Sigiriya Rock, Kandy Temple, Ella train, Yala safari, Ceylon tea estates, custom tours Sri Lanka">
+  <link rel="canonical" href="https://harshwebz2003.github.io/tourism-webpage/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://harshwebz2003.github.io/tourism-webpage/">
+  <meta property="og:title" content="Serendib | Luxury Sri Lanka Travel & Curated Tours">
+  <meta property="og:description" content="Discover UNESCO heritage, misty hills, and pristine beaches with Sri Lanka's premier custom travel designer.">
+  <meta property="og:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://harshwebz2003.github.io/tourism-webpage/">
+  <meta property="twitter:title" content="Serendib | Luxury Sri Lanka Travel & Curated Tours">
+  <meta property="twitter:description" content="Discover UNESCO heritage, misty hills, and pristine beaches with Sri Lanka's premier custom travel designer.">
+  <meta property="twitter:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.png">
+
+  <!-- Font loading & CSS assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Swiper & Lenis CSS CDNs -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data / Rich Schema Markups -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Serendib Travel",
+    "url": "https://harshwebz2003.github.io/tourism-webpage/",
+    "logo": "https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+94-77-123-4567",
+      "contactType": "customer support",
+      "areaServed": "LK",
+      "availableLanguage": ["English", "German", "French"]
+    },
+    "sameAs": [
+      "https://www.instagram.com/",
+      "https://www.facebook.com/",
+      "https://twitter.com/"
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    "name": "Sri Lanka",
+    "description": "An island nation south of India, known for its diverse landscapes ranging from rainforest and arid plains to highlands and sandy beaches.",
+    "touristType": ["Cultural", "Adventure", "Nature", "Beach", "Wildlife"]
+  }
+  </script>
 </head>
 <body>
 
@@ -18,8 +75,9 @@
   <div id="cursor-ring"></div>
 
   <!-- PRELOADER -->
-  <div id="loader">
+  <div id="loader" role="dialog" aria-modal="true" aria-label="Loading page content">
     <div class="loader-logo">Serendib</div>
+    <div class="loader-counter" id="loader-percent">0%</div>
     <div class="loader-progress-bar"><div class="loader-progress-fill"></div></div>
     <div class="loader-sub">Loading Paradise…</div>
   </div>
@@ -28,22 +86,23 @@
   <canvas id="particles-canvas"></canvas>
 
   <!-- ═══════════════ HEADER NAV ═══════════════ -->
-  <header id="main-header">
-    <nav>
-      <a href="#hero" class="nav-brand">Serendib</a>
+  <header id="main-header" role="banner">
+    <nav aria-label="Main Navigation">
+      <a href="#hero" class="nav-brand" aria-label="Serendib Home">Serendib</a>
 
       <div class="nav-menu" id="nav-menu">
         <a class="nav-link active" href="#hero">Home</a>
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#destinations">Destinations</a>
+        <a class="nav-link" href="#showcase">Showcase</a>
         <a class="nav-link" href="#packages">Packages</a>
         <a class="nav-link" href="#map">Map</a>
         <a class="nav-link" href="#experiences">Experiences</a>
         <a class="nav-link" href="#blog">Blog</a>
-        <a class="nav-link nav-cta" href="#plan">Plan Trip</a>
+        <a class="nav-link nav-cta" href="#plan" role="button">Plan Trip</a>
       </div>
 
-      <button class="burger-btn" id="burger-btn" aria-label="Toggle menu">
+      <button class="burger-btn" id="burger-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-menu">
         <span class="burger-bar"></span>
         <span class="burger-bar"></span>
         <span class="burger-bar"></span>
@@ -52,27 +111,27 @@
   </header>
 
   <!-- ═══════════════ 1. HERO SECTION ═══════════════ -->
-  <section id="hero">
-    <div class="hero-bg"></div>
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" style="transform: scale(1.05);"></div>
     <div class="hero-glow"></div>
     <div class="hero-clouds"></div>
 
     <div class="hero-mid">
-      <img src="img/sl_mid.png" alt="Sri Lanka midground" id="mid-layer">
+      <img src="img/sl_mid.png" alt="Sigiriya mountains silhouette midground" id="mid-layer" loading="eager">
     </div>
     <div class="hero-fore">
-      <img src="img/sl_fore.png" alt="Sri Lanka foreground" id="fore-layer">
+      <img src="img/sl_fore.png" alt="Sri Lankan elephant silhouettes foreground" id="fore-layer" loading="eager">
     </div>
     <div class="hero-ground"></div>
 
     <div class="hero-title" id="hero-title-group">
-      <div class="hero-eyebrow">✦ The Pearl of the Indian Ocean ✦</div>
-      <h1 class="hero-country">Sri Lanka</h1>
+      <div class="hero-eyebrow">✦ Discover the Wonders of Ceylon ✦</div>
+      <h1 class="hero-country" id="hero-title">Sri Lanka</h1>
       <div class="hero-tagline" id="hero-tagline">Wonder of Asia &nbsp;·&nbsp; 65,610 km² &nbsp;·&nbsp; 21+ Million Smiles</div>
     </div>
 
     <div class="hero-info">
-      <p>Where ancient temples meet turquoise seas, mist-cloaked highlands roll into golden coasts, and a thousand years of culture awaken your soul at every turn.</p>
+      <p>Where golden coastal sands meet misty forest valleys, ancient stupas touch the sky, and a rich tapestry of vibrant culture welcomes you at every milestone.</p>
     </div>
 
     <div class="hero-cta">
@@ -81,8 +140,8 @@
     </div>
 
     <div class="hero-arrows">
-      <i class="fa-solid fa-chevron-left" id="arrow-prev" aria-label="Previous"></i>
-      <i class="fa-solid fa-chevron-right" id="arrow-next" aria-label="Next"></i>
+      <i class="fa-solid fa-chevron-left" id="arrow-prev" aria-label="Previous Slide"></i>
+      <i class="fa-solid fa-chevron-right" id="arrow-next" aria-label="Next Slide"></i>
     </div>
 
     <div class="hero-stats">
@@ -108,56 +167,51 @@
   </section>
 
   <!-- TICKER MARQUEE -->
-  <div class="ticker-wrap">
+  <div class="ticker-wrap" aria-hidden="true">
     <div class="ticker">
       <div class="ticker-item"><i class="fa-solid fa-mountain"></i> Sigiriya Rock Fortress</div>
-      <div class="ticker-item"><i class="fa-solid fa-umbrella-beach"></i> Mirissa Beach</div>
-      <div class="ticker-item"><i class="fa-solid fa-mug-saucer"></i> Ceylon Tea Gardens</div>
-      <div class="ticker-item"><i class="fa-solid fa-elephant"></i> Yala National Park</div>
+      <div class="ticker-item"><i class="fa-solid fa-umbrella-beach"></i> Mirissa Coastline</div>
+      <div class="ticker-item"><i class="fa-solid fa-mug-saucer"></i> Ceylon Tea Highlands</div>
+      <div class="ticker-item"><i class="fa-solid fa-elephant"></i> Yala Leopard Safari</div>
       <div class="ticker-item"><i class="fa-solid fa-landmark"></i> Temple of the Tooth</div>
-      <div class="ticker-item"><i class="fa-solid fa-water"></i> Galle Fort</div>
-      <div class="ticker-item"><i class="fa-solid fa-train"></i> Ella Scenic Train Ride</div>
-      <div class="ticker-item"><i class="fa-solid fa-fish"></i> Trincomalee Diving</div>
-      <div class="ticker-item"><i class="fa-solid fa-star"></i> Arugam Bay Surfing</div>
+      <div class="ticker-item"><i class="fa-solid fa-water"></i> Galle Walled City</div>
+      <div class="ticker-item"><i class="fa-solid fa-train"></i> Ella Scenic Rail</div>
+      <div class="ticker-item"><i class="fa-solid fa-fish"></i> Nilaveli Blue Seas</div>
       <div class="ticker-item"><i class="fa-solid fa-mountain"></i> Sigiriya Rock Fortress</div>
-      <div class="ticker-item"><i class="fa-solid fa-umbrella-beach"></i> Mirissa Beach</div>
-      <div class="ticker-item"><i class="fa-solid fa-mug-saucer"></i> Ceylon Tea Gardens</div>
-      <div class="ticker-item"><i class="fa-solid fa-elephant"></i> Yala National Park</div>
+      <div class="ticker-item"><i class="fa-solid fa-umbrella-beach"></i> Mirissa Coastline</div>
+      <div class="ticker-item"><i class="fa-solid fa-mug-saucer"></i> Ceylon Tea Highlands</div>
+      <div class="ticker-item"><i class="fa-solid fa-elephant"></i> Yala Leopard Safari</div>
       <div class="ticker-item"><i class="fa-solid fa-landmark"></i> Temple of the Tooth</div>
-      <div class="ticker-item"><i class="fa-solid fa-water"></i> Galle Fort</div>
-      <div class="ticker-item"><i class="fa-solid fa-train"></i> Ella Scenic Train Ride</div>
-      <div class="ticker-item"><i class="fa-solid fa-fish"></i> Trincomalee Diving</div>
-      <div class="ticker-item"><i class="fa-solid fa-star"></i> Arugam Bay Surfing</div>
+      <div class="ticker-item"><i class="fa-solid fa-water"></i> Galle Walled City</div>
+      <div class="ticker-item"><i class="fa-solid fa-train"></i> Ella Scenic Rail</div>
     </div>
   </div>
 
   <!-- ═══════════════ 2. ABOUT SRI LANKA ═══════════════ -->
-  <section id="about">
+  <section id="about" class="bg-ivory" aria-labelledby="about-title">
     <div class="about-media reveal-left">
-      <img src="img/tea_plantation.png" alt="Ceylon Tea Gardens" class="about-img-main">
-      <img src="img/nine_arches.png" alt="Nine Arches Ella" class="about-img-accent">
+      <img src="img/tea_plantation.png" alt="Lush green Ceylon tea estate in Nuwara Eliya" class="about-img-main" loading="lazy">
+      <img src="img/nine_arches.png" alt="Famous stone Nine Arches Bridge in Ella" class="about-img-accent" loading="lazy">
       <div class="about-badge">
         <strong>#1</strong>
-        <span>Lonely Planet<br>Destination</span>
+        <span>Lonely Planet<br>Must Visit</span>
       </div>
     </div>
 
     <div class="about-content reveal-right">
       <span class="section-tag">About the Island</span>
-      <h2 class="section-title">A Teardrop <em>Paradise</em><br>in the Indian Ocean</h2>
+      <h2 class="section-title" id="about-title">A Teardrop <em>Paradise</em><br>in the Indian Ocean</h2>
       <p class="section-sub">
-        Cradled between the Bay of Bengal and the Arabian Sea, Sri Lanka packs the world's most
-        astonishing diversity into a single island — ancient civilisations, misty highlands,
-        colonial forts, and beaches that stretch into infinity.
+        Cradled in warm tropical waters, Sri Lanka packs the world's most astonishing density into one island. From crumbling ancient palaces and mist-veiled mountain ranges to coastal shores that stretch into the horizon — every day is an open invitation to wonder.
       </p>
 
       <div class="about-features">
-        <div class="feature-pill reveal delay-1"><i class="fa-solid fa-palm-tree"></i><span>Tropical Beaches</span></div>
-        <div class="feature-pill reveal delay-2"><i class="fa-solid fa-gopuram"></i><span>Ancient Ruins</span></div>
-        <div class="feature-pill reveal delay-3"><i class="fa-solid fa-leaf"></i><span>Ceylon Tea</span></div>
-        <div class="feature-pill reveal delay-4"><i class="fa-solid fa-fish-fins"></i><span>Whale Watching</span></div>
-        <div class="feature-pill reveal delay-5"><i class="fa-solid fa-mask"></i><span>Kandyan Dance</span></div>
-        <div class="feature-pill reveal delay-6"><i class="fa-solid fa-bowl-food"></i><span>Spice Cuisine</span></div>
+        <div class="feature-pill"><i class="fa-solid fa-palm-tree"></i><span>Tropical Beaches</span></div>
+        <div class="feature-pill"><i class="fa-solid fa-gopuram"></i><span>Ancient Ruins</span></div>
+        <div class="feature-pill"><i class="fa-solid fa-leaf"></i><span>Ceylon Tea Estates</span></div>
+        <div class="feature-pill"><i class="fa-solid fa-fish-fins"></i><span>Blue Whale Watching</span></div>
+        <div class="feature-pill"><i class="fa-solid fa-mask"></i><span>Kandyan Rituals</span></div>
+        <div class="feature-pill"><i class="fa-solid fa-bowl-food"></i><span>Aromatic Spice Curry</span></div>
       </div>
 
       <div class="about-cta-row">
@@ -167,170 +221,286 @@
   </section>
 
   <!-- ═══════════════ 3. FEATURED DESTINATIONS ═══════════════ -->
-  <section id="destinations">
+  <section id="destinations" class="bg-white" aria-labelledby="dest-title">
     <div class="dest-header">
       <div>
         <span class="section-tag reveal">Top Destinations</span>
-        <h2 class="section-title reveal">Places That <em>Steal</em><br>Your Heart</h2>
+        <h2 class="section-title reveal" id="dest-title">Places That <em>Steal</em><br>Your Heart</h2>
       </div>
-      <a class="btn btn-secondary reveal" href="#plan" style="font-size:11px;padding:12px 28px;">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn btn-secondary btn-secondary-light reveal" href="#plan">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
     </div>
 
     <div class="dest-grid">
       <div class="dest-card reveal delay-1">
-        <img src="img/sigiriya.png" alt="Sigiriya Rock Fortress" class="dest-thumb">
+        <img src="img/sigiriya.png" alt="Sigiriya Lion Rock Fortress aerial view" class="dest-thumb" loading="lazy">
         <div class="dest-overlay">
           <div class="dest-cat">Cultural Triangle</div>
           <div class="dest-name">Sigiriya</div>
-          <p class="dest-desc">Climb the Lion Rock to a 5th-century palace fortress atop a volcanic plug rising 200m above the jungle canopy.</p>
+          <p class="dest-desc">Ascend the grand ancient sky citadel built by King Kashyapa in the 5th century, towering 200 meters above dense jungle.</p>
           <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.9 · UNESCO World Heritage</div>
-          <a href="#plan" class="dest-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#plan" class="dest-btn">Book Travel <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
       <div class="dest-card reveal delay-2">
-        <img src="img/mirissa.png" alt="Mirissa Beach" class="dest-thumb">
+        <img src="img/mirissa.png" alt="Sandy palm tree beach at Mirissa" class="dest-thumb" loading="lazy">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Mirissa</div>
-          <p class="dest-desc">Crescent-shaped tropical beach famed for blue whale safaris, surfing, and beachside fire shows.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Beach Paradise</div>
-          <a href="#plan" class="dest-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          <p class="dest-desc">A relaxed beachfront paradise famed for golden sands, sunset bars, and excursions to spot Blue Whales.</p>
+          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Coastal Gem</div>
+          <a href="#plan" class="dest-btn">Book Travel <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
       <div class="dest-card reveal delay-3">
-        <img src="img/galle.png" alt="Galle Fort Lighthouse" class="dest-thumb">
+        <img src="img/galle.png" alt="Dutch Galle Fort Lighthouse" class="dest-thumb" loading="lazy">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Galle Fort</div>
-          <p class="dest-desc">A Dutch-colonial fortified city containing cobblestone pathways, boutique shops, and a white lighthouse.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.7 · Colonial Heritage</div>
-          <a href="#plan" class="dest-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="dest-card reveal delay-4">
-        <img src="img/nine_arches.png" alt="Ella Train Route" class="dest-thumb">
-        <div class="dest-overlay">
-          <div class="dest-cat">Hill Country</div>
-          <div class="dest-name">Ella</div>
-          <p class="dest-desc">Misty highlands, scenic viewpoints, Nine Arches stone bridge, and infinite green tea fields.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Mountain Retreat</div>
-          <a href="#plan" class="dest-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="dest-card reveal delay-5">
-        <img src="img/kandy.png" alt="Kandy Temple" class="dest-thumb">
-        <div class="dest-overlay">
-          <div class="dest-cat">Hill Capital</div>
-          <div class="dest-name">Kandy</div>
-          <p class="dest-desc">Lakeside capital containing the Sacred Temple of the Tooth Relic — the spiritual soul of Sri Lanka.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.8 · Sacred Heritage</div>
-          <a href="#plan" class="dest-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="dest-card reveal delay-6">
-        <img src="img/leopard.png" alt="Yala Leopard Safari" class="dest-thumb">
-        <div class="dest-overlay">
-          <div class="dest-cat">Wildlife Reserve</div>
-          <div class="dest-name">Yala</div>
-          <p class="dest-desc">Asia's highest leopard density, wild elephants, sloth bears, and incredible birdlife in 979 km² of wilderness.</p>
-          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.9 · Wildlife Sanctuary</div>
-          <a href="#plan" class="dest-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          <p class="dest-desc">Walk the historic Dutch cobblestone ramparts, packed with European cafes, museums, and colonial heritage sites.</p>
+          <div class="dest-tag"><i class="fa-solid fa-star"></i> 4.7 · Historical Citadel</div>
+          <a href="#plan" class="dest-btn">Book Travel <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 4. TOUR PACKAGES ═══════════════ -->
-  <section id="packages">
+  <!-- ═══════════════ 4. HORIZONTAL SHOWCASE (GSAP ScrollTrigger) ═══════════════ -->
+  <div class="horizontal-container" id="showcase">
+    <div class="horizontal-scroll-section">
+      <!-- Panel 1 -->
+      <section class="panel">
+        <div class="panel-content">
+          <div class="panel-img-wrap">
+            <img src="img/sigiriya.png" alt="Sigiriya Citadel" loading="lazy">
+          </div>
+          <div class="panel-text">
+            <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Matale District</div>
+            <h3 class="panel-title">Sigiriya Fortress</h3>
+            <p class="panel-desc">Step into ancient history on the sheer slopes of the Lion Rock. Explore the legendary palace ruins, step-gardens, and water ponds built over 1,500 years ago.</p>
+            <a href="#plan" class="btn btn-primary">Plan Sigiriya Tour</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 2 -->
+      <section class="panel">
+        <div class="panel-content">
+          <div class="panel-img-wrap">
+            <img src="img/nine_arches.png" alt="Ella railway route" loading="lazy">
+          </div>
+          <div class="panel-text">
+            <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Badulla District</div>
+            <h3 class="panel-title">Ella Highlands</h3>
+            <p class="panel-desc">Enjoy fresh mountain air, scenic train journeys winding along valleys, and the historic Nine Arches stone bridge arching through tea fields.</p>
+            <a href="#plan" class="btn btn-primary">Plan Ella Tour</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 3 -->
+      <section class="panel">
+        <div class="panel-content">
+          <div class="panel-img-wrap">
+            <img src="img/mirissa.png" alt="Mirissa beach surf" loading="lazy">
+          </div>
+          <div class="panel-text">
+            <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Matara District</div>
+            <h3 class="panel-title">Mirissa Beach</h3>
+            <p class="panel-desc">Sunbathe beneath coconut palms, enjoy fresh seafood grills, and head out to sea to watch the migration paths of giant blue whales.</p>
+            <a href="#plan" class="btn btn-primary">Plan Mirissa Tour</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 4 -->
+      <section class="panel">
+        <div class="panel-content">
+          <div class="panel-img-wrap">
+            <img src="img/leopard.png" alt="Wild leopard in Yala National Park" loading="lazy">
+          </div>
+          <div class="panel-text">
+            <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Hambantota District</div>
+            <h3 class="panel-title">Yala Wilderness</h3>
+            <p class="panel-desc">Asia's premier destination to see the majestic Sri Lankan leopard. Spot wild Asian elephants, crocodiles, and painted storks.</p>
+            <a href="#plan" class="btn btn-primary">Plan Yala Safari</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 5 -->
+      <section class="panel">
+        <div class="panel-content">
+          <div class="panel-img-wrap">
+            <img src="img/kandy.png" alt="Kandy Temple relic" loading="lazy">
+          </div>
+          <div class="panel-text">
+            <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Central Province</div>
+            <h3 class="panel-title">Sacred Kandy</h3>
+            <p class="panel-desc">Visit the Temple of the Sacred Tooth Relic. Explore lakeside botanical gardens and see dynamic Kandyan dance ceremonies.</p>
+            <a href="#plan" class="btn btn-primary">Plan Kandy Tour</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 6 -->
+      <section class="panel">
+        <div class="panel-content">
+          <div class="panel-img-wrap">
+            <img src="img/galle.png" alt="Dutch fort lighthouse" loading="lazy">
+          </div>
+          <div class="panel-text">
+            <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Galle District</div>
+            <h3 class="panel-title">Galle Fort</h3>
+            <p class="panel-desc">A rich blend of Dutch architectural details and tropical ocean breeze. Walk past colonial brick villas, art galleries, and clock towers.</p>
+            <a href="#plan" class="btn btn-primary">Plan Galle Tour</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 5. EXPERIENCES (Asymmetric Figma Layout) ═══════════════ -->
+  <section id="experiences" class="bg-ivory" aria-labelledby="exp-title">
+    <span class="section-tag reveal">What to Do</span>
+    <h2 class="section-title reveal" id="exp-title">Experiences That <em>Last</em> a Lifetime</h2>
+    <p class="section-sub reveal">From deep jungle tracks to mountain tea estate tours, Sri Lanka delivers an unparalleled range of travel memories.</p>
+
+    <div class="exp-grid">
+      <div class="exp-card reveal delay-1">
+        <span class="exp-icon-wrap" aria-hidden="true">🐘</span>
+        <h3>Wildlife Safari</h3>
+        <p>Observe herds of wild elephants gathering at reservoirs and search for leopards creeping through the dry woodlands.</p>
+      </div>
+      <div class="exp-card reveal delay-2">
+        <span class="exp-icon-wrap" aria-hidden="true">🏄</span>
+        <h3>Coastal Surfing</h3>
+        <p>Catch the famous pipeline breaks at Arugam Bay or cruise calm waves on the southern beach retreats.</p>
+      </div>
+      <div class="exp-card reveal delay-3">
+        <span class="exp-icon-wrap" aria-hidden="true">🍵</span>
+        <h3>Tea Estate Trails</h3>
+        <p>Walk the rolling green valleys of Nuwara Eliya, watch local tea leaves plucked by hand, and enjoy fresh Ceylon brews.</p>
+      </div>
+      <div class="exp-card reveal delay-4">
+        <span class="exp-icon-wrap" aria-hidden="true">🛕</span>
+        <h3>Sacred Heritage</h3>
+        <p>Walk with quiet respect past ancient brick dagobas and cave temples adorned with Buddhist frescoes.</p>
+      </div>
+      <div class="exp-card reveal delay-5">
+        <span class="exp-icon-wrap" aria-hidden="true">🍛</span>
+        <h3>Local Cuisine</h3>
+        <p>Savor fresh hot hoppers, coconut pol sambol, and coastal fish curry prepared with hand-ground spices.</p>
+      </div>
+      <div class="exp-card reveal delay-6">
+        <span class="exp-icon-wrap" aria-hidden="true">🧘</span>
+        <h3>Ayurvedic Spas</h3>
+        <p>Indulge in authentic traditional herbal oil massages and custom wellness treatments in jungle sanctuaries.</p>
+      </div>
+      <div class="exp-card reveal delay-7">
+        <span class="exp-icon-wrap" aria-hidden="true">🚂</span>
+        <h3>Highland Rail</h3>
+        <p>Peer out the windows of the historic colonial train winding through cloud-forested peaks between Kandy and Ella.</p>
+      </div>
+      <div class="exp-card reveal delay-8">
+        <span class="exp-icon-wrap" aria-hidden="true">🪸</span>
+        <h3>Coral Diving</h3>
+        <p>Swim above colorful shallow reefs and historic ocean shipwrecks in the warm tropical seas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 6. TOUR PACKAGES ═══════════════ -->
+  <section id="packages" class="bg-white" aria-labelledby="pkg-title">
     <span class="section-tag reveal">Tour Packages</span>
-    <h2 class="section-title reveal">Curated <em>Journeys</em><br>for Every Traveller</h2>
-    <p class="section-sub reveal">From honeymoon escapes to wildlife adventures — find your perfect Sri Lanka itinerary, fully guided and tailored to you.</p>
+    <h2 class="section-title reveal" id="pkg-title">Curated <em>Journeys</em><br>For Every Style</h2>
+    <p class="section-sub reveal" style="margin:0 auto 40px;">Select from our signature itineraries. All tours are fully guided, customizable, and tailored to you.</p>
 
     <div class="packages-grid">
+      <!-- Card 1 -->
       <div class="pkg-card reveal delay-1">
         <div class="pkg-badge">Best Seller</div>
         <div class="pkg-img-wrap">
-          <img src="img/sigiriya.png" alt="Classic Sri Lanka Tour" class="pkg-img">
+          <img src="img/sigiriya.png" alt="Cultural tour package" class="pkg-img" loading="lazy">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 10 Days / 9 Nights</div>
           <h3 class="pkg-name">Classic Island Tour</h3>
-          <p class="pkg-desc">Explore Sigiriya, Kandy, Ella, Galle & Mirissa. Covers all major landmarks, tea estates, and whale watching.</p>
+          <p class="pkg-desc">Hit the highlights: Sigiriya, Kandy Temple, scenic train to Ella, Yala safari, and Galle ramparts.</p>
           <div class="pkg-highlights">
-            <span><i class="fa-solid fa-check"></i> Guided tours</span>
-            <span><i class="fa-solid fa-check"></i> Hotel stays</span>
-            <span><i class="fa-solid fa-check"></i> Meals included</span>
+            <span><i class="fa-solid fa-check"></i> Private luxury transport</span>
+            <span><i class="fa-solid fa-check"></i> 5★/4★ Hotels &amp; Meals</span>
+            <span><i class="fa-solid fa-check"></i> Site entry tickets</span>
           </div>
           <div class="pkg-footer">
-            <div class="pkg-price">From <strong>$1,290</strong> <span>/person</span></div>
+            <div class="pkg-price">Starting from <strong>$1,290</strong> <span>/person (Customisable)</span></div>
             <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
           </div>
         </div>
       </div>
 
-      <div class="pkg-card reveal delay-2">
-        <div class="pkg-badge pkg-badge-gold">Honeymoon</div>
+      <!-- Card 2 (Featured Card) -->
+      <div class="pkg-card pkg-featured reveal delay-2">
+        <div class="pkg-badge pkg-badge-gold">Lux Experience</div>
         <div class="pkg-img-wrap">
-          <img src="img/mirissa.png" alt="Honeymoon Package" class="pkg-img">
-        </div>
-        <div class="pkg-body">
-          <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 7 Days / 6 Nights</div>
-          <h3 class="pkg-name">Romantic Beach Escape</h3>
-          <p class="pkg-desc">Luxury beachfront stay at Mirissa & Tangalle, sunset whale watching, candlelit dinners, and spa treatments.</p>
-          <div class="pkg-highlights">
-            <span><i class="fa-solid fa-check"></i> Luxury resort</span>
-            <span><i class="fa-solid fa-check"></i> Private transfers</span>
-            <span><i class="fa-solid fa-check"></i> Spa package</span>
-          </div>
-          <div class="pkg-footer">
-            <div class="pkg-price">From <strong>$1,890</strong> <span>/couple</span></div>
-            <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pkg-card reveal delay-3">
-        <div class="pkg-badge pkg-badge-green">Wildlife</div>
-        <div class="pkg-img-wrap">
-          <img src="img/leopard.png" alt="Wildlife Safari Package" class="pkg-img">
+          <img src="img/mirissa.png" alt="Luxury escape tour package" class="pkg-img" loading="lazy">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</div>
-          <h3 class="pkg-name">Wildlife Safari Trail</h3>
-          <p class="pkg-desc">Safari jeeps through Yala, Udawalawe & Minneriya. Encounter leopards, elephants, whales & rare birds.</p>
+          <h3 class="pkg-name">Elite Honeymoon Escape</h3>
+          <p class="pkg-desc">Relax in boutique colonial villas, enjoy sunset yacht cruises, private candlelit dinners, and spa sessions.</p>
           <div class="pkg-highlights">
-            <span><i class="fa-solid fa-check"></i> Expert guide</span>
-            <span><i class="fa-solid fa-check"></i> Jeep safaris</span>
-            <span><i class="fa-solid fa-check"></i> Wildlife lodges</span>
+            <span><i class="fa-solid fa-check"></i> Private villa accommodation</span>
+            <span><i class="fa-solid fa-check"></i> Chauffeur guide</span>
+            <span><i class="fa-solid fa-check"></i> Yacht charter experience</span>
           </div>
           <div class="pkg-footer">
-            <div class="pkg-price">From <strong>$1,490</strong> <span>/person</span></div>
+            <div class="pkg-price">Starting from <strong>$1,980</strong> <span>/couple (Customisable)</span></div>
             <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
           </div>
         </div>
       </div>
 
-      <div class="pkg-card reveal delay-4">
-        <div class="pkg-badge pkg-badge-blue">Cultural</div>
+      <!-- Card 3 -->
+      <div class="pkg-card reveal delay-3">
+        <div class="pkg-badge pkg-badge-green">Wild Wilderness</div>
         <div class="pkg-img-wrap">
-          <img src="img/kandy.png" alt="Cultural Heritage Package" class="pkg-img">
+          <img src="img/leopard.png" alt="Wildlife tour package" class="pkg-img" loading="lazy">
         </div>
         <div class="pkg-body">
-          <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 6 Days / 5 Nights</div>
-          <h3 class="pkg-name">Ancient Kingdoms Trail</h3>
-          <p class="pkg-desc">Explore Anuradhapura, Polonnaruwa, Sigiriya, Kandy temple — the ancient heart of Ceylonese civilisation.</p>
+          <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</div>
+          <h3 class="pkg-name">Deep Safari Trail</h3>
+          <p class="pkg-desc">Track leopards in Yala, encounter elephants in Minneriya, and spot whales in the Mirissa currents.</p>
           <div class="pkg-highlights">
-            <span><i class="fa-solid fa-check"></i> Archaeologist guide</span>
-            <span><i class="fa-solid fa-check"></i> Night ceremonies</span>
-            <span><i class="fa-solid fa-check"></i> Heritage hotels</span>
+            <span><i class="fa-solid fa-check"></i> Wildlife biologist guide</span>
+            <span><i class="fa-solid fa-check"></i> 4x4 Jeep safaris</span>
+            <span><i class="fa-solid fa-check"></i> Eco-safari camp stays</span>
           </div>
           <div class="pkg-footer">
-            <div class="pkg-price">From <strong>$990</strong> <span>/person</span></div>
+            <div class="pkg-price">Starting from <strong>$1,490</strong> <span>/person (Customisable)</span></div>
+            <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="pkg-card reveal delay-4">
+        <div class="pkg-badge pkg-badge-blue">Royal Heritage</div>
+        <div class="pkg-img-wrap">
+          <img src="img/kandy.png" alt="Cultural historical package" class="pkg-img" loading="lazy">
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 7 Days / 6 Nights</div>
+          <h3 class="pkg-name">Ancient Kingdom Tour</h3>
+          <p class="pkg-desc">Walk the ruins of Anuradhapura, Polonnaruwa, and the sacred Temple of the Tooth Relic in Kandy.</p>
+          <div class="pkg-highlights">
+            <span><i class="fa-solid fa-check"></i> Historian tour guides</span>
+            <span><i class="fa-solid fa-check"></i> Traditional Kandyan shows</span>
+            <span><i class="fa-solid fa-check"></i> Historic heritage hotels</span>
+          </div>
+          <div class="pkg-footer">
+            <div class="pkg-price">Starting from <strong>$1,120</strong> <span>/person (Customisable)</span></div>
             <a href="#plan" class="btn btn-primary" style="font-size:11px;padding:10px 22px">Book Now</a>
           </div>
         </div>
@@ -338,508 +508,412 @@
     </div>
   </section>
 
-  <!-- ═══════════════ 5. INTERACTIVE MAP ═══════════════ -->
-  <section id="map">
+  <!-- ═══════════════ 7. INTERACTIVE SRI LANKA MAP ═══════════════ -->
+  <section id="map" class="bg-ivory" aria-labelledby="map-title">
     <div class="map-content">
       <span class="section-tag reveal">Interactive Map</span>
-      <h2 class="section-title reveal">Explore Sri Lanka's<br><em>Key Destinations</em></h2>
-      <p class="section-sub reveal">Click the pins to discover each region's highlights, travel tips, and best time to visit.</p>
+      <h2 class="section-title reveal" id="map-title">Click &amp; Find<br><em>Destinations</em></h2>
+      <p class="section-sub reveal">Select the colored markers on our stylized island map to view regional highlights and travel times.</p>
 
       <div class="map-pins-legend reveal">
-        <div class="map-legend-item"><span class="pin-dot pin-north"></span> Cultural Triangle</div>
-        <div class="map-legend-item"><span class="pin-dot pin-hill"></span> Hill Country</div>
-        <div class="map-legend-item"><span class="pin-dot pin-coast"></span> Coastal South</div>
-        <div class="map-legend-item"><span class="pin-dot pin-wildlife"></span> Wildlife Reserves</div>
+        <div class="map-legend-item"><span class="pin-dot pin-north"></span> Cultural ruins</div>
+        <div class="map-legend-item"><span class="pin-dot pin-hill"></span> Hill country retreat</div>
+        <div class="map-legend-item"><span class="pin-dot pin-coast"></span> Coastal beach</div>
+        <div class="map-legend-item"><span class="pin-dot pin-wildlife"></span> Nature reserves</div>
       </div>
     </div>
 
     <div class="map-visual reveal-right">
       <div class="map-wrapper">
-        <img src="img/map.png" alt="Sri Lanka Interactive Map" class="map-img">
+        <img src="img/map.png" alt="Stylized Sri Lanka map showing locations" class="map-img" loading="lazy">
 
-        <!-- Map Pins -->
-        <div class="map-pin" style="top:22%;left:48%" data-info="Sigiriya — Lion Rock Fortress. UNESCO World Heritage Site. Best visited at sunrise.">
-          <div class="pin-pulse pin-north-bg"></div>
-          <div class="pin-dot pin-north"></div>
-          <div class="pin-tooltip">Sigiriya</div>
-        </div>
-        <div class="map-pin" style="top:38%;left:44%" data-info="Kandy — Sacred Temple of the Tooth. Sri Lanka's cultural capital.">
-          <div class="pin-pulse pin-north-bg"></div>
-          <div class="pin-dot pin-hill"></div>
-          <div class="pin-tooltip">Kandy</div>
-        </div>
-        <div class="map-pin" style="top:52%;left:42%" data-info="Ella — Nine Arches Bridge, scenic train ride, Little Adam's Peak.">
-          <div class="pin-pulse pin-hill-bg"></div>
-          <div class="pin-dot pin-hill"></div>
-          <div class="pin-tooltip">Ella</div>
-        </div>
-        <div class="map-pin" style="top:72%;left:35%" data-info="Galle — Dutch colonial fort, cobblestone streets, boutiques. UNESCO Heritage.">
-          <div class="pin-pulse pin-coast-bg"></div>
-          <div class="pin-dot pin-coast"></div>
-          <div class="pin-tooltip">Galle</div>
-        </div>
-        <div class="map-pin" style="top:78%;left:48%" data-info="Mirissa — Blue whale watching, surfing, tropical beaches.">
-          <div class="pin-pulse pin-coast-bg"></div>
-          <div class="pin-dot pin-coast"></div>
-          <div class="pin-tooltip">Mirissa</div>
-        </div>
-        <div class="map-pin" style="top:65%;left:68%" data-info="Yala National Park — Asia's highest leopard density, wild elephants & birds.">
-          <div class="pin-pulse pin-wildlife-bg"></div>
-          <div class="pin-dot pin-wildlife"></div>
-          <div class="pin-tooltip">Yala</div>
-        </div>
+        <!-- Clickable Pins -->
+        <button class="map-pin" style="top:22%;left:48%" data-info="Sigiriya Citadel — Scale the famous Lion Rock fortress. Ideal sunrise climb to avoid heat. Unesco site." aria-label="Sigiriya Pin">
+          <span class="pin-pulse pin-north-bg"></span>
+          <span class="pin-dot pin-north"></span>
+          <span class="pin-tooltip">Sigiriya</span>
+        </button>
+        <button class="map-pin" style="top:38%;left:44%" data-info="Kandy Temple — Discover the spiritual heart of Kandy, home to the Sacred Tooth Relic." aria-label="Kandy Pin">
+          <span class="pin-pulse pin-north-bg"></span>
+          <span class="pin-dot pin-hill"></span>
+          <span class="pin-tooltip">Kandy</span>
+        </button>
+        <button class="map-pin" style="top:52%;left:42%" data-info="Ella Highlands — Famous for Nine Arches Bridge, tea factories, hiking, and mist-covered train routes." aria-label="Ella Pin">
+          <span class="pin-pulse pin-hill-bg"></span>
+          <span class="pin-dot pin-hill"></span>
+          <span class="pin-tooltip">Ella</span>
+        </button>
+        <button class="map-pin" style="top:72%;left:35%" data-info="Galle Fort — Walk colonial Dutch streets, boutiques, and watch sunset at the lighthouse walls." aria-label="Galle Pin">
+          <span class="pin-pulse pin-coast-bg"></span>
+          <span class="pin-dot pin-coast"></span>
+          <span class="pin-tooltip">Galle</span>
+        </button>
+        <button class="map-pin" style="top:78%;left:48%" data-info="Mirissa Shore — Surf, visit coconut tree hills, and take morning boats to see giant blue whales." aria-label="Mirissa Pin">
+          <span class="pin-pulse pin-coast-bg"></span>
+          <span class="pin-dot pin-coast"></span>
+          <span class="pin-tooltip">Mirissa</span>
+        </button>
+        <button class="map-pin" style="top:65%;left:68%" data-info="Yala Safari — High leopard density, wild elephants, peacocks, and dry jungle trails." aria-label="Yala Pin">
+          <span class="pin-pulse pin-wildlife-bg"></span>
+          <span class="pin-dot pin-wildlife"></span>
+          <span class="pin-tooltip">Yala</span>
+        </button>
       </div>
       <div class="map-info-box" id="map-info-box">
         <i class="fa-solid fa-location-dot"></i>
-        <span id="map-info-text">Click any destination pin to learn more…</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ 6. WHY TRAVEL WITH US ═══════════════ -->
-  <section id="why-us">
-    <div class="why-img-side reveal-left">
-      <img src="img/why_travel.png" alt="Why Travel With Serendib" class="why-img">
-      <div class="why-trust-badge">
-        <i class="fa-solid fa-award"></i>
-        <div>
-          <strong>Award Winning</strong>
-          <span>Agency Since 2008</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="why-content reveal-right">
-      <span class="section-tag">Why Travel With Us</span>
-      <h2 class="section-title">Your Journey,<br><em>Our Expertise</em></h2>
-      <p class="section-sub">With 15+ years of crafting unforgettable Sri Lankan adventures, we blend local knowledge with luxury service to create trips that transform you.</p>
-
-      <div class="why-reasons">
-        <div class="why-reason reveal delay-1">
-          <div class="why-icon"><i class="fa-solid fa-compass"></i></div>
-          <div class="why-text">
-            <h4>Local Expert Guides</h4>
-            <p>Born & raised in Sri Lanka, our guides bring hidden gems and personal stories no book can offer.</p>
-          </div>
-        </div>
-        <div class="why-reason reveal delay-2">
-          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="why-text">
-            <h4>Fully Insured & Safe</h4>
-            <p>All tours carry full travel insurance and 24/7 emergency support for complete peace of mind.</p>
-          </div>
-        </div>
-        <div class="why-reason reveal delay-3">
-          <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
-          <div class="why-text">
-            <h4>100% Customisable</h4>
-            <p>Every itinerary is tailored to your pace, interests, budget, and travel dates. No cookie-cutter tours.</p>
-          </div>
-        </div>
-        <div class="why-reason reveal delay-4">
-          <div class="why-icon"><i class="fa-solid fa-leaf"></i></div>
-          <div class="why-text">
-            <h4>Eco-Responsible Travel</h4>
-            <p>We partner with local communities and conservation projects. Travel leaves a positive footprint.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="why-numbers">
-        <div class="why-num"><strong>15+</strong><span>Years Experience</span></div>
-        <div class="why-num"><strong>12K+</strong><span>Happy Travellers</span></div>
-        <div class="why-num"><strong>4.9★</strong><span>Average Rating</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ 7. EXPERIENCES ═══════════════ -->
-  <section id="experiences">
-    <span class="section-tag reveal">What to Do</span>
-    <h2 class="section-title reveal">Experiences That <em>Last</em> a Lifetime</h2>
-    <p class="section-sub reveal">From jungle safaris to ancient temple trails, Sri Lanka's extraordinary breadth of experiences is unmatched in South Asia.</p>
-
-    <div class="exp-grid">
-      <div class="exp-card reveal delay-1">
-        <div class="exp-icon-wrap">🐘</div>
-        <h3>Wildlife Safari</h3>
-        <p>Encounter wild leopards, elephant herds, and blue whales in their natural habitats across national reserves.</p>
-      </div>
-      <div class="exp-card reveal delay-2">
-        <div class="exp-icon-wrap">🏄</div>
-        <h3>Water Sports</h3>
-        <p>Surf world-class breaks at Arugam Bay, dive coral gardens in Trincomalee, or kite-surf in Kalpitiya.</p>
-      </div>
-      <div class="exp-card reveal delay-3">
-        <div class="exp-icon-wrap">🍵</div>
-        <h3>Tea Estate Tours</h3>
-        <p>Walk emerald hillside plantations, meet tea pickers, and sip freshly brewed Ceylon tea as clouds drift past.</p>
-      </div>
-      <div class="exp-card reveal delay-4">
-        <div class="exp-icon-wrap">🛕</div>
-        <h3>Temple Trails</h3>
-        <p>Explore 2,500-year-old dagobas, cave temples ablaze with frescoes, and ancient forest monasteries.</p>
-      </div>
-      <div class="exp-card reveal delay-5">
-        <div class="exp-icon-wrap">🍛</div>
-        <h3>Culinary Journeys</h3>
-        <p>Devour kottu roti, hoppers, and coconut sambols bursting with aromatic local spices and coastal seafood.</p>
-      </div>
-      <div class="exp-card reveal delay-6">
-        <div class="exp-icon-wrap">🧘</div>
-        <h3>Ayurveda & Yoga</h3>
-        <p>Restore natural balance with authentic Ayurvedic treatments and yoga retreats in serene jungle spas.</p>
-      </div>
-      <div class="exp-card reveal delay-7">
-        <div class="exp-icon-wrap">🚂</div>
-        <h3>Scenic Train Journeys</h3>
-        <p>Board the famous blue train winding through cloud forests and emerald valleys of the hill country.</p>
-      </div>
-      <div class="exp-card reveal delay-8">
-        <div class="exp-icon-wrap">🪸</div>
-        <h3>Coral Diving</h3>
-        <p>Discover pristine coral reefs, ancient marine shipwrecks, and kaleidoscopic schools of fish.</p>
+        <span id="map-info-text">Select any pin to view travel tips and information…</span>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════ 8. SEASONAL TRAVEL GUIDE ═══════════════ -->
-  <section id="seasonal">
+  <section id="seasonal" class="bg-ivory" aria-labelledby="seasonal-title">
     <div class="seasonal-header">
-      <span class="section-tag reveal">Seasonal Guide</span>
-      <h2 class="section-title reveal">Best Time to <em>Visit</em></h2>
-      <p class="section-sub reveal">Sri Lanka has two distinct monsoon seasons. The west & south coasts are best from December–April, while the east is best from May–September.</p>
+      <span class="section-tag reveal">Best Time to Visit</span>
+      <h2 class="section-title reveal" id="seasonal-title">Two Monsoons, <em>Infinite</em> Sun</h2>
+      <p class="section-sub reveal">Sri Lanka has two distinct weather zones. When one coast is rainy, the other is bright and perfect for surfing or diving.</p>
     </div>
 
     <div class="seasons-grid">
       <div class="season-card reveal delay-1 season-best">
-        <div class="season-icon">☀️</div>
+        <span class="season-icon" aria-hidden="true">☀️</span>
         <div class="season-months">Dec – Apr</div>
-        <h3>Peak Season</h3>
+        <h3>Peak South/West</h3>
         <ul class="season-list">
-          <li><i class="fa-solid fa-check"></i> South & West Coast ideal</li>
-          <li><i class="fa-solid fa-check"></i> Best whale watching</li>
-          <li><i class="fa-solid fa-check"></i> Cultural triangle perfect</li>
-          <li><i class="fa-solid fa-check"></i> Clear skies & dry days</li>
+          <li><i class="fa-solid fa-check"></i> Blue sky on Southern beaches</li>
+          <li><i class="fa-solid fa-check"></i> Whales migrating off Mirissa</li>
+          <li><i class="fa-solid fa-check"></i> Excellent cultural climate</li>
+          <li><i class="fa-solid fa-check"></i> Little rainfall, bright days</li>
         </ul>
-        <div class="season-dest">Best: Mirissa, Galle, Sigiriya</div>
+        <div class="season-dest">Best: Galle, Mirissa, Colombo</div>
       </div>
 
       <div class="season-card reveal delay-2">
-        <div class="season-icon">🌿</div>
+        <span class="season-icon" aria-hidden="true">🌿</span>
         <div class="season-months">May – Sep</div>
         <h3>East Coast Season</h3>
         <ul class="season-list">
-          <li><i class="fa-solid fa-check"></i> Trincomalee &amp; Arugam Bay open</li>
-          <li><i class="fa-solid fa-check"></i> World-class surfing</li>
-          <li><i class="fa-solid fa-check"></i> Hill country lush &amp; green</li>
-          <li><i class="fa-solid fa-check"></i> Fewer crowds, lower rates</li>
+          <li><i class="fa-solid fa-check"></i> Calm waters in Trincomalee</li>
+          <li><i class="fa-solid fa-check"></i> Surf season at Arugam Bay</li>
+          <li><i class="fa-solid fa-check"></i> Misty hill valleys lush green</li>
+          <li><i class="fa-solid fa-check"></i> Great off-peak price drops</li>
         </ul>
-        <div class="season-dest">Best: Arugam Bay, Trinco, Ella</div>
+        <div class="season-dest">Best: Trincomalee, Arugam Bay</div>
       </div>
 
       <div class="season-card reveal delay-3">
-        <div class="season-icon">🌦️</div>
+        <span class="season-icon" aria-hidden="true">🌦️</span>
         <div class="season-months">Oct – Nov</div>
-        <h3>Shoulder Season</h3>
+        <h3>Shoulder Months</h3>
         <ul class="season-list">
-          <li><i class="fa-solid fa-check"></i> Inter-monsoon period</li>
-          <li><i class="fa-solid fa-check"></i> Excellent wildlife sightings</li>
-          <li><i class="fa-solid fa-check"></i> Yala &amp; Udawalawe best</li>
-          <li><i class="fa-solid fa-check"></i> Budget-friendly deals</li>
+          <li><i class="fa-solid fa-check"></i> Gentle inter-monsoon periods</li>
+          <li><i class="fa-solid fa-check"></i> Great wildlife gathering sights</li>
+          <li><i class="fa-solid fa-check"></i> Fewer travelers on trails</li>
+          <li><i class="fa-solid fa-check"></i> Lush rainforest hiking guides</li>
         </ul>
-        <div class="season-dest">Best: Yala, Minneriya, Kandy</div>
+        <div class="season-dest">Best: Yala, Kandy, Nuwara Eliya</div>
       </div>
     </div>
 
     <div class="seasonal-img-banner reveal">
-      <img src="img/seasonal.png" alt="Sri Lanka Seasons" class="seasonal-img">
+      <img src="img/seasonal.png" alt="Golden coast of Sri Lanka" class="seasonal-img" loading="lazy">
       <div class="seasonal-overlay">
-        <p>Year-round paradise — Sri Lanka's tropical climate means there's <strong>always</strong> something beautiful to discover.</p>
-        <a href="#plan" class="btn btn-primary">Plan Your Trip <i class="fa-solid fa-arrow-right"></i></a>
+        <p>Year-round holiday paradise — Sri Lanka's dual tropical currents mean there is <strong>always</strong> a sunny beach waiting for you.</p>
+        <a href="#plan" class="btn btn-primary">Start Planning <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 9. GALLERY ═══════════════ -->
-  <section id="gallery">
+  <!-- ═══════════════ 9. GALLERY (Masonry & Lightbox) ═══════════════ -->
+  <section id="gallery" class="bg-dark" aria-labelledby="gallery-title">
     <div class="gallery-header">
-      <span class="section-tag reveal">Gallery</span>
-      <h2 class="section-title reveal">Sri Lanka Through <em>Every</em> Lens</h2>
+      <span class="section-tag section-tag-light reveal">Gallery</span>
+      <h2 class="section-title section-title-light reveal" id="gallery-title">Sri Lanka Through <em>Our</em> Lens</h2>
+      <p class="section-sub section-sub-light reveal">A glimpse of the visual gold waiting on your tropical travel tour.</p>
     </div>
 
-    <div class="gallery-row-wrap">
-      <!-- Row 1: Sliding Left -->
-      <div class="gallery-strip slide-left">
-        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
-        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
-        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
-        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
-        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
-        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge"><div class="gallery-item-label">Nine Arches Bridge</div></div>
-        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
-        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
-        <!-- Duplicate for seamless loop -->
-        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
-        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
-        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
-        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
-        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
-        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge"><div class="gallery-item-label">Nine Arches Bridge</div></div>
-        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
-        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal delay-1">
+        <img src="img/mirissa.png" class="gallery-img" alt="Sun rays hitting palms at Mirissa beach" loading="lazy">
+        <div class="gallery-item-label">Sunset Over Mirissa Beach</div>
       </div>
-
-      <!-- Row 2: Sliding Right -->
-      <div class="gallery-strip slide-right">
-        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
-        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
-        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge"><div class="gallery-item-label">Nine Arches Bridge</div></div>
-        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
-        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
-        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
-        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
-        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
-        <!-- Duplicate -->
-        <div class="gallery-item"><img src="img/leopard.png" class="gallery-img" alt="Yala Leopard"><div class="gallery-item-label">Yala Leopard</div></div>
-        <div class="gallery-item"><img src="img/kandy.png" class="gallery-img" alt="Kandy Temple"><div class="gallery-item-label">Kandy Temple</div></div>
-        <div class="gallery-item"><img src="img/nine_arches.png" class="gallery-img" alt="Nine Arches Bridge"><div class="gallery-item-label">Nine Arches Bridge</div></div>
-        <div class="gallery-item"><img src="img/galle.png" class="gallery-img" alt="Galle Fort Lighthouse"><div class="gallery-item-label">Galle Fort Ramparts</div></div>
-        <div class="gallery-item"><img src="img/elephants.png" class="gallery-img" alt="Minneriya Elephants"><div class="gallery-item-label">Minneriya Gathering</div></div>
-        <div class="gallery-item"><img src="img/tea_plantation.png" class="gallery-img" alt="Ella Tea Estates"><div class="gallery-item-label">Ella Tea Estates</div></div>
-        <div class="gallery-item"><img src="img/sigiriya.png" class="gallery-img" alt="Sigiriya Rock Fortress"><div class="gallery-item-label">Sigiriya at Dawn</div></div>
-        <div class="gallery-item"><img src="img/mirissa.png" class="gallery-img" alt="Mirissa Beach"><div class="gallery-item-label">Mirissa Beach at Sunset</div></div>
+      <div class="gallery-item reveal delay-2">
+        <img src="img/sigiriya.png" class="gallery-img" alt="Sunset over Sigiriya rock citadel" loading="lazy">
+        <div class="gallery-item-label">Golden Hour at Sigiriya</div>
+      </div>
+      <div class="gallery-item reveal delay-3">
+        <img src="img/tea_plantation.png" class="gallery-img" alt="Green tea plantation steps Nuwara Eliya" loading="lazy">
+        <div class="gallery-item-label">Ceylon Highland Tea Estates</div>
+      </div>
+      <div class="gallery-item reveal delay-4">
+        <img src="img/elephants.png" class="gallery-img" alt="Herd of elephants in national park" loading="lazy">
+        <div class="gallery-item-label">Minneriya Elephant Gathering</div>
+      </div>
+      <div class="gallery-item reveal delay-5">
+        <img src="img/galle.png" class="gallery-img" alt="Historical Galle lighthouse walls" loading="lazy">
+        <div class="gallery-item-label">Colonial Ramparts, Galle Fort</div>
+      </div>
+      <div class="gallery-item reveal delay-6">
+        <img src="img/nine_arches.png" class="gallery-img" alt="Colonial stone rail bridge in Ella jungle" loading="lazy">
+        <div class="gallery-item-label">Nine Arches Train Bridge</div>
+      </div>
+      <div class="gallery-item reveal delay-7">
+        <img src="img/kandy.png" class="gallery-img" alt="Temple complex in Kandy lakeside" loading="lazy">
+        <div class="gallery-item-label">The Temple of the Tooth Relic</div>
+      </div>
+      <div class="gallery-item reveal delay-8">
+        <img src="img/leopard.png" class="gallery-img" alt="Leopard walking in Yala National Park" loading="lazy">
+        <div class="gallery-item-label">Sri Lankan Leopard, Yala Safari</div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 10. TESTIMONIALS ═══════════════ -->
-  <section id="reviews">
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-label="Image gallery zoom view">
+    <div class="lightbox-content">
+      <span class="lightbox-close" aria-label="Close image lightbox">&times;</span>
+      <img src="" alt="" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 10. TESTIMONIALS (Swiper Slider) ═══════════════ -->
+  <section id="reviews" class="bg-white" aria-labelledby="review-title">
     <span class="section-tag reveal">Testimonials</span>
-    <h2 class="section-title reveal">Voices of <em>Wanderers</em></h2>
-    <p class="section-sub reveal">Over 12,000 travellers have trusted Serendib to craft their Sri Lankan adventure. Here's what they say.</p>
+    <h2 class="section-title reveal" id="review-title">Wanderer <em>Stories</em></h2>
+    <p class="section-sub reveal">Read the verified luxury travel experiences shared by visitors from all around the globe.</p>
 
-    <div class="reviews-grid">
-      <div class="review-card reveal delay-1">
-        <div class="review-quote-mark">&ldquo;</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Sri Lanka completely exceeded our expectations. From the misty highlands of Ella to the golden beaches of Mirissa — every single day was a masterpiece."</p>
-        <div class="reviewer-profile">
-          <div class="reviewer-avatar">🇦🇺</div>
-          <div>
-            <div class="reviewer-name">Sarah Mitchell</div>
-            <div class="reviewer-location">Sydney, Australia</div>
+    <div class="swiper-container mySwiper reveal delay-1">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Sri Lanka completely blew our minds. The colonial walls of Galle, the mountain train, the tea plantations, and the wildlife in Udawalawe — every detail was organized perfectly."</p>
+            <div class="reviewer-profile">
+              <span class="reviewer-avatar" aria-hidden="true">🇦🇺</span>
+              <div>
+                <div class="reviewer-name">Sarah Mitchell</div>
+                <div class="reviewer-location">Sydney, Australia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Climbing Sigiriya during sunrise was one of the highlight moments of my life. Our private driver was friendly, full of local facts, and guided us to best local cafes."</p>
+            <div class="reviewer-profile">
+              <span class="reviewer-avatar" aria-hidden="true">🇩🇪</span>
+              <div>
+                <div class="reviewer-name">Hans Richter</div>
+                <div class="reviewer-location">Munich, Germany</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The Ayurveda retreats, clean beaches, and spiced curries were exactly the escape I needed. Serendib customized our train tickets and transfers seamlessly."</p>
+            <div class="reviewer-profile">
+              <span class="reviewer-avatar" aria-hidden="true">🇺🇸</span>
+              <div>
+                <div class="reviewer-name">Priya Patel</div>
+                <div class="reviewer-location">New York, USA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="review-quote-mark" aria-hidden="true">&ldquo;</div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"We spotted two leopards on our Yala safari! An incredible wildlife adventure. The hotels, lodges, and glamping tents chosen for us were top class."</p>
+            <div class="reviewer-profile">
+              <span class="reviewer-avatar" aria-hidden="true">🇬🇧</span>
+              <div>
+                <div class="reviewer-name">James Thornton</div>
+                <div class="reviewer-location">London, UK</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Swiper Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 11. WHY CHOOSE US ═══════════════ -->
+  <section id="why-us" class="bg-dark" aria-labelledby="why-title">
+    <div class="why-img-side reveal-left">
+      <img src="img/why_travel.png" alt="Traveler overlooking mountains in Sri Lanka" class="why-img" loading="lazy">
+      <div class="why-trust-badge">
+        <i class="fa-solid fa-award"></i>
+        <div>
+          <strong>Luxury Excellence</strong>
+          <span>Crafting dreams since 2008</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-content reveal-right">
+      <span class="section-tag section-tag-light">Why Travel With Us</span>
+      <h2 class="section-title section-title-light" id="why-title">Uncompromising Luxury,<br><em>True Local Expertise</em></h2>
+      <p class="section-sub section-sub-light">With 18+ years of custom holiday planning, we design bespoke itineraries that balance safety, luxury details, and authentic local discovery.</p>
+
+      <div class="why-reasons">
+        <div class="why-reason">
+          <div class="why-icon"><i class="fa-solid fa-compass"></i></div>
+          <div class="why-text">
+            <h4>Bespoke Custom Travel</h4>
+            <p>No cookie-cutter trips. We tailor destinations, hotel tiers, activities, and pace around your needs.</p>
+          </div>
+        </div>
+        <div class="why-reason">
+          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="why-text">
+            <h4>24/7 Concierge Support</h4>
+            <p>Your local host and customer support are active around the clock for any adjustments or safety checks.</p>
+          </div>
+        </div>
+        <div class="why-reason">
+          <div class="why-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="why-text">
+            <h4>Chauffeur-Guides</h4>
+            <p>Our safe, experienced English-speaking drivers double as historians and hosts throughout your tour.</p>
           </div>
         </div>
       </div>
 
-      <div class="review-card reveal delay-2">
-        <div class="review-quote-mark">&ldquo;</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"The wildlife, the cuisine, the warmth of the people — Sri Lanka is unlike any destination I've visited. Sigiriya at sunrise left me utterly speechless."</p>
-        <div class="reviewer-profile">
-          <div class="reviewer-avatar">🇩🇪</div>
-          <div>
-            <div class="reviewer-name">Hans Richter</div>
-            <div class="reviewer-location">Munich, Germany</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card reveal delay-3">
-        <div class="review-quote-mark">&ldquo;</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"The train from Kandy to Ella was the most beautiful journey I've ever taken. Sri Lanka's landscapes are simply extraordinary. Will absolutely return."</p>
-        <div class="reviewer-profile">
-          <div class="reviewer-avatar">🇺🇸</div>
-          <div>
-            <div class="reviewer-name">Priya Patel</div>
-            <div class="reviewer-location">New York, USA</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card reveal delay-4">
-        <div class="review-quote-mark">&ldquo;</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Serendib's team made everything seamless. Our custom itinerary hit every spot perfectly — from Yala leopards to Galle's colonial charm."</p>
-        <div class="reviewer-profile">
-          <div class="reviewer-avatar">🇬🇧</div>
-          <div>
-            <div class="reviewer-name">James Thornton</div>
-            <div class="reviewer-location">London, UK</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card reveal delay-5">
-        <div class="review-quote-mark">&ldquo;</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Our honeymoon in Sri Lanka was pure magic. Every detail — from sunrise at Sigiriya to whale watching at Mirissa — was perfectly arranged."</p>
-        <div class="reviewer-profile">
-          <div class="reviewer-avatar">🇫🇷</div>
-          <div>
-            <div class="reviewer-name">Claire & Antoine</div>
-            <div class="reviewer-location">Paris, France</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card reveal delay-6">
-        <div class="review-quote-mark">&ldquo;</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"The Ayurveda retreat was transformational. Three weeks in Sri Lanka felt like three months of healing, laughter, and genuine culture immersion."</p>
-        <div class="reviewer-profile">
-          <div class="reviewer-avatar">🇯🇵</div>
-          <div>
-            <div class="reviewer-name">Yuki Tanaka</div>
-            <div class="reviewer-location">Tokyo, Japan</div>
-          </div>
-        </div>
+      <div class="why-numbers">
+        <div class="why-num"><strong>18+</strong><span>Years Active</span></div>
+        <div class="why-num"><strong>14K+</strong><span>Happy Travellers</span></div>
+        <div class="why-num"><strong>4.9★</strong><span>Feedback Rating</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 11. TRAVEL BLOG ═══════════════ -->
-  <section id="blog">
+  <!-- ═══════════════ 12. TRAVEL BLOG ════──────────────── -->
+  <section id="blog" class="bg-ivory" aria-labelledby="blog-title">
     <span class="section-tag reveal">Travel Blog</span>
-    <h2 class="section-title reveal">Stories from <em>Paradise</em></h2>
-    <p class="section-sub reveal">Insider tips, travel guides, and inspiring stories from our experts and fellow adventurers.</p>
+    <h2 class="section-title reveal" id="blog-title">Insights from the <em>Island</em></h2>
+    <p class="section-sub reveal" style="margin: 0 auto 40px;">Insider tips, destination highlights, and planning guides from our resident travel writers.</p>
 
     <div class="blog-grid">
       <div class="blog-card blog-card-featured reveal delay-1">
         <div class="blog-img-wrap">
-          <img src="img/blog1.png" alt="Sigiriya Guide" class="blog-img">
-          <div class="blog-category">Must Read</div>
+          <img src="img/blog1.png" alt="Sigiriya stairs" class="blog-img" loading="lazy">
+          <div class="blog-category">Guides</div>
         </div>
         <div class="blog-body">
           <div class="blog-meta"><i class="fa-regular fa-calendar"></i> June 2026 &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 8 min read</div>
-          <h3 class="blog-title">The Ultimate Sigiriya Climbing Guide: What Nobody Tells You</h3>
-          <p class="blog-excerpt">Everything you need to know about climbing the Lion Rock — from early morning timing to insider viewpoints most tourists miss.</p>
-          <a href="#" class="blog-link">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+          <h3 class="blog-title">Climbing the Citadel: A Sigiriya Morning Guide</h3>
+          <p class="blog-excerpt">Avoid crowds and heat. Discover the history, best photographic points, and historical highlights before climbing Lion Rock.</p>
+          <a href="#plan" class="blog-link">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
       <div class="blog-card reveal delay-2">
         <div class="blog-img-wrap">
-          <img src="img/blog2.png" alt="Ella Nine Arches" class="blog-img">
-          <div class="blog-category">Scenic Journeys</div>
+          <img src="img/blog2.png" alt="Highland blue train" class="blog-img" loading="lazy">
+          <div class="blog-category">Scenic</div>
         </div>
         <div class="blog-body">
           <div class="blog-meta"><i class="fa-regular fa-calendar"></i> May 2026 &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 5 min read</div>
-          <h3 class="blog-title">Kandy to Ella: The World's Most Scenic Train Ride</h3>
-          <p class="blog-excerpt">Board the famous Sri Lankan highland railway and discover why this journey tops every traveller's bucket list.</p>
-          <a href="#" class="blog-link">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+          <h3 class="blog-title">All Aboard the Legendary Kandy-Ella Train</h3>
+          <p class="blog-excerpt">Explore tips on seat reservations, best sides to sit, and schedule adjustments for the famous highland train ride.</p>
+          <a href="#plan" class="blog-link">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
       <div class="blog-card reveal delay-3">
         <div class="blog-img-wrap">
-          <img src="img/blog3.png" alt="Whale Watching" class="blog-img">
-          <div class="blog-category">Wildlife</div>
+          <img src="img/blog3.png" alt="Surfer at sunset" class="blog-img" loading="lazy">
+          <div class="blog-category">Coastal</div>
         </div>
         <div class="blog-body">
-          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> Apr 2026 &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 6 min read</div>
-          <h3 class="blog-title">Mirissa Whale Watching: Your Complete 2026 Guide</h3>
-          <p class="blog-excerpt">Blue whales, sperm whales, and dolphins await just off Mirissa's coast. Here's everything you need to plan the perfect outing.</p>
-          <a href="#" class="blog-link">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+          <div class="blog-meta"><i class="fa-regular fa-calendar"></i> April 2026 &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 6 min read</div>
+          <h3 class="blog-title">Whale Safaris: Spotting Ocean Giants</h3>
+          <p class="blog-excerpt">Find the best seasons to see blue whales, sperm whales, and dolphins off Mirissa shores.</p>
+          <a href="#plan" class="blog-link">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 12. FAQ ═══════════════ -->
-  <section id="faq">
+  <!-- ═══════════════ 13. FAQ SECTION ═══════════════ -->
+  <section id="faq" class="bg-white" aria-labelledby="faq-title">
     <span class="section-tag reveal">FAQ</span>
-    <h2 class="section-title reveal">Common <em>Questions</em></h2>
-    <p class="section-sub reveal">Everything you need to know before booking your Sri Lanka adventure.</p>
+    <h2 class="section-title reveal" id="faq-title">Common <em>Questions</em></h2>
+    <p class="section-sub reveal" style="margin:0 auto 40px;">Essential queries answered before you start your luxury holiday.</p>
 
     <div class="faq-list">
       <div class="faq-item reveal delay-1">
         <button class="faq-q" aria-expanded="false">
-          Do I need a visa to visit Sri Lanka?
+          Do I need a travel visa to visit Sri Lanka?
           <i class="fa-solid fa-plus faq-icon"></i>
         </button>
         <div class="faq-a">
-          <p>Most nationalities require an Electronic Travel Authorisation (ETA) which can be obtained online in minutes before arrival. The standard tourist ETA allows a 30-day stay (extendable to 90 days) and costs approximately $35 USD.</p>
+          <p>Yes, most travelers require an Electronic Travel Authorization (ETA) or tourist visa. You can quickly apply online through the official portal before departure. It grants a 30-day stay and can be extended.</p>
         </div>
       </div>
 
       <div class="faq-item reveal delay-2">
         <button class="faq-q" aria-expanded="false">
-          What is the best time to visit Sri Lanka?
+          Is Sri Lanka a safe destination for families and solo travelers?
           <i class="fa-solid fa-plus faq-icon"></i>
         </button>
         <div class="faq-a">
-          <p>December to April is ideal for the south and west coasts (Mirissa, Galle, Colombo). May to September is perfect for the east coast (Trincomalee, Arugam Bay). The hill country (Ella, Kandy) is beautiful year-round, with the most dramatic greenery during the monsoons.</p>
+          <p>Yes. Sri Lanka is known for exceptionally friendly locals, hospitality, and low violent crime rates. Standard precautions apply. For luxury travelers, having a dedicated chauffeur-guide provides absolute safety and convenience.</p>
         </div>
       </div>
 
       <div class="faq-item reveal delay-3">
         <button class="faq-q" aria-expanded="false">
-          Is Sri Lanka safe for solo travellers?
+          Can I customize my hotel selection and day activities?
           <i class="fa-solid fa-plus faq-icon"></i>
         </button>
         <div class="faq-a">
-          <p>Sri Lanka is considered very safe for solo travellers, including women travelling alone. The locals are exceptionally warm and hospitable. Standard travel precautions apply, and our team provides 24/7 emergency support for all bookings.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal delay-4">
-        <button class="faq-q" aria-expanded="false">
-          How many days do I need to explore Sri Lanka?
-          <i class="fa-solid fa-plus faq-icon"></i>
-        </button>
-        <div class="faq-a">
-          <p>We recommend a minimum of 10–14 days to experience the main highlights. A week covers the cultural triangle and one coast. Three weeks gives you time to explore the island in depth — from the northern wildlife reserves to the deep south beaches.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal delay-5">
-        <button class="faq-q" aria-expanded="false">
-          What currency is used in Sri Lanka?
-          <i class="fa-solid fa-plus faq-icon"></i>
-        </button>
-        <div class="faq-a">
-          <p>The Sri Lankan Rupee (LKR) is the official currency. Major credit cards are accepted at hotels and tourist spots. ATMs are widely available in cities and tourist areas. We recommend carrying some cash for local markets and tuk-tuk rides.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal delay-6">
-        <button class="faq-q" aria-expanded="false">
-          Can I customise my itinerary?
-          <i class="fa-solid fa-plus faq-icon"></i>
-        </button>
-        <div class="faq-a">
-          <p>Absolutely! Every Serendib itinerary is 100% customisable. Share your interests, budget, and travel dates via our contact form and our local experts will craft a personalised plan within 24 hours — completely free of charge.</p>
+          <p>Absolutely. Every itinerary is fully customizable. We partner with the best luxury boutique hotels, eco-lodges, and beachfront villas. Let us know your requirements on the form and we will design the perfect setup.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 13. PLAN YOUR TRIP ═══════════════ -->
-  <section id="plan">
-    <span class="section-tag reveal">Plan Your Trip</span>
-    <h2 class="section-title reveal">Start Your <em>Serendib</em><br>Journey Today</h2>
-    <p class="section-sub reveal" style="margin: 12px auto 0;">Fill in your details and our travel specialists will craft your perfect Sri Lanka itinerary within 24 hours — free of charge.</p>
+  <!-- ═══════════════ 14. PLAN YOUR TRIP (Booking/Enquiry) ═══════════════ -->
+  <section id="plan" class="bg-ivory" aria-labelledby="form-title">
+    <span class="section-tag reveal">Start Your Journey</span>
+    <h2 class="section-title reveal" id="form-title">Plan Your Custom <em>Getaway</em></h2>
+    <p class="section-sub reveal" style="margin: 0 auto 40px;">Send us your tentative dates, budget details, and travel notes. Our travel experts will respond with a custom plan within 24 hours.</p>
 
     <div class="contact-card reveal">
       <form class="contact-form" onsubmit="handlePlanTrip(event)">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="full-name">Full Name</label>
-            <input type="text" id="full-name" class="form-input" placeholder="John Doe" required>
+            <input type="text" id="full-name" class="form-input" placeholder="E.g., John Doe" required>
           </div>
           <div class="form-group">
             <label class="form-label" for="email">Email Address</label>
-            <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+            <input type="email" id="email" class="form-input" placeholder="E.g., john@example.com" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="phone">Phone / WhatsApp</label>
-            <input type="tel" id="phone" class="form-input" placeholder="+1 234 567 8900">
+            <input type="tel" id="phone" class="form-input" placeholder="E.g., +1 234 567 8900" required>
           </div>
           <div class="form-group">
             <label class="form-label" for="travellers">No. of Travellers</label>
@@ -847,32 +921,31 @@
               <option>1 – Solo Adventure</option>
               <option>2 – Couple / Duo</option>
               <option>3–5 – Small Group</option>
-              <option>6+ – Large Group</option>
+              <option>6+ – Large Group / Family</option>
             </select>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="destination">Preferred Destination</label>
+            <label class="form-label" for="destination">Destination Focus</label>
             <select id="destination" class="form-select">
-              <option value="all">Unsure / Whole Island</option>
-              <option value="sigiriya">Sigiriya &amp; Cultural Triangle</option>
-              <option value="mirissa">Mirissa Beach &amp; South Coast</option>
-              <option value="ella">Ella &amp; Hill Country</option>
-              <option value="galle">Galle Fort &amp; Colonial Towns</option>
-              <option value="yala">Yala Wildlife Safari</option>
+              <option value="all">Whole Island Highlights</option>
+              <option value="cultural">Sigiriya &amp; Cultural ruins</option>
+              <option value="hills">Ella &amp; Hill country retreats</option>
+              <option value="beaches">Mirissa &amp; Coastlines</option>
+              <option value="wildlife">Yala Safaris &amp; Nature reserves</option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-label" for="travel-date">Tentative Travel Date</label>
-            <input type="date" id="travel-date" class="form-input">
+            <input type="date" id="travel-date" class="form-input" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="notes">Special Requirements / Notes</label>
-          <textarea id="notes" class="form-textarea" placeholder="E.g., Safari tours, Ayurveda wellness, surf lessons, honeymoon setup…"></textarea>
+          <label class="form-label" for="notes">Notes / Special Requests (Surfing, Honeymoon, Spas...)</label>
+          <textarea id="notes" class="form-textarea" placeholder="Describe your dream vacation in detail..."></textarea>
         </div>
 
         <button type="submit" class="form-submit-btn" id="submit-btn">
@@ -881,10 +954,10 @@
       </form>
 
       <div class="contact-info-panel">
-        <h4>Get in Touch Directly</h4>
+        <h4>Connect Instantly</h4>
         <div class="contact-info-item">
           <i class="fa-brands fa-whatsapp" style="color:#25D366"></i>
-          <a href="https://wa.me/94771234567" target="_blank">+94 77 123 4567</a>
+          <a href="https://wa.me/94771234567" target="_blank" rel="noopener">+94 77 123 4567</a>
         </div>
         <div class="contact-info-item">
           <i class="fa-solid fa-envelope"></i>
@@ -899,109 +972,164 @@
           <a class="social-link" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           <a class="social-link" href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
           <a class="social-link" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a class="social-link" href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 14. FOOTER ═══════════════ -->
-  <footer id="footer">
+  <!-- ═══════════════ 15. FOOTER ═══════════════ -->
+  <footer id="footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-col footer-col-brand">
         <div class="footer-brand">Serendib</div>
-        <p class="footer-tagline">Your gateway to Sri Lanka's wonders — expertly curated journeys since 2008.</p>
+        <p class="footer-tagline">Award-winning luxury travel and custom itinerary designer for the island of Sri Lanka. Discover Paradise with us.</p>
         <div class="footer-social">
           <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#" class="footer-social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
-        <h5>Destinations</h5>
+        <h5>Key Spots</h5>
         <ul class="footer-links">
-          <li><a href="#destinations">Sigiriya</a></li>
-          <li><a href="#destinations">Mirissa Beach</a></li>
+          <li><a href="#destinations">Sigiriya Fortress</a></li>
+          <li><a href="#destinations">Mirissa Coast</a></li>
+          <li><a href="#destinations">Ella Highlands</a></li>
           <li><a href="#destinations">Galle Fort</a></li>
-          <li><a href="#destinations">Ella Hill Country</a></li>
-          <li><a href="#destinations">Kandy</a></li>
-          <li><a href="#destinations">Yala Safari</a></li>
+          <li><a href="#destinations">Kandy City</a></li>
+          <li><a href="#destinations">Yala Safaris</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Packages</h5>
+        <h5>Luxury Tours</h5>
         <ul class="footer-links">
           <li><a href="#packages">Classic Island Tour</a></li>
           <li><a href="#packages">Romantic Escape</a></li>
-          <li><a href="#packages">Wildlife Safari Trail</a></li>
+          <li><a href="#packages">Safari Trails</a></li>
           <li><a href="#packages">Ancient Kingdoms</a></li>
-          <li><a href="#packages">Custom Itinerary</a></li>
+          <li><a href="#plan">Bespoke Requests</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h5>Explore More</h5>
         <ul class="footer-links">
-          <li><a href="#about">About Sri Lanka</a></li>
+          <li><a href="#about">About the Island</a></li>
           <li><a href="#seasonal">Best Time to Visit</a></li>
-          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#faq">Travel FAQs</a></li>
           <li><a href="#blog">Travel Blog</a></li>
-          <li><a href="#plan">Plan Your Trip</a></li>
+          <li><a href="#plan">Contact Us</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div class="footer-bottom-left">© 2026 Serendib · Discover Sri Lanka · All Rights Reserved</div>
+      <div class="footer-bottom-left">© 2026 Serendib Travel · Discover Sri Lanka · All Rights Reserved.</div>
       <div class="footer-flag">🇱🇰</div>
       <div class="footer-bottom-right">
         <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
+        <a href="#">Terms &amp; Conditions</a>
       </div>
     </div>
   </footer>
 
   <!-- WHATSAPP FLOATING BUTTON -->
-  <a href="https://wa.me/94771234567" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/94771234567" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp with Serendib Travel">
     <i class="fa-brands fa-whatsapp"></i>
     <span class="whatsapp-label">Chat with Us</span>
   </a>
 
   <!-- BACK TO TOP -->
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top button">
     <i class="fa-solid fa-chevron-up"></i>
   </button>
 
   <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <!-- Swiper, Lenis, and GSAP ScrollTrigger scripts CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <script>
-    /* ── Preloader ── */
-    window.addEventListener('load', () => {
-      const fill = document.querySelector('.loader-progress-fill');
-      if (fill) {
-        fill.style.transition = 'width 1.2s ease';
-        fill.style.width = '100%';
+    /* ── Lenis Smooth Scrolling ── */
+    let lenis;
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        gestureOrientation: 'vertical',
+        smoothWheel: true
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
       }
-      setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) loader.classList.add('hide');
-      }, 1600);
+      requestAnimationFrame(raf);
+    }
+
+    /* ── Preloader Counter & Reveal ── */
+    window.addEventListener('DOMContentLoaded', () => {
+      const percentText = document.getElementById('loader-percent');
+      const fill = document.querySelector('.loader-progress-fill');
+      let count = 0;
+      
+      const interval = setInterval(() => {
+        count += Math.floor(Math.random() * 8) + 4;
+        if (count >= 100) {
+          count = 100;
+          clearInterval(interval);
+          
+          setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('hide');
+            
+            // Hero GSAP animations
+            gsap.from(".hero-country", {
+              duration: 1.4,
+              y: 80,
+              opacity: 0,
+              ease: "power4.out"
+            });
+            gsap.from(".hero-eyebrow, .hero-tagline", {
+              duration: 1.2,
+              y: 40,
+              opacity: 0,
+              delay: 0.3,
+              stagger: 0.15,
+              ease: "power3.out"
+            });
+            gsap.from(".hero-info, .hero-cta, .hero-stats", {
+              duration: 1.2,
+              y: 40,
+              opacity: 0,
+              delay: 0.6,
+              stagger: 0.15,
+              ease: "power3.out"
+            });
+          }, 400);
+        }
+        if (percentText) percentText.textContent = count + '%';
+        if (fill) fill.style.width = count + '%';
+      }, 30);
     });
 
-    /* ── Burger Menu ── */
+    /* ── Burger Menu Drawer ── */
     const burgerBtn = document.getElementById('burger-btn');
     const navMenu = document.getElementById('nav-menu');
     if (burgerBtn && navMenu) {
       burgerBtn.addEventListener('click', () => {
-        burgerBtn.classList.toggle('open');
+        const isOpen = burgerBtn.classList.toggle('open');
         navMenu.classList.toggle('open');
+        burgerBtn.setAttribute('aria-expanded', isOpen);
       });
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
           burgerBtn.classList.remove('open');
           navMenu.classList.remove('open');
+          burgerBtn.setAttribute('aria-expanded', 'false');
         });
       });
     }
@@ -1019,7 +1147,7 @@
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(sec => {
-        const sTop = sec.offsetTop - 120;
+        const sTop = sec.offsetTop - 150;
         if (window.scrollY >= sTop) current = sec.getAttribute('id');
       });
       navLinks.forEach(link => {
@@ -1028,25 +1156,49 @@
       });
     });
 
-    /* ── Custom Liquid Cursor ── */
+    /* ── GSAP Horizontal Scrolling (Desktop only) ── */
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Check if device matches horizontal scrolling breakpoint and motion preference
+    if (window.innerWidth > 1024 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const panels = gsap.utils.toArray(".panel");
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#showcase",
+          pin: true,
+          scrub: 1,
+          snap: 1 / (panels.length - 1),
+          start: "top top",
+          end: () => "+=" + document.querySelector("#showcase").offsetWidth,
+          invalidateOnRefresh: true
+        }
+      });
+    }
+
+    /* ── Custom Liquid Cursor (Desktop Only) ── */
     const cursor = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursor-ring');
     let cx = 0, cy = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      cx = e.clientX; cy = e.clientY;
-      if (cursor) { cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px'; }
-    });
-    function animateCursorRing() {
-      rx += (cx - rx) * 0.12;
-      ry += (cy - ry) * 0.12;
-      if (cursorRing) { cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px'; }
-      requestAnimationFrame(animateCursorRing);
+    if (window.innerWidth > 768) {
+      document.addEventListener('mousemove', e => {
+        cx = e.clientX; cy = e.clientY;
+        if (cursor) { cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px'; }
+      });
+      function animateCursorRing() {
+        rx += (cx - rx) * 0.12;
+        ry += (cy - ry) * 0.12;
+        if (cursorRing) { cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px'; }
+        requestAnimationFrame(animateCursorRing);
+      }
+      animateCursorRing();
+      
+      document.querySelectorAll('a, button, select, input, textarea, .dest-card, .exp-card, .review-card, .pkg-card, .faq-q, .blog-card, .gallery-item').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
     }
-    animateCursorRing();
-    document.querySelectorAll('a, button, select, input, textarea, .dest-card, .exp-card, .review-card, .pkg-card, .faq-q, .blog-card').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
 
     /* ── Floating Particles Canvas ── */
     const canvas = document.getElementById('particles-canvas');
@@ -1060,9 +1212,9 @@
         constructor() { this.reset(); }
         reset() {
           this.x = Math.random() * W; this.y = Math.random() * H;
-          this.r = Math.random() * 1.5 + 0.4;
-          this.vx = (Math.random() - 0.5) * 0.3; this.vy = (Math.random() - 0.5) * 0.3;
-          this.alpha = Math.random() * 0.3 + 0.08;
+          this.r = Math.random() * 1.6 + 0.4;
+          this.vx = (Math.random() - 0.5) * 0.25; this.vy = (Math.random() - 0.5) * 0.25;
+          this.alpha = Math.random() * 0.35 + 0.08;
         }
         update() {
           this.x += this.vx; this.y += this.vy;
@@ -1071,10 +1223,10 @@
         }
         draw() {
           ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(109,213,196,${this.alpha})`; ctx.fill();
+          ctx.fillStyle = `rgba(212,175,55,${this.alpha})`; ctx.fill();
         }
       }
-      for (let i = 0; i < 100; i++) particles.push(new Ember());
+      for (let i = 0; i < 70; i++) particles.push(new Ember());
       function loopParticles() {
         ctx.clearRect(0, 0, W, H);
         particles.forEach(p => { p.update(); p.draw(); });
@@ -1084,38 +1236,43 @@
     }
 
     /* ── Mouse Parallax Hero ── */
-    const heroBg = document.querySelector('.hero-bg');
-    const midLayer = document.getElementById('mid-layer');
-    const foreLayer = document.getElementById('fore-layer');
-    const titleGroup = document.getElementById('hero-title-group');
-    document.addEventListener('mousemove', e => {
-      const x = (e.clientX / window.innerWidth - 0.5);
-      const y = (e.clientY / window.innerHeight - 0.5);
-      if (heroBg) heroBg.style.transform = `scale(1.05) translate(${x * 15}px, ${y * 8}px)`;
-      if (midLayer) midLayer.parentElement.style.transform = `translate(${x * 10}px, ${y * 22}px)`;
-      if (foreLayer) foreLayer.parentElement.style.transform = `translate(${x * 5}px, ${y * 12}px)`;
-      if (titleGroup) titleGroup.style.transform = `translate(-50%, -50%) rotateY(${x * 20}deg) rotateX(${-y * 15}deg)`;
-    });
+    if (window.innerWidth > 768) {
+      const heroBg = document.querySelector('.hero-bg');
+      const midLayer = document.getElementById('mid-layer');
+      const foreLayer = document.getElementById('fore-layer');
+      const titleGroup = document.getElementById('hero-title-group');
+      document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth - 0.5);
+        const y = (e.clientY / window.innerHeight - 0.5);
+        if (heroBg) heroBg.style.transform = `scale(1.05) translate(${x * 12}px, ${y * 6}px)`;
+        if (midLayer) midLayer.parentElement.style.transform = `translate(${x * 8}px, ${y * 18}px)`;
+        if (foreLayer) foreLayer.parentElement.style.transform = `translate(${x * 4}px, ${y * 10}px)`;
+        if (titleGroup) titleGroup.style.transform = `translate(-50%, -50%) rotateY(${x * 15}deg) rotateX(${-y * 10}deg)`;
+      });
+    }
 
-    /* ── Scroll Reveal ── */
+    /* ── Scroll Reveal via GSAP ── */
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    /* ── Counter Animation ── */
-    const counters = document.querySelectorAll('.stat-num');
+    /* ── Counter Statistics Animation ── */
+    const counters = document.querySelectorAll('.stat-num, .why-num strong');
     const counterObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const target = +entry.target.getAttribute('data-count');
+          const rawCount = entry.target.getAttribute('data-count') || entry.target.textContent;
+          const target = parseFloat(rawCount);
+          if (isNaN(target)) return;
           let current = 0;
           const increment = target / 60;
+          const suffix = rawCount.includes('+') ? '+' : (rawCount.includes('K') ? 'K+' : (rawCount.includes('★') ? '★' : ''));
           const timer = setInterval(() => {
             current += increment;
             if (current >= target) { current = target; clearInterval(timer); }
-            entry.target.textContent = Math.floor(current) + (target >= 1000 ? '+' : '');
+            entry.target.textContent = Math.floor(current) + suffix;
           }, 16);
           counterObserver.unobserve(entry.target);
         }
@@ -1123,14 +1280,14 @@
     }, { threshold: 0.5 });
     counters.forEach(c => counterObserver.observe(c));
 
-    /* ── Hero Arrows ── */
+    /* ── Hero Slides Arrow Taglines ── */
     const heroSlides = [
+      "🌿 Ella Highlands · Nine Arches & Tea Gardens",
       "🌊 Mirissa Beach · Blue Whales & Surf",
       "🪨 Sigiriya Rock Fortress · UNESCO Heritage",
-      "🌿 Ella Highlands · Nine Arches & Tea Gardens",
       "🏯 Galle Fort · Dutch Colonial Walled City",
       "🕌 Kandy · Sacred Temple of the Tooth",
-      "🐆 Yala National Park · Leopard & Wildlife"
+      "🐆 Yala National Park · Leopard Safari Trails"
     ];
     let slideIdx = 0;
     const prevBtn = document.getElementById('arrow-prev');
@@ -1150,7 +1307,7 @@
       });
     }
 
-    /* ── Map Pins ── */
+    /* ── Map Interactive Pins ── */
     document.querySelectorAll('.map-pin').forEach(pin => {
       pin.addEventListener('click', () => {
         const info = pin.getAttribute('data-info');
@@ -1159,6 +1316,9 @@
         if (infoText && info) {
           infoText.textContent = info;
           infoBox.classList.add('active');
+          if (window.innerWidth <= 768) {
+            infoBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
         }
       });
     });
@@ -1180,29 +1340,105 @@
       });
     });
 
+    /* ── Gallery Lightbox Modal ── */
+    const lightbox = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCap = document.getElementById('lightbox-caption');
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('.gallery-img');
+        const label = item.querySelector('.gallery-item-label').textContent;
+        if (lightbox && lightboxImg && img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          if (lightboxCap) lightboxCap.textContent = label;
+          lightbox.classList.add('active');
+          if (lenis) lenis.stop();
+        }
+      });
+    });
+    const closeBtn = document.querySelector('.lightbox-close');
+    if (closeBtn && lightbox) {
+      closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        if (lenis) lenis.start();
+      });
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('active');
+          if (lenis) lenis.start();
+        }
+      });
+    }
+
+    /* ── Swiper Testimonials Slider ── */
+    const swiper = new Swiper('.mySwiper', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        320: { slidesPerView: 1, spaceBetween: 20 },
+        768: { slidesPerView: 2, spaceBetween: 24 },
+        1024: { slidesPerView: 3, spaceBetween: 26 }
+      }
+    });
+
     /* ── Back to Top ── */
     const backToTopBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) backToTopBtn.classList.add('visible');
       else backToTopBtn.classList.remove('visible');
     });
-    backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    backToTopBtn.addEventListener('click', () => {
+      if (lenis) lenis.scrollTo('#hero');
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-    /* ── Contact Form ── */
+    /* ── Contact Form Mailto Fallback ── */
     function handlePlanTrip(e) {
       e.preventDefault();
+      const name = document.getElementById('full-name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const travellers = document.getElementById('travellers').value;
+      const destination = document.getElementById('destination').value;
+      const travelDate = document.getElementById('travel-date').value;
+      const notes = document.getElementById('notes').value;
+      
+      const subject = encodeURIComponent(`Serendib Travel Enquiry - ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Phone/WhatsApp: ${phone}\n` +
+        `No. of Travellers: ${travellers}\n` +
+        `Preferred Destination: ${destination}\n` +
+        `Travel Date: ${travelDate}\n` +
+        `Notes: ${notes}`
+      );
+      
       const btn = document.getElementById('submit-btn');
       if (btn) {
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> Enquiry Sent!';
-        btn.style.background = 'linear-gradient(135deg, #35B7A4, #0B5F56)';
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Creating Enquiry...';
+        btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+        btn.style.color = '#fff';
+        
         setTimeout(() => {
           btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Enquiry';
           btn.style.background = '';
+          btn.style.color = '';
+          
+          window.location.href = `mailto:hello@serendib.lk?subject=${subject}&body=${body}`;
           e.target.reset();
-        }, 3500);
+        }, 1500);
       }
     }
   </script>
-
 </body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harshwebz2003.github.io/tourism-webpage/sitemap.xml
