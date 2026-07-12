@@ -128,12 +128,12 @@
 
     <div class="hero-scroll-gallery" aria-hidden="true">
       <div class="hero-scroll-track">
-        <img src="img/sigiriya.webp" alt="">
+        <img src="img/pexels-sigiriya-aerial.webp" alt="">
         <img src="img/nine_arches.webp" alt="">
         <img src="img/mirissa.webp" alt="">
+        <img src="img/pexels-sigiriya-mist.webp" alt="">
+        <img src="img/pexels-sigiriya-lake.webp" alt="">
         <img src="img/tea_plantation.webp" alt="">
-        <img src="img/sigiriya.webp" alt="">
-        <img src="img/nine_arches.webp" alt="">
       </div>
     </div>
     <div class="hero-ground"></div>
@@ -675,8 +675,8 @@
         <div class="gallery-item-label">Sunset Over Mirissa Beach</div>
       </div>
       <div class="gallery-item reveal delay-2">
-        <img src="img/sigiriya.webp" class="gallery-img" alt="Sunset over Sigiriya rock citadel" loading="lazy" width="900" height="1200">
-        <div class="gallery-item-label">Golden Hour at Sigiriya</div>
+        <img src="img/pexels-sigiriya-aerial.webp" class="gallery-img" alt="Aerial view of Sigiriya rock above misty forest" loading="lazy" width="1400" height="963">
+        <div class="gallery-item-label">Cinematic Sigiriya Aerial</div>
       </div>
       <div class="gallery-item reveal delay-3">
         <img src="img/tea_plantation.webp" class="gallery-img" alt="Green tea plantation steps Nuwara Eliya" loading="lazy" width="900" height="1200">
@@ -695,13 +695,51 @@
         <div class="gallery-item-label">Nine Arches Train Bridge</div>
       </div>
       <div class="gallery-item reveal delay-7">
-        <img src="img/kandy.webp" class="gallery-img" alt="Temple complex in Kandy lakeside" loading="lazy" width="900" height="1200">
-        <div class="gallery-item-label">The Temple of the Tooth Relic</div>
+        <img src="img/pexels-sigiriya-mist.webp" class="gallery-img" alt="Sigiriya fortress emerging from morning mist" loading="lazy" width="1167" height="1500">
+        <div class="gallery-item-label">Mist Over the Lion Rock</div>
       </div>
       <div class="gallery-item reveal delay-8">
-        <img src="img/leopard.webp" class="gallery-img" alt="Leopard walking in Yala National Park" loading="lazy" width="900" height="1200">
-        <div class="gallery-item-label">Sri Lankan Leopard, Yala Safari</div>
+        <img src="img/pexels-sigiriya-lake.webp" class="gallery-img" alt="Sigiriya rock fortress viewed across a calm lake" loading="lazy" width="1400" height="963">
+        <div class="gallery-item-label">Lake View to Ancient Sigiriya</div>
       </div>
+    </div>
+  </section>
+
+  <section id="reels" class="bg-white" aria-labelledby="reels-title">
+    <div class="reels-header">
+      <span class="section-tag reveal">Cinematic Reels</span>
+      <h2 class="section-title reveal" id="reels-title">High-Definition <em>Travel Films</em></h2>
+      <p class="section-sub reveal">Performance-safe video cards using optimized local posters and external free-stock source links instead of heavy autoplay embeds.</p>
+    </div>
+
+    <div class="reels-grid">
+      <a class="reel-card reveal delay-1" href="https://pixabay.com/videos/forest-fortress-sigiriya-sri-lanka-191283/" target="_blank" rel="noopener">
+        <img src="img/pexels-sigiriya-aerial.webp" alt="Watch Sigiriya fortress stock footage" loading="lazy">
+        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+        <div class="reel-copy">
+          <span>4K Source Reel</span>
+          <h3>Sigiriya from Above</h3>
+          <p>Open royalty-free Sigiriya footage on Pixabay.</p>
+        </div>
+      </a>
+      <a class="reel-card reveal delay-2" href="https://pixabay.com/videos/beach-evening-sri-lanka-sea-ocean-286459/" target="_blank" rel="noopener">
+        <img src="img/mirissa.webp" alt="Watch Sri Lanka beach evening stock footage" loading="lazy">
+        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+        <div class="reel-copy">
+          <span>Coastal Motion</span>
+          <h3>Dikwella Sunset</h3>
+          <p>Open royalty-free Sri Lanka beach footage on Pixabay.</p>
+        </div>
+      </a>
+      <a class="reel-card reveal delay-3" href="https://www.pexels.com/video/stunning-aerial-view-of-sri-lankan-waterfall-33790732/" target="_blank" rel="noopener">
+        <img src="img/tea_plantation.webp" alt="Watch Sri Lankan waterfall aerial stock footage" loading="lazy">
+        <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+        <div class="reel-copy">
+          <span>Rainforest Flight</span>
+          <h3>Waterfall Aerial</h3>
+          <p>Open free-to-use Sri Lanka waterfall footage on Pexels.</p>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -1264,13 +1302,13 @@
       }
       animateCursorRing();
       
-      document.querySelectorAll('a, button, select, input, textarea, .dest-card, .exp-card, .review-card, .pkg-card, .faq-q, .blog-card, .gallery-item').forEach(el => {
+      document.querySelectorAll('a, button, select, input, textarea, .dest-card, .exp-card, .review-card, .pkg-card, .faq-q, .blog-card, .gallery-item, .reel-card').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
 
       if (!reduceMotion) {
-        document.querySelectorAll('.dest-card, .exp-card, .pkg-card, .review-card, .blog-card, .season-card, .gallery-item').forEach(card => {
+        document.querySelectorAll('.dest-card, .exp-card, .pkg-card, .review-card, .blog-card, .season-card, .gallery-item, .reel-card').forEach(card => {
           card.addEventListener('mousemove', event => {
             const rect = card.getBoundingClientRect();
             const x = (event.clientX - rect.left) / rect.width;
