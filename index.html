@@ -1071,7 +1071,7 @@
         }
         draw() {
           ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(212,175,55,${this.alpha})`; ctx.fill();
+          ctx.fillStyle = `rgba(109,213,196,${this.alpha})`; ctx.fill();
         }
       }
       for (let i = 0; i < 100; i++) particles.push(new Ember());
@@ -1194,7 +1194,7 @@
       const btn = document.getElementById('submit-btn');
       if (btn) {
         btn.innerHTML = '<i class="fa-solid fa-check"></i> Enquiry Sent!';
-        btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+        btn.style.background = 'linear-gradient(135deg, #35B7A4, #0B5F56)';
         setTimeout(() => {
           btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Enquiry';
           btn.style.background = '';
