@@ -8,6 +8,12 @@
   <title>Serendib | Luxury Sri Lanka Travel & Curated Tours</title>
   <meta name="description" content="Embark on a luxury Sri Lankan getaway. Discover ancient UNESCO heritage, emerald tea gardens, wild leopards, and golden coasts with Serendib. Custom itineraries made for you.">
   <meta name="keywords" content="Sri Lanka tourism, luxury travel Sri Lanka, Sigiriya Rock, Kandy Temple, Ella train, Yala safari, Ceylon tea estates, custom tours Sri Lanka">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Serendib Travel">
+  <meta name="theme-color" content="#073F39">
+  <meta name="geo.region" content="LK">
+  <meta name="geo.placename" content="Sri Lanka">
+  <meta name="ICBM" content="7.8731, 80.7718">
   <link rel="canonical" href="https://harshwebz2003.github.io/tourism-webpage/">
 
   <!-- Open Graph / Facebook -->
@@ -16,6 +22,9 @@
   <meta property="og:title" content="Serendib | Luxury Sri Lanka Travel & Curated Tours">
   <meta property="og:description" content="Discover UNESCO heritage, misty hills, and pristine beaches with Sri Lanka's premier custom travel designer.">
   <meta property="og:image" content="https://harshwebz2003.github.io/tourism-webpage/img/bac%203.webp">
+  <meta property="og:image:alt" content="Misty green Sri Lankan highlands and tea country landscape">
+  <meta property="og:site_name" content="Serendib Travel">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -27,9 +36,14 @@
   <!-- Font loading & CSS assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://assets.mixkit.co">
+  <link rel="preconnect" href="https://v1.pinimg.com">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="img/bac%203.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="img/sigiriya.webp">
+  <link rel="prefetch" as="image" href="img/pexels-sigiriya-aerial.webp">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <!-- Swiper & Lenis CSS CDNs -->
@@ -41,10 +55,22 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "TravelAgency",
     "name": "Serendib Travel",
     "url": "https://harshwebz2003.github.io/tourism-webpage/",
-    "logo": "https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.webp",
+    "logo": "https://harshwebz2003.github.io/tourism-webpage/img/bac%203.webp",
+    "image": "https://harshwebz2003.github.io/tourism-webpage/img/bac%203.webp",
+    "description": "Luxury Sri Lanka travel designer for Sigiriya, Kandy, Ella, Mirissa, Galle, Yala safaris, tea country and custom island tours.",
+    "priceRange": "$$$",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Sri Lanka"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 7.8731,
+      "longitude": 80.7718
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+94-77-123-4567",
@@ -65,8 +91,53 @@
     "@context": "https://schema.org",
     "@type": "TouristDestination",
     "name": "Sri Lanka",
+    "url": "https://harshwebz2003.github.io/tourism-webpage/",
     "description": "An island nation south of India, known for its diverse landscapes ranging from rainforest and arid plains to highlands and sandy beaches.",
-    "touristType": ["Cultural", "Adventure", "Nature", "Beach", "Wildlife"]
+    "touristType": ["Cultural", "Adventure", "Nature", "Beach", "Wildlife"],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 7.8731,
+      "longitude": 80.7718
+    },
+    "containsPlace": [
+      { "@type": "TouristAttraction", "name": "Sigiriya Rock Fortress" },
+      { "@type": "TouristAttraction", "name": "Temple of the Tooth, Kandy" },
+      { "@type": "TouristAttraction", "name": "Nine Arches Bridge, Ella" },
+      { "@type": "TouristAttraction", "name": "Yala National Park" },
+      { "@type": "TouristAttraction", "name": "Galle Fort" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need a travel visa to visit Sri Lanka?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most travelers require an Electronic Travel Authorization or tourist visa before visiting Sri Lanka. Serendib recommends checking the official visa portal before departure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Sri Lanka safe for families and solo travelers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sri Lanka is widely visited by families, couples and solo travelers. Serendib offers private chauffeur-guides and curated routes for extra comfort and convenience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Sri Lanka tour packages be customized?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Serendib customizes hotels, routes, activities, guides and pacing for cultural tours, beaches, wildlife safaris, tea country and luxury honeymoons."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -128,12 +199,12 @@
 
     <div class="hero-scroll-gallery" aria-hidden="true">
       <div class="hero-scroll-track">
-        <img src="img/pexels-sigiriya-aerial.webp" alt="">
-        <img src="img/nine_arches.webp" alt="">
-        <img src="img/mirissa.webp" alt="">
-        <img src="img/pexels-sigiriya-mist.webp" alt="">
-        <img src="img/pexels-sigiriya-lake.webp" alt="">
-        <img src="img/tea_plantation.webp" alt="">
+        <img src="img/pexels-sigiriya-aerial.webp" alt="" width="1400" height="963">
+        <img src="img/nine_arches.webp" alt="" width="1024" height="1024">
+        <img src="img/mirissa.webp" alt="" width="1024" height="1024">
+        <img src="img/pexels-sigiriya-mist.webp" alt="" width="1167" height="1500">
+        <img src="img/pexels-sigiriya-lake.webp" alt="" width="1400" height="963">
+        <img src="img/tea_plantation.webp" alt="" width="1024" height="1024">
       </div>
     </div>
     <div class="hero-ground"></div>
@@ -209,8 +280,8 @@
   <!-- ••••••••••••••• 2. ABOUT SRI LANKA ••••••••••••••• -->
   <section id="about" class="bg-ivory" aria-labelledby="about-title">
     <div class="about-media reveal-left">
-      <img src="img/tea_plantation.webp" alt="Lush green Ceylon tea estate in Nuwara Eliya" class="about-img-main" loading="lazy">
-      <img src="img/nine_arches.webp" alt="Famous stone Nine Arches Bridge in Ella" class="about-img-accent" loading="lazy">
+      <img src="img/tea_plantation.webp" alt="Lush green Ceylon tea estate in Nuwara Eliya" class="about-img-main" loading="lazy" width="1024" height="1024">
+      <img src="img/nine_arches.webp" alt="Famous stone Nine Arches Bridge in Ella" class="about-img-accent" loading="lazy" width="1024" height="1024">
       <div class="about-badge">
         <strong>#1</strong>
         <span>Lonely Planet<br>Must Visit</span>
@@ -251,7 +322,7 @@
 
     <div class="dest-grid">
       <div class="dest-card reveal delay-1">
-        <img src="img/sigiriya.webp" alt="Sigiriya Lion Rock Fortress aerial view" class="dest-thumb" loading="lazy">
+        <img src="img/sigiriya.webp" alt="Sigiriya Lion Rock Fortress aerial view" class="dest-thumb" loading="lazy" width="1024" height="1024">
         <div class="dest-overlay">
           <div class="dest-cat">Cultural Triangle</div>
           <div class="dest-name">Sigiriya</div>
@@ -262,7 +333,7 @@
       </div>
 
       <div class="dest-card reveal delay-2">
-        <img src="img/mirissa.webp" alt="Sandy palm tree beach at Mirissa" class="dest-thumb" loading="lazy">
+        <img src="img/mirissa.webp" alt="Sandy palm tree beach at Mirissa" class="dest-thumb" loading="lazy" width="1024" height="1024">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Mirissa</div>
@@ -273,7 +344,7 @@
       </div>
 
       <div class="dest-card reveal delay-3">
-        <img src="img/galle.webp" alt="Dutch Galle Fort Lighthouse" class="dest-thumb" loading="lazy">
+        <img src="img/galle.webp" alt="Dutch Galle Fort Lighthouse" class="dest-thumb" loading="lazy" width="1024" height="1024">
         <div class="dest-overlay">
           <div class="dest-cat">South Coast</div>
           <div class="dest-name">Galle Fort</div>
@@ -293,7 +364,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/sigiriya.webp" alt="Sigiriya Citadel" loading="lazy">
+            <img src="img/sigiriya.webp" alt="Sigiriya Citadel" loading="lazy" width="1024" height="1024">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Matale District</div>
@@ -308,7 +379,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/nine_arches.webp" alt="Ella railway route" loading="lazy">
+            <img src="img/nine_arches.webp" alt="Ella railway route" loading="lazy" width="1024" height="1024">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Badulla District</div>
@@ -323,7 +394,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/mirissa.webp" alt="Mirissa beach surf" loading="lazy">
+            <img src="img/mirissa.webp" alt="Mirissa beach surf" loading="lazy" width="1024" height="1024">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Matara District</div>
@@ -338,7 +409,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/leopard.webp" alt="Wild leopard in Yala National Park" loading="lazy">
+            <img src="img/leopard.webp" alt="Wild leopard in Yala National Park" loading="lazy" width="1024" height="1024">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Hambantota District</div>
@@ -353,7 +424,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/kandy.webp" alt="Kandy Temple relic" loading="lazy">
+            <img src="img/kandy.webp" alt="Kandy Temple relic" loading="lazy" width="1024" height="1024">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Central Province</div>
@@ -368,7 +439,7 @@
       <section class="panel">
         <div class="panel-content">
           <div class="panel-img-wrap">
-            <img src="img/galle.webp" alt="Dutch fort lighthouse" loading="lazy">
+            <img src="img/galle.webp" alt="Dutch fort lighthouse" loading="lazy" width="1024" height="1024">
           </div>
           <div class="panel-text">
             <div class="panel-location"><i class="fa-solid fa-location-dot"></i> Galle District</div>
@@ -442,7 +513,7 @@
       <div class="pkg-card reveal delay-1">
         <div class="pkg-badge">Best Seller</div>
         <div class="pkg-img-wrap">
-          <img src="img/sigiriya.webp" alt="Cultural tour package" class="pkg-img" loading="lazy">
+          <img src="img/sigiriya.webp" alt="Cultural tour package" class="pkg-img" loading="lazy" width="1024" height="1024">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 10 Days / 9 Nights</div>
@@ -464,7 +535,7 @@
       <div class="pkg-card pkg-featured reveal delay-2">
         <div class="pkg-badge pkg-badge-gold">Lux Experience</div>
         <div class="pkg-img-wrap">
-          <img src="img/mirissa.webp" alt="Luxury escape tour package" class="pkg-img" loading="lazy">
+          <img src="img/mirissa.webp" alt="Luxury escape tour package" class="pkg-img" loading="lazy" width="1024" height="1024">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</div>
@@ -486,7 +557,7 @@
       <div class="pkg-card reveal delay-3">
         <div class="pkg-badge pkg-badge-green">Wild Wilderness</div>
         <div class="pkg-img-wrap">
-          <img src="img/leopard.webp" alt="Wildlife tour package" class="pkg-img" loading="lazy">
+          <img src="img/leopard.webp" alt="Wildlife tour package" class="pkg-img" loading="lazy" width="1024" height="1024">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</div>
@@ -508,7 +579,7 @@
       <div class="pkg-card reveal delay-4">
         <div class="pkg-badge pkg-badge-blue">Royal Heritage</div>
         <div class="pkg-img-wrap">
-          <img src="img/kandy.webp" alt="Cultural historical package" class="pkg-img" loading="lazy">
+          <img src="img/kandy.webp" alt="Cultural historical package" class="pkg-img" loading="lazy" width="1024" height="1024">
         </div>
         <div class="pkg-body">
           <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 7 Days / 6 Nights</div>
@@ -545,7 +616,7 @@
 
     <div class="map-visual reveal-right">
       <div class="map-wrapper">
-        <img src="img/map.webp" alt="Stylized Sri Lanka map showing locations" class="map-img" loading="lazy">
+        <img src="img/map.webp" alt="Stylized Sri Lanka map showing locations" class="map-img" loading="lazy" width="1024" height="1024">
 
         <!-- Clickable Pins -->
         <button class="map-pin" style="top:22%;left:48%" data-info="Sigiriya Citadel - Scale the famous Lion Rock fortress. Ideal sunrise climb to avoid heat. Unesco site." aria-label="Sigiriya Pin">
@@ -636,7 +707,7 @@
     </div>
 
     <div class="seasonal-img-banner reveal">
-      <img src="img/seasonal.webp" alt="Golden coast of Sri Lanka" class="seasonal-img" loading="lazy">
+      <img src="img/seasonal.webp" alt="Golden coast of Sri Lanka" class="seasonal-img" loading="lazy" width="1024" height="1024">
       <div class="seasonal-overlay">
         <p>Year-round holiday paradise - Sri Lanka's dual tropical currents mean there is <strong>always</strong> a sunny beach waiting for you.</p>
         <a href="#plan" class="btn btn-primary">Start Planning <i class="fa-solid fa-arrow-right"></i></a>
@@ -715,7 +786,7 @@
     <div class="reels-grid">
       <a class="reel-card reveal delay-1" href="https://pin.it/6RnhWoGRF" target="_blank" rel="noopener" aria-label="Open Pinterest page for the first autoplaying Sri Lanka reel">
         <video class="reel-video" poster="img/pexels-sigiriya-aerial.webp" autoplay muted loop playsinline preload="metadata">
-          <source src="https://v1.pinimg.com/videos/iht/720p/be/3c/c3/be3cc3b9caaf75170ec2cd9f57e51247.mp4" type="video/mp4">
+          <source data-src="https://v1.pinimg.com/videos/iht/720p/be/3c/c3/be3cc3b9caaf75170ec2cd9f57e51247.mp4" type="video/mp4">
         </video>
         <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-volume-xmark"></i></span>
         <div class="reel-copy">
@@ -726,7 +797,7 @@
       </a>
       <a class="reel-card reveal delay-2" href="https://mixkit.co/free-stock-video/beautiful-sunset-on-the-sea-that-waves-11222/" target="_blank" rel="noopener" aria-label="Open source page for autoplaying Sri Lanka beach sunset reel">
         <video class="reel-video" poster="img/mirissa.webp" autoplay muted loop playsinline preload="metadata">
-          <source src="https://assets.mixkit.co/videos/11222/11222-720.mp4" type="video/mp4">
+          <source data-src="https://assets.mixkit.co/videos/11222/11222-720.mp4" type="video/mp4">
         </video>
         <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-volume-xmark"></i></span>
         <div class="reel-copy">
@@ -737,7 +808,7 @@
       </a>
       <a class="reel-card reveal delay-3" href="https://mixkit.co/free-stock-video/clouds-moving-over-a-tea-plantations-11193/" target="_blank" rel="noopener" aria-label="Open source page for autoplaying Sri Lanka tea plantation reel">
         <video class="reel-video" poster="img/tea_plantation.webp" autoplay muted loop playsinline preload="metadata">
-          <source src="https://assets.mixkit.co/videos/11193/11193-720.mp4" type="video/mp4">
+          <source data-src="https://assets.mixkit.co/videos/11193/11193-720.mp4" type="video/mp4">
         </video>
         <span class="reel-play" aria-hidden="true"><i class="fa-solid fa-volume-xmark"></i></span>
         <div class="reel-copy">
@@ -838,7 +909,7 @@
   <!-- ••••••••••••••• 11. WHY CHOOSE US ••••••••••••••• -->
   <section id="why-us" class="bg-dark" aria-labelledby="why-title">
     <div class="why-img-side reveal-left">
-      <img src="img/why_travel.webp" alt="Traveler overlooking mountains in Sri Lanka" class="why-img" loading="lazy">
+      <img src="img/why_travel.webp" alt="Traveler overlooking mountains in Sri Lanka" class="why-img" loading="lazy" width="1024" height="1024">
       <div class="why-trust-badge">
         <i class="fa-solid fa-award"></i>
         <div>
@@ -894,7 +965,7 @@
     <div class="blog-grid">
       <div class="blog-card blog-card-featured reveal delay-1">
         <div class="blog-img-wrap">
-          <img src="img/blog1.webp" alt="Sigiriya stairs" class="blog-img" loading="lazy">
+          <img src="img/blog1.webp" alt="Sigiriya stairs" class="blog-img" loading="lazy" width="1024" height="1024">
           <div class="blog-category">Guides</div>
         </div>
         <div class="blog-body">
@@ -907,7 +978,7 @@
 
       <div class="blog-card reveal delay-2">
         <div class="blog-img-wrap">
-          <img src="img/blog2.webp" alt="Highland blue train" class="blog-img" loading="lazy">
+          <img src="img/blog2.webp" alt="Highland blue train" class="blog-img" loading="lazy" width="1024" height="1024">
           <div class="blog-category">Scenic</div>
         </div>
         <div class="blog-body">
@@ -920,7 +991,7 @@
 
       <div class="blog-card reveal delay-3">
         <div class="blog-img-wrap">
-          <img src="img/blog3.webp" alt="Surfer at sunset" class="blog-img" loading="lazy">
+          <img src="img/blog3.webp" alt="Surfer at sunset" class="blog-img" loading="lazy" width="1024" height="1024">
           <div class="blog-category">Coastal</div>
         </div>
         <div class="blog-body">
@@ -942,7 +1013,7 @@
     <div class="faq-list">
       <div class="faq-item reveal delay-1">
         <button class="faq-q" aria-expanded="false">
-          Do I need a travel visa to visit Sri Lanka"
+          Do I need a travel visa to visit Sri Lanka?
           <i class="fa-solid fa-plus faq-icon"></i>
         </button>
         <div class="faq-a">
@@ -1129,21 +1200,24 @@
 
   <!-- ••••••••••••••• SCRIPTS ••••••••••••••• -->
   <!-- Swiper, Lenis, and GSAP ScrollTrigger scripts CDNs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
+  window.addEventListener('DOMContentLoaded', () => {
     /* ”€”€ Lenis Smooth Scrolling ”€”€ */
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let lenis;
     if (window.Lenis && !reduceMotion) {
       lenis = new Lenis({
-        duration: 1.2,
+        duration: 1,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         gestureOrientation: 'vertical',
-        smoothWheel: true
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.1
       });
       if (window.gsap) {
         gsap.ticker.add((time) => lenis.raf(time * 1000));
@@ -1408,12 +1482,17 @@
           entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
+              video.querySelectorAll('source[data-src]').forEach(source => {
+                source.src = source.dataset.src;
+                source.removeAttribute('data-src');
+                video.load();
+              });
               video.play().catch(() => {});
             } else {
               video.pause();
             }
           });
-        }, { threshold: 0.35 });
+        }, { threshold: 0.12, rootMargin: '160px 0px' });
         reelVideos.forEach(video => reelObserver.observe(video));
       }
     }
@@ -1617,6 +1696,8 @@
         }, 1500);
       }
     }
+    window.handlePlanTrip = handlePlanTrip;
+  });
   </script>
 </body>
 </html>

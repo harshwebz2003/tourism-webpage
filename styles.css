@@ -446,6 +446,10 @@ section {
   overflow: clip;
   perspective: 1200px;
 }
+body > section:not(#hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
 
 .section-tag {
   display: inline-block;
