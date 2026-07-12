@@ -15,21 +15,21 @@
   <meta property="og:url" content="https://harshwebz2003.github.io/tourism-webpage/">
   <meta property="og:title" content="Serendib | Luxury Sri Lanka Travel & Curated Tours">
   <meta property="og:description" content="Discover UNESCO heritage, misty hills, and pristine beaches with Sri Lanka's premier custom travel designer.">
-  <meta property="og:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.webp">
+  <meta property="og:image" content="https://harshwebz2003.github.io/tourism-webpage/img/bac%203.webp">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://harshwebz2003.github.io/tourism-webpage/">
   <meta property="twitter:title" content="Serendib | Luxury Sri Lanka Travel & Curated Tours">
   <meta property="twitter:description" content="Discover UNESCO heritage, misty hills, and pristine beaches with Sri Lanka's premier custom travel designer.">
-  <meta property="twitter:image" content="https://harshwebz2003.github.io/tourism-webpage/img/sl_mid.webp">
+  <meta property="twitter:image" content="https://harshwebz2003.github.io/tourism-webpage/img/bac%203.webp">
 
   <!-- Font loading & CSS assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="img/sl_mid.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="img/sl_fore.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="img/bac%203.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="img/sigiriya.webp">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <!-- Swiper & Lenis CSS CDNs -->
@@ -122,15 +122,19 @@
 
   <!-- ••••••••••••••• 1. HERO SECTION ••••••••••••••• -->
   <section id="hero" aria-labelledby="hero-title">
-    <div class="hero-bg" style="transform: scale(1.05);"></div>
+    <div class="hero-bg"></div>
     <div class="hero-glow"></div>
     <div class="hero-clouds"></div>
 
-    <div class="hero-mid">
-      <img src="img/sl_mid.webp" alt="Sigiriya mountains silhouette midground" id="mid-layer" loading="eager" decoding="async" fetchpriority="high">
-    </div>
-    <div class="hero-fore">
-      <img src="img/sl_fore.webp" alt="Sri Lankan elephant silhouettes foreground" id="fore-layer" loading="eager" decoding="async" fetchpriority="high">
+    <div class="hero-scroll-gallery" aria-hidden="true">
+      <div class="hero-scroll-track">
+        <img src="img/sigiriya.webp" alt="">
+        <img src="img/nine_arches.webp" alt="">
+        <img src="img/mirissa.webp" alt="">
+        <img src="img/tea_plantation.webp" alt="">
+        <img src="img/sigiriya.webp" alt="">
+        <img src="img/nine_arches.webp" alt="">
+      </div>
     </div>
     <div class="hero-ground"></div>
 
@@ -705,7 +709,7 @@
   <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-label="Image gallery zoom view">
     <div class="lightbox-content">
       <button type="button" class="lightbox-close" aria-label="Close image lightbox">&times;</button>
-      <img alt="" id="lightbox-img">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" id="lightbox-img">
       <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
   </div>
@@ -1301,20 +1305,20 @@
       loopParticles();
     }
 
-    /* ”€”€ Mouse Parallax Hero ”€”€ */
-    if (window.innerWidth > 768) {
-      const heroBg = document.querySelector('.hero-bg');
-      const midLayer = document.getElementById('mid-layer');
-      const foreLayer = document.getElementById('fore-layer');
-      const titleGroup = document.getElementById('hero-title-group');
-      document.addEventListener('mousemove', e => {
-        const x = (e.clientX / window.innerWidth - 0.5);
-        const y = (e.clientY / window.innerHeight - 0.5);
-        if (heroBg) heroBg.style.transform = `scale(1.05) translate(${x * 12}px, ${y * 6}px)`;
-        if (midLayer) midLayer.parentElement.style.transform = `translate(${x * 8}px, ${y * 18}px)`;
-        if (foreLayer) foreLayer.parentElement.style.transform = `translate(${x * 4}px, ${y * 10}px)`;
-        if (titleGroup) titleGroup.style.transform = `translate(-50%, -50%) rotateY(${x * 15}deg) rotateX(${-y * 10}deg)`;
-      });
+    /* ”€”€ Scroll-led Hero Motion ”€”€ */
+    if (window.gsap && window.ScrollTrigger && !reduceMotion) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1
+        }
+      })
+      .to('.hero-bg', { yPercent: 18, scale: 1.08, ease: 'none' }, 0)
+      .to('.hero-scroll-gallery', { yPercent: -18, rotate: 0, ease: 'none' }, 0)
+      .to('#hero-title-group, .hero-info, .hero-cta', { yPercent: -28, opacity: 0, ease: 'none' }, 0)
+      .to('.hero-stats', { yPercent: -42, opacity: .25, ease: 'none' }, 0);
     }
 
     /* ”€”€ Scroll Reveal via GSAP ”€”€ */
