@@ -1237,61 +1237,60 @@
     }
 
     /* ”€”€ Preloader Counter & Reveal ”€”€ */
-    window.addEventListener('DOMContentLoaded', () => {
-      const loader = document.getElementById('loader');
-      if (!loader) return;
+    const loader = document.getElementById('loader');
+    if (loader) {
       if (sessionStorage.getItem('serendib-loader-seen') === 'true' || reduceMotion) {
         loader.classList.add('hide');
         loader.setAttribute('aria-hidden', 'true');
-        return;
-      }
-      setPageLocked(true);
-      const percentText = document.getElementById('loader-percent');
-      const fill = document.querySelector('.loader-progress-fill');
-      let count = 0;
-      
-      const interval = setInterval(() => {
-        count += Math.floor(Math.random() * 8) + 4;
-        if (count >= 100) {
-          count = 100;
-          clearInterval(interval);
-          
-          setTimeout(() => {
-            loader.classList.add('hide');
-            loader.setAttribute('aria-hidden', 'true');
-            sessionStorage.setItem('serendib-loader-seen', 'true');
-            setPageLocked(false);
+      } else {
+        setPageLocked(true);
+        const percentText = document.getElementById('loader-percent');
+        const fill = document.querySelector('.loader-progress-fill');
+        let count = 0;
+        
+        const interval = setInterval(() => {
+          count += Math.floor(Math.random() * 8) + 4;
+          if (count >= 100) {
+            count = 100;
+            clearInterval(interval);
             
-            if (window.gsap) {
-              gsap.from(".hero-country", {
-                duration: 1,
-                y: 48,
-                opacity: 0,
-                ease: "power3.out"
-              });
-              gsap.from(".hero-eyebrow, .hero-tagline", {
-                duration: 0.9,
-                y: 24,
-                opacity: 0,
-                delay: 0.18,
-                stagger: 0.1,
-                ease: "power3.out"
-              });
-              gsap.from(".hero-info, .hero-cta, .hero-stats", {
-                duration: 0.9,
-                y: 28,
-                opacity: 0,
-                delay: 0.32,
-                stagger: 0.1,
-                ease: "power3.out"
-              });
-            }
-          }, 400);
-        }
-        if (percentText) percentText.textContent = count + '%';
-        if (fill) fill.style.width = count + '%';
-      }, 24);
-    });
+            setTimeout(() => {
+              loader.classList.add('hide');
+              loader.setAttribute('aria-hidden', 'true');
+              sessionStorage.setItem('serendib-loader-seen', 'true');
+              setPageLocked(false);
+              
+              if (window.gsap) {
+                gsap.from(".hero-country", {
+                  duration: 1,
+                  y: 48,
+                  opacity: 0,
+                  ease: "power3.out"
+                });
+                gsap.from(".hero-eyebrow, .hero-tagline", {
+                  duration: 0.9,
+                  y: 24,
+                  opacity: 0,
+                  delay: 0.18,
+                  stagger: 0.1,
+                  ease: "power3.out"
+                });
+                gsap.from(".hero-info, .hero-cta, .hero-stats", {
+                  duration: 0.9,
+                  y: 28,
+                  opacity: 0,
+                  delay: 0.32,
+                  stagger: 0.1,
+                  ease: "power3.out"
+                });
+              }
+            }, 400);
+          }
+          if (percentText) percentText.textContent = count + '%';
+          if (fill) fill.style.width = count + '%';
+        }, 24);
+      }
+    }
 
     /* ”€”€ Burger Menu Drawer ”€”€ */
     const burgerBtn = document.getElementById('burger-btn');
